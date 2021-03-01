@@ -14,7 +14,12 @@ class CreateLapStokTable extends Migration
     public function up()
     {
         Schema::create('lap_stok', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_lap_stok');
+            $table->foreignId('id_stok')
+                  ->references('id_stok')
+                  ->on('stok_barang')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }

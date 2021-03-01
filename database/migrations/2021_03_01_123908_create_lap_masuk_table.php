@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSupplierTable extends Migration
+class CreateLapMasukTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateSupplierTable extends Migration
      */
     public function up()
     {
-        Schema::create('supplier', function (Blueprint $table) {
-            $table->id('id_supplier');
-            $table->string('nama_supplier');
-            $table->enum('jk', ['Laki-laki','Perempuan']);
-            $table->string('alamat');
-            $table->string('no_telp');
+        Schema::create('lap_masuk', function (Blueprint $table) {
+            $table->id('id_lap_masuk');
+            $table->foreignId('id_masuk')
+                  ->references('id_masuk')
+                  ->on('barang_masuk')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateSupplierTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('supplier');
+        Schema::dropIfExists('lap_masuk');
     }
 }

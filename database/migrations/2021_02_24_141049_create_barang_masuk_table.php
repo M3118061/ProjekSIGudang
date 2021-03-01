@@ -14,14 +14,10 @@ class CreateBarangMasukTable extends Migration
     public function up()
     {
         Schema::create('barang_masuk', function (Blueprint $table) {
-            $table->bigIncrements('id_masuk');
-            $table->string('nama_supplier');
+            $table->id('id_masuk');
             $table->string('nama_barang');
-            $table->string('jenis_barang');
             $table->integer('jml_barang');
-            $table->string('nama_satuan');
             $table->date('tgl_masuk');
-            $table->timestamps();
         });
     }
 
