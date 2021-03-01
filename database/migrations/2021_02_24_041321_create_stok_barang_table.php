@@ -14,7 +14,11 @@ class CreateStokBarangTable extends Migration
     public function up()
     {
         Schema::create('stok_barang', function (Blueprint $table) {
-            $table->bigIncrements('id_barang');
+            $table->id();
+            $table->foreignId('barang_id')
+                ->constrained('lap_stok')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');     
             $table->string('nama_barang');
             $table->string('jenis_barang');
             $table->integer('jml_barang');

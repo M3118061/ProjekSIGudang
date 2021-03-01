@@ -9,5 +9,5 @@ class Pegawai extends Model
 {
     use HasFactory;
     protected $table = 'pegawai';
-    protected $primaryKey = 'id_pegawai';
+    // protected $primaryKey = 'id_pegawai';
 }

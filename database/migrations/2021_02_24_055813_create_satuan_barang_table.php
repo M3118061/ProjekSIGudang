@@ -14,7 +14,11 @@ class CreateSatuanBarangTable extends Migration
     public function up()
     {
         Schema::create('satuan_barang', function (Blueprint $table) {
-            $table->bigIncrements('id_satuan');
+            $table->id();
+            $table->foreignId('satuan_id')
+                  ->constrained('stok_barang')
+                  ->onUpdate('cascade')
+                  ->onDelete('cascade');
             $table->string('nama_satuan');
             $table->timestamps();
         });

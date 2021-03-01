@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJenisBarangTable extends Migration
+class CreateLapStokTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateJenisBarangTable extends Migration
      */
     public function up()
     {
-        Schema::create('jenis_barang', function (Blueprint $table) {
+        Schema::create('lap_stok', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('jenis_id')
-                  ->constrained('stok_barang')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->string('nama_jenis');
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ class CreateJenisBarangTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jenis_barang');
+        Schema::dropIfExists('lap_stok');
     }
 }

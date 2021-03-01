@@ -14,7 +14,8 @@ class CreatePegawaiTable extends Migration
     public function up()
     {
         Schema::create('pegawai', function (Blueprint $table) {
-            $table->bigIncrements('id_pegawai');
+            $table->id();
+            $table->foreignId('pegawai_id');
             $table->string('nama_lengkap');
             $table->enum('jk', ['Laki-laki','Perempuan']);
             $table->string('alamat');
