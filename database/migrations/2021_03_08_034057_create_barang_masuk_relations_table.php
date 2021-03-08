@@ -14,14 +14,9 @@ class CreateBarangMasukRelationsTable extends Migration
     public function up()
     {
         Schema::table('barang_masuk', function (Blueprint $table) {
-            $table->foreignId('id_jenis')
-                  ->references('id_jenis')
-                  ->on('jenis_barang')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
-            $table->foreignId('id_satuan')
-                  ->references('id_satuan')
-                  ->on('satuan_barang')
+            $table->foreignId('id_barang')
+                  ->references('id_barang')
+                  ->on('data_barang')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
             $table->foreignId('id_supplier')

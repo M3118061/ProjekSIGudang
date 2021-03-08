@@ -23,6 +23,7 @@
             <h1 class="m-0">Jenis Barang</h1>
           </div>
         </div><!-- /.row -->
+        <a href="/jenis/create" class="btn btn-primary">Tambah Data</a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -45,9 +46,8 @@
             <td>{{ $jenis->id_jenis }}</td>
             <td>{{ $jenis->nama_jenis }}</td>
             <td>
-              <a href="" class="badge badge-info">Detail</a>
-              <a href="" class="badge badge-success">Update</a>
-              <a href="" class="badge badge-danger">Delete</a>
+              <a href="/jenis/{{ $jenis->id_jenis }}/edit" class="btn btn-warning">Update</a>
+              <a href="" class="btn btn-danger">Delete</a>
             </td>
           </tr>
           @endforeach

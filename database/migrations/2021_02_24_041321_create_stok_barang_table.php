@@ -15,7 +15,6 @@ class CreateStokBarangTable extends Migration
     {
         Schema::create('stok_barang', function (Blueprint $table) {
             $table->id('id_stok');
-            $table->string('nama_barang');
             $table->integer('jml_barang');
             $table->date('tgl_exp');
         });

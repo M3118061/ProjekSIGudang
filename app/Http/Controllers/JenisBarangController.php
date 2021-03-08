@@ -25,7 +25,7 @@ class JenisBarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('barang.jenis.create');
     }
 
     /**
@@ -36,7 +36,15 @@ class JenisBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        {
+            $request->validate([
+                'nama_jenis' => 'required',
+            ]);
+    
+            JenisBarang::create($request->all());
+    
+            return redirect('/jenis')->with('pesan', 'Jenis Barang Berhasil Ditambahkan!');
+        }
     }
 
     /**
@@ -58,7 +66,7 @@ class JenisBarangController extends Controller
      */
     public function edit(JenisBarang $jenisBarang)
     {
-        //
+        return view('barang.jenis.edit', compact('jenisBarang'));
     }
 
     /**
@@ -70,7 +78,16 @@ class JenisBarangController extends Controller
      */
     public function update(Request $request, JenisBarang $jenisBarang)
     {
-        //
+        $request->validate([
+            'nama_jenis' => 'required'
+        ]);
+
+        JenisBarang::where('id_jenis', $jenisBarang->id_jenis)
+                    ->update([
+                        'nama_jenis' => $request->nama_jenis
+                    ]);
+
+        return redirect('/jenis')->with('message', 'Data Jenis berhasil diubah!!');
     }
 
     /**

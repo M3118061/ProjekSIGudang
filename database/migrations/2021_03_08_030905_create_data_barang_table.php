@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStokBarangRelationsTable extends Migration
+class CreateDataBarangTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class CreateStokBarangRelationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('stok_barang', function (Blueprint $table) {
+        Schema::create('data_barang', function (Blueprint $table) {
+            $table->id('id_barang');
+            $table->string('nama_barang');
             $table->foreignId('id_jenis')
                   ->references('id_jenis')
                   ->on('jenis_barang')
@@ -35,6 +37,6 @@ class CreateStokBarangRelationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stok_barang_relations');
+        Schema::dropIfExists('data_barang');
     }
 }

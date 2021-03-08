@@ -46,9 +46,17 @@ Route::delete('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@dest
 Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit');
 Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update');
 
-// data gudang
+//jenis
+Route::get('/jenis', 'App\Http\Controllers\JenisBarangController@index');
+Route::get('/jenis/create', 'App\Http\Controllers\JenisBarangController@create');
+Route::post('/jenis', 'App\Http\Controllers\JenisBarangController@store');
+Route::get('/jenis/{jenis}/edit', 'App\Http\Controllers\JenisBarangController@edit');
+Route::patch('/jenis/{jenis}', 'App\Http\Controllers\JenisBarangController@store');
+
+//stok barang
 Route::get('/stok_barang', 'App\Http\Controllers\StokBarangController@index');
-Route::get('/jenis_barang', 'App\Http\Controllers\JenisBarangController@index');
+
+//satuan barang
 Route::get('/satuan_barang', 'App\Http\Controllers\SatuanBarangController@index');
 
 // trasaksi

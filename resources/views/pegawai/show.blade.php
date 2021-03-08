@@ -33,7 +33,6 @@
             <p class="card-text">Alamat : {{ $pegawai->alamat }}</p>
             <p class="card-text">No Telp : {{ $pegawai->no_telp }}</p>
             <p class="card-text">Email : {{ $pegawai->email }}</p>
-            <p class="card-text">Password : {{ $pegawai->password }}</p>
             <p class="card-text">Role : {{ $pegawai->role }}</p>
 
             <a href="{{ $pegawai->id }}/edit" class="btn btn-warning">Update</a>
