@@ -30,7 +30,7 @@
             <div class="container">
                 <div class="masthead-subheading">Welcome To</div>
                 <div class="masthead-heading">Pergudangan Bahan Makanan</div>
-                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{ route('login') }}">Login</a>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{ route('home') }}">Login</a>
             </div>
         </header>
         

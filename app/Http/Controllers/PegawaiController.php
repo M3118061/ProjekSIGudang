@@ -27,7 +27,7 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        //
+        return view('pegawai.create');
     }
 
     /**
@@ -38,7 +38,19 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'jk' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'role' => 'required'
+        ]);
+
+        Pegawai::create($request->all());
+
+        return redirect('/pegawai')->with('pesan', 'Data Mahasiswa Berhasil Ditambahkan!');
     }
 
     /**
@@ -58,9 +70,9 @@ class PegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Pegawai $pegawai)
     {
-        //
+        return view('pegawai.edit', compact('pegawai'));
     }
 
     /**
@@ -70,9 +82,30 @@ class PegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Pegawai $pegawai)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'jk' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'role' => 'required'
+        ]);
+
+        Pegawai::where('id', $pegawai->id)
+                ->update([
+                    'name' => $request->name,
+                    'jk' => $request->jk,
+                    'alamat' => $request->alamat,
+                    'no_telp' => $request->no_telp,
+                    'email' => $request->email,
+                    'password' => $request->password,
+                    'role' => $request->role
+                ]);
+
+        return redirect('/pegawai')->with('pesan', 'Data Pegawai Berhasil Diupdate!');
     }
 
     /**
@@ -81,8 +114,9 @@ class PegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pegawai $pegawai)
     {
-        //
+        Pegawai::destroy($pegawai->id);
+        return redirect('/pegawai')->with('message', 'Data Pegawai Berhasil Dihapus!');
     }
 }

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+// use Auth;
 
 class LoginController extends Controller
 {
@@ -38,9 +40,25 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    public function showLoginForm()
+    public function login(Request $request)
     {
-        return view('page.auth.login');
+        $input = $request->all();
+        $this->validate($request,[
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        {
+            if(auth()->user()->is_admin == 1){
+                return redirect()->route('dashboard');
+            }
+            else{
+                return redirect()->route('home');
+            }
+        }
+        else{
+            return redirect()->route('login')->with('error','email atau password salah!!');
+        }
     }
 }

@@ -20,18 +20,31 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/logout', 'Auth\LoginController@logout');
 
 //login
-Route::get('/', function () {
-    return view('page.auth.login');
-});
+// Route::get('/', function () {
+//     return view('page.auth.login');
+// });
 
 //dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/', function () {
+    return view('frontend.index');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('is_admin');
 
 // pegawai
 Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index');
+Route::get('/pegawai/create', 'App\Http\Controllers\PegawaiController@create');
 Route::get('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@show');
+Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store');
+Route::delete('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destroy');
+Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit');
+Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update');
 
 // data gudang
 Route::get('/stok_barang', 'App\Http\Controllers\StokBarangController@index');
@@ -45,6 +58,3 @@ Route::get('/barang_keluar', 'App\Http\Controllers\BarangKeluarController@index'
 //supplier
 Route::get('/supplier', 'App\Http\Controllers\SupplierController@index');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

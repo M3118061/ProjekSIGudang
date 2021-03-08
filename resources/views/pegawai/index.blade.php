@@ -23,6 +23,7 @@
             <h1 class="m-0">Data Pegawai</h1>
           </div>
         </div><!-- /.row -->
+        <a href="/pegawai/create" class="btn btn-primary">Tambah Data</a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -34,7 +35,7 @@
           <tr>
             <th scope="col">No</th>
             <th scope="col">ID</th>
-            <th scope="col">Nama Lengkap</th>
+            <th scope="col">Nama</th>
             <th scope="col">Email</th>
             <th scope="col">Action</th>
           </tr>
@@ -43,13 +44,11 @@
           @foreach ($pegawai as $pegawai)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $pegawai->id_pegawai }}</td>
-            <td>{{ $pegawai->nama_lengkap }}</td>
+            <td>{{ $pegawai->id }}</td>
+            <td>{{ $pegawai->name }}</td>
             <td>{{ $pegawai->email }}</td>
             <td>
-              <a href="/pegawai/{{ $pegawai->id_pegawai }}" class="badge badge-info">Detail</a>
-              <a href="" class="badge badge-success">Update</a>
-              <a href="" class="badge badge-danger">Delete</a>
+              <a href="/pegawai/{{ $pegawai->id }}" class="btn btn-info">Detail</a>
             </td>
           </tr>
           @endforeach

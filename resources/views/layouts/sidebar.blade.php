@@ -78,7 +78,7 @@
               <li class="nav-item">
                 <a href="{{ url('/stok_barang') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Stok Barang</p>
+                  <p>Data Barang</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -155,12 +155,16 @@
               </li>
             </ul>
             <li class="nav-item">
-              <a href="{{ url('/') }}" class="nav-link">
-                <i class="nav-icon fas fa-sign-out-alt"></i>
-                <p>
-                  Logout
-                </p>
+              <a href="{{ route('logout') }}"
+                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+                    <i class="nav-icon fas fa-sign-out-alt"></i>
+                    <p>
+                      Logout
+                    </p>
               </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+              </form>
             </li>
         </ul>
       </nav>
