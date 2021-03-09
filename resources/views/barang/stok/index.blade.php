@@ -23,6 +23,7 @@
             <h1 class="m-0">Stok Barang</h1>
           </div>
         </div><!-- /.row -->
+        <a href="/stokBarang/create" class="btn btn-primary">Tambah Data</a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->

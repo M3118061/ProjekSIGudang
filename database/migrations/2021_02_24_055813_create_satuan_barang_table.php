@@ -14,7 +14,7 @@ class CreateSatuanBarangTable extends Migration
     public function up()
     {
         Schema::create('satuan_barang', function (Blueprint $table) {
-            $table->id('id_satuan');
+            $table->bigIncrements('id_satuan');
             $table->string('nama_satuan');
             $table->timestamps();
         });

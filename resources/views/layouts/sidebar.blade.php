@@ -76,13 +76,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('/data_barang') }}" class="nav-link">
+                <a href="{{ url('/dataBarang') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Barang</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/stok_barang') }}" class="nav-link">
+                <a href="{{ url('/stokBarang') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Stok Barang</p>
                 </a>
@@ -94,7 +94,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/satuan_barang') }}" class="nav-link">
+                <a href="{{ url('/satuan') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Satuan</p>
                 </a>

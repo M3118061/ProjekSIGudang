@@ -50,14 +50,31 @@ Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@updat
 Route::get('/jenis', 'App\Http\Controllers\JenisBarangController@index');
 Route::get('/jenis/create', 'App\Http\Controllers\JenisBarangController@create');
 Route::post('/jenis', 'App\Http\Controllers\JenisBarangController@store');
-Route::get('/jenis/{jenis}/edit', 'App\Http\Controllers\JenisBarangController@edit');
-Route::patch('/jenis/{jenis}', 'App\Http\Controllers\JenisBarangController@store');
+Route::delete('/jenis/{jenisBarang}', 'App\Http\Controllers\JenisBarangController@destroy');
+Route::get('/jenis/{jenisBarang}/edit', 'App\Http\Controllers\JenisBarangController@edit');
+Route::patch('/jenis/{jenisBarang}', 'App\Http\Controllers\JenisBarangController@update');
 
-//stok barang
-Route::get('/stok_barang', 'App\Http\Controllers\StokBarangController@index');
 
 //satuan barang
-Route::get('/satuan_barang', 'App\Http\Controllers\SatuanBarangController@index');
+Route::get('/satuan', 'App\Http\Controllers\SatuanBarangController@index');
+Route::get('/satuan/create', 'App\Http\Controllers\SatuanBarangController@create');
+Route::post('/satuan', 'App\Http\Controllers\SatuanBarangController@store');
+Route::delete('/satuan/{satuanBarang}', 'App\Http\Controllers\SatuanBarangController@destroy');
+Route::get('/satuan/{satuanBarang}/edit', 'App\Http\Controllers\SatuanBarangController@edit');
+Route::patch('/satuan/{satuanBarang}', 'App\Http\Controllers\SatuanBarangController@update');
+
+//data barang
+Route::get('/dataBarang', 'App\Http\Controllers\DataBarangController@index');
+Route::get('/dataBarang/create', 'App\Http\Controllers\DataBarangController@create');
+Route::post('/dataBarang', 'App\Http\Controllers\DataBarangController@store');
+Route::delete('/dataBarang/{dataBarang}', 'App\Http\Controllers\DataBarangController@destroy');
+Route::get('/dataBarang/{dataBarang}/edit', 'App\Http\Controllers\DataBarangController@edit');
+Route::patch('/dataBarang/{dataBarang}', 'App\Http\Controllers\DataBarangController@update');
+
+
+//stok barang
+Route::get('/stokBarang', 'App\Http\Controllers\StokBarangController@index');
+Route::get('/stokBarang/create', 'App\Http\Controllers\StokBarangController@create');
 
 // trasaksi
 Route::get('/barang_masuk', 'App\Http\Controllers\BarangMasukController@index');

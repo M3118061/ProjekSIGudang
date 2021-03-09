@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>@yield('title','Tambah Data Jenis')</title>
+  <title>@yield('title','Ubah Data Satuan')</title>
   @include('layouts/header')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -20,16 +20,17 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Tambah Data Jenis</h1>
+            <h1 class="m-0">Ubah Data Satuan</h1>
           </div>
         </div><!-- /.row -->
         <!-- Main content -->
-        <form method="POST" action="/jenis">
+        <form method="POST" action="/satuan/{{ $satuanBarang->id_satuan }}">
+          @method('patch')
           @csrf
           <div class="form-group">
-            <label for="nama_jenis" class="form-label">Nama</label>
-            <input type="text" class="form-control @error('nama_jenis') is-invalid @enderror" id="nama_jenis" placeholder="Masukkan jenis barang" name="nama_jenis" value="{{ old('nama_jenis') }}">
-            @error('nama_jenis')
+            <label for="nama_satuan" class="form-label">Nama Satuan</label>
+            <input type="text" class="form-control @error('nama_satuan') is-invalid @enderror" id="nama_satuan" placeholder="Masukkan nama satuan" name="nama_satuan" value="{{ $satuanBarang->nama_satuan }}">
+            @error('nama_satuan')
             <div class="invalid-feedback">
               {{ $message }}
             </div>
@@ -37,7 +38,7 @@
           </div>
           
           <button type="submit" class="btn btn-primary">Submit</button>
-          <a href="/jenis" class="btn btn-danger">Cancel</a>
+          <a href="/satuan" class="btn btn-danger">Cancel</a>
         </form>
         <!-- /.content -->
           </div><!-- /.container-fluid -->

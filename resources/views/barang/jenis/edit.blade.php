@@ -38,6 +38,7 @@
           </div>
           
           <button type="submit" class="btn btn-primary">Submit</button>
+          <a href="/jenis" class="btn btn-danger">Cancel</a>
         </form>
         <!-- /.content -->
           </div><!-- /.container-fluid -->

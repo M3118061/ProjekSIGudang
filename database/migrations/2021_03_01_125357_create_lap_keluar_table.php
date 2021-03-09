@@ -14,7 +14,7 @@ class CreateLapKeluarTable extends Migration
     public function up()
     {
         Schema::create('lap_keluar', function (Blueprint $table) {
-            $table->id('id_lap_keluar');
+            $table->bigIncrements('id_lap_keluar');
             $table->foreignId('id_keluar')
                   ->references('id_keluar')
                   ->on('barang_keluar')

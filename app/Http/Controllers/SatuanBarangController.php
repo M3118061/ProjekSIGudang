@@ -25,7 +25,7 @@ class SatuanBarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('barang.satuan.create');
     }
 
     /**
@@ -36,7 +36,13 @@ class SatuanBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_satuan' => 'required'
+        ]);
+
+        SatuanBarang::create($request->all());
+
+        return redirect('/satuan')->with('message', 'Satuan barang berhasil ditambahkan!!');
     }
 
     /**
@@ -58,7 +64,7 @@ class SatuanBarangController extends Controller
      */
     public function edit(SatuanBarang $satuanBarang)
     {
-        //
+        return view('barang.satuan.edit', compact('satuanBarang'));
     }
 
     /**
@@ -70,7 +76,16 @@ class SatuanBarangController extends Controller
      */
     public function update(Request $request, SatuanBarang $satuanBarang)
     {
-        //
+        $request->validate([
+            'nama_satuan' => 'required'
+        ]);
+
+        SatuanBarang::where('id_satuan', $satuanBarang->id_satuan)
+                    ->update([
+                        'nama_satuan' => $request->nama_satuan
+                    ]);
+        
+        return redirect('/satuan')->with('message', 'Data satuan berhasil diubah!!');
     }
 
     /**
@@ -81,6 +96,7 @@ class SatuanBarangController extends Controller
      */
     public function destroy(SatuanBarang $satuanBarang)
     {
-        //
+        SatuanBarang::destroy($satuanBarang->id_satuan);
+        return redirect('/satuan')->with('message','Data satuan berhasil dihapus!!');
     }
 }

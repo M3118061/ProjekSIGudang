@@ -14,7 +14,7 @@ class CreateLapStokTable extends Migration
     public function up()
     {
         Schema::create('lap_stok', function (Blueprint $table) {
-            $table->id('id_lap_stok');
+            $table->bigIncrements('id_lap_stok');
             $table->foreignId('id_stok')
                   ->references('id_stok')
                   ->on('stok_barang')

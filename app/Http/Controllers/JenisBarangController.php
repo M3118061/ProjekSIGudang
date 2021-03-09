@@ -36,15 +36,13 @@ class JenisBarangController extends Controller
      */
     public function store(Request $request)
     {
-        {
-            $request->validate([
-                'nama_jenis' => 'required',
-            ]);
-    
-            JenisBarang::create($request->all());
-    
-            return redirect('/jenis')->with('pesan', 'Jenis Barang Berhasil Ditambahkan!');
-        }
+        $request->validate([
+            'nama_jenis' => 'required',
+        ]);
+
+        JenisBarang::create($request->all());
+
+        return redirect('/jenis')->with('pesan', 'Jenis Barang Berhasil Ditambahkan!');
     }
 
     /**
@@ -87,7 +85,7 @@ class JenisBarangController extends Controller
                         'nama_jenis' => $request->nama_jenis
                     ]);
 
-        return redirect('/jenis')->with('message', 'Data Jenis berhasil diubah!!');
+        return redirect('/jenis')->with('message', 'Data jenis berhasil diubah');
     }
 
     /**
@@ -98,6 +96,7 @@ class JenisBarangController extends Controller
      */
     public function destroy(JenisBarang $jenisBarang)
     {
-        //
+        JenisBarang::destroy($jenisBarang->id_jenis);
+        return redirect('/jenis')->with('message','Data jenis berhasil dihapus!!');
     }
 }
