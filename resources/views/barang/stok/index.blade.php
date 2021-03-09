@@ -34,7 +34,8 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
-            <th scope="col">ID</th>
+            <th scope="col">ID Stok</th>
+            <th scope="col">ID Barang</th>
             <th scope="col">Nama Barang</th>
             <th scope="col">Jenis Barang</th>
             <th scope="col">Jumlah Barang</th>
@@ -47,11 +48,12 @@
           @foreach ($stokBarang as $stok)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $stok->id_barang }}</td>
-            <td>{{ $stok->nama_barang }}</td>
-            <td>{{ $stok->jenis_barang }}</td>
+            <td>{{ $stok->id_stok }}</td>
+            <td>{{ $stok->barang->id_barang }}</td>
+            <td>{{ $stok->barang->nama_barang }}</td>
+            <td>{{ $stok->barang->id_jenis }}</td>
             <td>{{ $stok->jml_barang }}</td>
-            <td>{{ $stok->satuan }}</td>
+            <td>{{ $stok->barang->id_satuan }}</td>
             <td>{{ $stok->tgl_exp }}</td>
             <td>
               <a href="" class="badge badge-info">Detail</a>

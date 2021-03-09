@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\StokBarang;
+use App\Models\DataBarang;
 use Illuminate\Http\Request;
 
 class StokBarangController extends Controller
@@ -15,7 +16,8 @@ class StokBarangController extends Controller
     public function index()
     {
         $stokBarang = StokBarang::all();
-        return view('barang.stok.index', compact('stokBarang'));
+        $dataBarang = DataBarang::all();
+        return view('barang.stok.index', compact('stokBarang','dataBarang'));
     }
 
     /**
