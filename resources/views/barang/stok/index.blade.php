@@ -23,7 +23,9 @@
             <h1 class="m-0">Stok Barang</h1>
           </div>
         </div><!-- /.row -->
-        <a href="/stokBarang/create" class="btn btn-primary">Tambah Data</a>
+        <a href="/stokBarang/create" class="btn btn-primary">
+          <i class="fas fa-plus-square"></i>
+        </a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -35,7 +37,7 @@
           <tr>
             <th scope="col">No</th>
             <th scope="col">ID Stok</th>
-            <th scope="col">ID Barang</th>
+            
             <th scope="col">Nama Barang</th>
             <th scope="col">Jenis Barang</th>
             <th scope="col">Jumlah Barang</th>
@@ -49,16 +51,19 @@
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $stok->id_stok }}</td>
-            <td>{{ $stok->barang->id_barang }}</td>
+            
             <td>{{ $stok->barang->nama_barang }}</td>
-            <td>{{ $stok->barang->id_jenis }}</td>
+            <td>{{ $stok->barang->jenis->nama_jenis }}</td>
             <td>{{ $stok->jml_barang }}</td>
-            <td>{{ $stok->barang->id_satuan }}</td>
+            <td>{{ $stok->barang->satuan->nama_satuan }}</td>
             <td>{{ $stok->tgl_exp }}</td>
             <td>
-              <a href="" class="badge badge-info">Detail</a>
-              <a href="" class="badge badge-success">Update</a>
-              <a href="" class="badge badge-danger">Delete</a>
+              <a href="/stokBarang/{{ $stok->id_stok }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+              <form action="/stokBarang/{{ $stok->id_stok }}" method="POST" class="d-inline">
+                @method('delete')
+                @csrf
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+              </form>
             </td>
           </tr>
           @endforeach

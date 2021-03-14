@@ -23,7 +23,7 @@
             <h1 class="m-0">Jenis Barang</h1>
           </div>
         </div><!-- /.row -->
-        <a href="/jenis/create" class="btn btn-primary">Tambah Data</a>
+        <a href="/jenis/create" class="btn btn-primary"><i class="fas fa-plus-square"></i></a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -46,12 +46,12 @@
             <td>{{ $jenisBarang->id_jenis }}</td>
             <td>{{ $jenisBarang->nama_jenis }}</td>
             <td>
-              <a href="/jenis/{{ $jenisBarang->id_jenis }}/edit" class="btn btn-warning">Update</a>
+              <a href="/jenis/{{ $jenisBarang->id_jenis }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 
               <form action="/jenis/{{ $jenisBarang->id_jenis }}" method="POST" class="d-inline">
                 @method('delete')
                 @csrf
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
               </form>
             </td>
           </tr>

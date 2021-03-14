@@ -23,7 +23,9 @@
             <h1 class="m-0">Data Barang</h1>
           </div>
         </div><!-- /.row -->
-        <a href="/dataBarang/create" class="btn btn-primary">Tambah Data</a>
+        <a href="/dataBarang/create" class="btn btn-primary">
+          <i class="fas fa-plus-square"></i>
+        </a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -50,11 +52,11 @@
             <td>{{ $dataBarang->jenis->nama_jenis }}</td>
             <td>{{ $dataBarang->satuan->nama_satuan }}</td>
             <td>
-              <a href="/dataBarang/{{ $dataBarang->id_barang }}/edit" class="btn btn-warning">Update</a>
+              <a href="/dataBarang/{{ $dataBarang->id_barang }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
               <form action="/dataBarang/{{ $dataBarang->id_barang }}" method="POST" class="d-inline">
                 @method('delete')
                 @csrf
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
               </form>
             </td>
           </tr>

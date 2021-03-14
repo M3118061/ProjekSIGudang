@@ -15,4 +15,5 @@ class StokBarang extends Model
     {
         return $this->belongsTo(DataBarang::class, 'id_barang');
     }
+    
 }
