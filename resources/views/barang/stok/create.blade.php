@@ -44,8 +44,8 @@
             <label for="id_barang" class="form-label">Kode Barang</label>
             <select name="id_barang" id="id_barang" class="form-control">
               <option value="0" disabled selected>--Pilih--</option>
-              @foreach ($dataBarang as $dataBarang)
-                <option value="{{ $dataBarang->id_barang }}">{{ $dataBarang->kode_barang }}</option>
+              @foreach ($dataBarang as $id_barang=>$kode_barang)
+                <option value="{{ $id_barang }}">{{ $kode_barang }}</option>
               @endforeach
             </select>
           </div>
@@ -91,28 +91,26 @@
             @enderror
           </div>
 
-          <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
-
           <script>
-            $(document).ready(function () {
-            $('#id_barang').on('change', function () {
-            let id = $(this).val();
-            $('#nama_barang').empty();
-            $('#nama_barang').append(`<option value="0" disabled selected>Processing...</option>`);
-            $.ajax({
-            type: 'GET',
-            url: 'NamaBarang' + id,
-            success: function (response) {
-            var response = JSON.parse(response);
-            console.log(response);   
-            $('#nama_barang').empty();
-            $('#nama_barang').append(`<option value="0" disabled selected>Select nama barang</option>`);
-            response.forEach(element => {
-                $('#nama_barang').append(`<option value="${element['id']}">${element['name']}</option>`);
-                });
-              }
-           });
-          });
+            $(function () {
+              $.ajaxSetup({
+                  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+              });
+          
+              $('#kode_barang').on('change', function () {
+                  $.ajax({
+                      url: '{{ route('stokBarang.store') }}',
+                      method: 'POST',
+                      data: {id_barang: $(this).val()},
+                      success: function (response) {
+                          $('#nama_barang').empty();
+          
+                          $.each(response, function (id_barang, nama_barang) {
+                              $('#nama_barang').append(new Option(nama_barang, id_barang))
+                          })
+                      }
+                  })
+              });
           });
           </script>
 

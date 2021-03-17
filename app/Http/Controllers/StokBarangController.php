@@ -28,7 +28,7 @@ class StokBarangController extends Controller
      */
     public function create()
     {
-        $dataBarang = DataBarang::pluck('nama_barang','id_barang');
+        $dataBarang = DataBarang::pluck('kode_barang','id_barang');
         return view('barang.stok.create', compact('dataBarang'));
     }
 
@@ -48,6 +48,8 @@ class StokBarangController extends Controller
             'satuan' => 'required',
             'tgl_exp' => 'required',
         ]);
+
+        // $dataBarang = DataBarang::where('id_barang', $request->get('id_barang'))->pluck('nama_barang', 'id_barang');
 
         StokBarang::create($request->all());
 
