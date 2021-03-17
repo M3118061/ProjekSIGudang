@@ -36,8 +36,7 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
-            <th scope="col">ID Stok</th>
-            <th scope="col">ID Barang</th>
+            <th scope="col">Kode Barang</th>
             <th scope="col">Nama Barang</th>
             <th scope="col">Jenis Barang</th>
             <th scope="col">Jumlah Barang</th>
@@ -50,8 +49,7 @@
           @foreach ($stokBarang as $stok)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $stok->id_stok }}</td>
-            <td>{{ $stok->barang->id_barang }}</td>
+            <td>{{ $stok->barang->kode_barang }}</td>
             <td>{{ $stok->barang->nama_barang }}</td>
             <td>{{ $stok->barang->jenis->nama_jenis }}</td>
             <td>{{ $stok->jml_barang }}</td>

@@ -28,6 +28,15 @@
           @method('patch')
           @csrf
           <div class="form-group">
+            <label for="kode_barang" class="form-label">Kode Barang</label>
+            <input type="text" class="form-control @error('kode_barang') is-invalid @enderror" id="kode_barang" placeholder="Masukkan kode barang" name="kode_barang" value="{{ $dataBarang->kode_barang }}">
+            @error('kode_barang')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
+          </div>
+          <div class="form-group">
             <label for="nama_barang" class="form-label">Nama Barang</label>
             <input type="text" class="form-control @error('nama_barang') is-invalid @enderror" id="nama_barang" placeholder="Masukkan nama barang" name="nama_barang" value="{{ $dataBarang->nama_barang }}">
             @error('nama_barang')
@@ -56,7 +65,7 @@
           </div>
           
           <button type="submit" class="btn btn-primary">Submit</button>
-          <a href="/jenis" class="btn btn-danger">Cancel</a>
+          <a href="/dataBarang" class="btn btn-danger">Cancel</a>
         </form>
         <!-- /.content -->
           </div><!-- /.container-fluid -->

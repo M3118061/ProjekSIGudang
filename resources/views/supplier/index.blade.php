@@ -23,6 +23,9 @@
             <h1 class="m-0">Data Supplier</h1>
           </div>
         </div><!-- /.row -->
+        <a href="/supplier/create" class="btn btn-primary">
+          <i class="fas fa-plus-square"></i>
+        </a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -33,9 +36,8 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
-            <th scope="col">ID</th>
-            <th scope="col">Nama Lengkap</th>
-            <th scope="col">Email</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Alamat</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -43,14 +45,10 @@
           @foreach ($supplier as $supplier)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $supplier->id_supplier }}</td>
             <td>{{ $supplier->nama_supplier }}</td>
             <td>{{ $supplier->alamat }}</td>
-            <td>{{ $supplier->no_telp }}</td>
             <td>
-              <a href="" class="badge badge-info">Detail</a>
-              <a href="" class="badge badge-success">Update</a>
-              <a href="" class="badge badge-danger">Delete</a>
+              <a href="/supplier/{{ $supplier->id_supplier }}" class="btn btn-primary"><i class="fas fa-info"></i></a>
             </td>
           </tr>
           @endforeach

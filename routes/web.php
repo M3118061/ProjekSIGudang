@@ -38,7 +38,7 @@ Auth::routes();
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('is_admin');
 
 // pegawai
-Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index');
+Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index')->name('pegawai.index');
 Route::get('/pegawai/create', 'App\Http\Controllers\PegawaiController@create');
 Route::get('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@show');
 Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store');
@@ -64,7 +64,7 @@ Route::get('/satuan/{satuanBarang}/edit', 'App\Http\Controllers\SatuanBarangCont
 Route::patch('/satuan/{satuanBarang}', 'App\Http\Controllers\SatuanBarangController@update');
 
 //data barang
-Route::get('/dataBarang', 'App\Http\Controllers\DataBarangController@index');
+Route::get('/dataBarang', 'App\Http\Controllers\DataBarangController@index')->name('dataBarang.index');
 Route::get('/dataBarang/create', 'App\Http\Controllers\DataBarangController@create');
 Route::post('/dataBarang', 'App\Http\Controllers\DataBarangController@store');
 Route::delete('/dataBarang/{dataBarang}', 'App\Http\Controllers\DataBarangController@destroy');
@@ -75,11 +75,21 @@ Route::patch('/dataBarang/{dataBarang}', 'App\Http\Controllers\DataBarangControl
 //stok barang
 Route::get('/stokBarang', 'App\Http\Controllers\StokBarangController@index');
 Route::get('/stokBarang/create', 'App\Http\Controllers\StokBarangController@create');
+Route::post('/stokBarang', 'App\Http\Controllers\StokBarangController@store')->name('stokBarang.store');
+Route::delete('/stokBarang/{stokBarang}', 'App\Http\Controllers\StokBarangController@destroy');
 
-// trasaksi
+// barang masuk
 Route::get('/barang_masuk', 'App\Http\Controllers\BarangMasukController@index');
+
+//barang keluar
 Route::get('/barang_keluar', 'App\Http\Controllers\BarangKeluarController@index');
 
 //supplier
-Route::get('/supplier', 'App\Http\Controllers\SupplierController@index');
+Route::get('/supplier', 'App\Http\Controllers\SupplierController@index')->name('supplier.index');
+Route::get('/supplier/create', 'App\Http\Controllers\SupplierController@create');
+Route::get('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@show');
+Route::post('/supplier', 'App\Http\Controllers\SupplierController@store');
+Route::delete('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@destroy');
+Route::get('/supplier/{supplier}/edit', 'App\Http\Controllers\SupplierController@edit');
+Route::patch('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@update')->name('supplier.update');
 

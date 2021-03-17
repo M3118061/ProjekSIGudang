@@ -36,7 +36,7 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
-            <th scope="col">ID</th>
+            <th scope="col">Kode Barang</th>
             <th scope="col">Nama Barang</th>
             <th scope="col">Jenis Barang</th>
             <th scope="col">Satuan</th>
@@ -47,7 +47,7 @@
           @foreach ($dataBarang as $dataBarang)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $dataBarang->id_barang }}</td>
+            <td>{{ $dataBarang->kode_barang }}</td>
             <td>{{ $dataBarang->nama_barang }}</td>
             <td>{{ $dataBarang->jenis->nama_jenis }}</td>
             <td>{{ $dataBarang->satuan->nama_satuan }}</td>

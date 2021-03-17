@@ -10,7 +10,7 @@ class DataBarang extends Model
     use HasFactory;
     protected $table = 'data_barang';
     protected $primaryKey = 'id_barang';
-    protected $fillable = ['nama_barang','id_jenis','id_satuan'];
+    protected $fillable = ['kode_barang','nama_barang','id_jenis','id_satuan'];
 
     public function jenis()
     {

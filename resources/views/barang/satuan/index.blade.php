@@ -23,7 +23,9 @@
             <h1 class="m-0">Satuan Barang</h1>
           </div>
         </div><!-- /.row -->
-        <a href="/satuan/create" class="btn btn-primary">Tambah Data</a>
+        <a href="/satuan/create" class="btn btn-primary">
+          <i class="fas fa-plus-square"></i>
+        </a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -34,7 +36,6 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
-            <th scope="col">ID</th>
             <th scope="col">Satuan Barang</th>
             <th scope="col">Action</th>
           </tr>
@@ -43,15 +44,14 @@
           @foreach ($satuanBarang as $satuanBarang)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $satuanBarang->id_satuan }}</td>
             <td>{{ $satuanBarang->nama_satuan }}</td>
             <td>
-              <a href="/satuan/{{ $satuanBarang->id_satuan }}/edit" class="btn btn-warning">Update</a>
+              <a href="/satuan/{{ $satuanBarang->id_satuan }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 
               <form action="/satuan/{{ $satuanBarang->id_satuan }}" method="POST" class="d-inline">
                 @method('delete')
                 @csrf
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
               </form>
             </td>
           </tr>

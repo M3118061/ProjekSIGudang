@@ -41,6 +41,7 @@ class DataBarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'kode_barang' => 'required',
             'nama_barang' => 'required',
             'id_jenis' => 'required',
             'id_satuan' => 'required',
@@ -85,6 +86,7 @@ class DataBarangController extends Controller
     public function update(Request $request, DataBarang $dataBarang)
     {
         $request->validate([
+            'kode_barang' => 'required',
             'nama_barang' => 'required',
             'id_jenis' => 'required',
             'id_satuan' => 'required'
@@ -92,6 +94,7 @@ class DataBarangController extends Controller
 
         DataBarang::where('id_barang', $dataBarang->id_barang)
                   ->update([
+                      'kode_barang' => $request->kode_barang,
                       'nama_barang' => $request->nama_barang,
                       'id_jenis' => $request->id_jenis,
                       'id_satuan' => $request->id_satuan

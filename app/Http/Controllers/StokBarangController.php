@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\StokBarang;
 use App\Models\DataBarang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StokBarangController extends Controller
 {
@@ -27,7 +28,8 @@ class StokBarangController extends Controller
      */
     public function create()
     {
-        //
+        $dataBarang = DataBarang::pluck('nama_barang','id_barang');
+        return view('barang.stok.create', compact('dataBarang'));
     }
 
     /**
@@ -38,7 +40,18 @@ class StokBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kode_barang' => 'required',
+            'nama_barang' => 'required',
+            'jenis' => 'required',
+            'jml_barang' => 'required'|'numeric',
+            'satuan' => 'required',
+            'tgl_exp' => 'required',
+        ]);
+
+        StokBarang::create($request->all());
+
+        return redirect('/stokBarang')->with('pesan', 'Stok Barang Berhasil Ditambahkan!');
     }
 
     /**
@@ -84,5 +97,9 @@ class StokBarangController extends Controller
     public function destroy(StokBarang $stokBarang)
     {
         //
+    }
+
+    public function NamaBarang($id){
+        echo json_encode(DB::table('data_barang')->where('nama_barang', $id)->get());
     }
 }

@@ -6,12 +6,12 @@
         <div class="small-box bg-info">
           <div class="inner">
             <h3>150</h3>
-            <p>Stok Barang</p>
+            <p>Data Barang</p>
           </div>
           <div class="icon">
             <i class="fas fa-shopping-cart"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="{{ route('dataBarang.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -20,28 +20,15 @@
         <div class="small-box bg-success">
           <div class="inner">
             <h3>53<sup style="font-size: 20px">%</sup></h3>
-            <p>Barang Masuk</p>
+            <p>Data Supplier</p>
           </div>
           <div class="icon">
-            <i class="fas fa-arrow-down"></i>
+            <i class="fas fa-people-carry"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="{{ route('supplier.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
-      <div class="col-lg-3 col-6">
-        <!-- small box -->
-        <div class="small-box bg-warning">
-          <div class="inner">
-            <h3>44</h3>
-            <p>Barang Keluar</p>
-          </div>
-          <div class="icon">
-            <i class="fas fa-arrow-up"></i>
-          </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-        </div>
-      </div>
       <div class="col-lg-3 col-6">
         <!-- small box -->
         <div class="small-box bg-danger">
@@ -50,9 +37,9 @@
             <p>Data Pegawai</p>
           </div>
           <div class="icon">
-            <i class="ion ion-person-add"></i>
+            <i class="fas fa-user-tie"></i>
           </div>
-          <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="{{ route('pegawai.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
     </div>

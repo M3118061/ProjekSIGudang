@@ -25,7 +25,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('supplier.create');
     }
 
     /**
@@ -36,7 +36,16 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_supplier' => 'required',
+            'jk' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required',
+        ]);
+
+        Supplier::create($request->all());
+
+        return redirect('/supplier')->with('pesan', 'Supplier Berhasil Ditambahkan!');
     }
 
     /**
@@ -47,7 +56,7 @@ class SupplierController extends Controller
      */
     public function show(Supplier $supplier)
     {
-        //
+        return view('supplier.show', compact('supplier'));
     }
 
     /**
@@ -58,7 +67,7 @@ class SupplierController extends Controller
      */
     public function edit(Supplier $supplier)
     {
-        //
+        return view('supplier.edit', compact('supplier'));
     }
 
     /**
@@ -70,7 +79,22 @@ class SupplierController extends Controller
      */
     public function update(Request $request, Supplier $supplier)
     {
-        //
+        $request->validate([
+            'nama_supplier' => 'required',
+            'jk' => 'required',
+            'alamat' => 'required',
+            'no_telp' => 'required',
+        ]);
+
+        Supplier::where('id_supplier', $supplier->id_supplier)
+                ->update([
+                    'nama_supplier' => $request->nama_supplier,
+                    'jk' => $request->jk,
+                    'alamat' => $request->alamat,
+                    'no_telp' => $request->no_telp,
+                ]);
+
+        return redirect('/supplier')->with('pesan', 'Data Supplier Berhasil Diupdate!');
     }
 
     /**
@@ -81,6 +105,7 @@ class SupplierController extends Controller
      */
     public function destroy(Supplier $supplier)
     {
-        //
+        Supplier::destroy($supplier->id_supplier);
+        return redirect('/supplier')->with('message', 'Data Supplier Berhasil Dihapus!');
     }
 }

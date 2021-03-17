@@ -34,7 +34,6 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
-            <th scope="col">ID</th>
             <th scope="col">Jenis Barang</th>
             <th scope="col">Action</th>
           </tr>
@@ -43,7 +42,6 @@
           @foreach ($jenisBarang as $jenisBarang)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $jenisBarang->id_jenis }}</td>
             <td>{{ $jenisBarang->nama_jenis }}</td>
             <td>
               <a href="/jenis/{{ $jenisBarang->id_jenis }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
