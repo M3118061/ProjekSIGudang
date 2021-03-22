@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\StokBarang;
 use App\Models\DataBarang;
+use App\Models\SatuanBarang;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Validator;
 
 class StokBarangController extends Controller
 {
@@ -28,8 +29,11 @@ class StokBarangController extends Controller
      */
     public function create()
     {
-        $dataBarang = DataBarang::pluck('kode_barang','id_barang');
-        return view('barang.stok.create', compact('dataBarang'));
+        $dataBarang = DataBarang::all();
+        $satuanBarang = SatuanBarang::all();
+        // $dataBarang = DataBarang::pluck('nama_barang','id_barang');
+        // $satuanBarang = SatuanBarang::pluck('nama_satuan','id_satuan');
+        return view('barang.stok.create', compact('dataBarang','satuanBarang'));
     }
 
     /**
@@ -41,19 +45,15 @@ class StokBarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_barang' => 'required',
             'nama_barang' => 'required',
-            'jenis' => 'required',
-            'jml_barang' => 'required'|'numeric',
+            'jml_barang' => 'required | numeric',
             'satuan' => 'required',
-            'tgl_exp' => 'required',
+            'tgl_exp' => 'required | date',
         ]);
-
-        // $dataBarang = DataBarang::where('id_barang', $request->get('id_barang'))->pluck('nama_barang', 'id_barang');
 
         StokBarang::create($request->all());
 
-        return redirect('/stokBarang')->with('pesan', 'Stok Barang Berhasil Ditambahkan!');
+        return redirect('/stokBarang')->with('message', 'Data barang berhasil ditambahkan!!');
     }
 
     /**
@@ -99,9 +99,5 @@ class StokBarangController extends Controller
     public function destroy(StokBarang $stokBarang)
     {
         //
-    }
-
-    public function NamaBarang($id){
-        echo json_encode(DB::table('data_barang')->where('nama_barang', $id)->get());
     }
 }

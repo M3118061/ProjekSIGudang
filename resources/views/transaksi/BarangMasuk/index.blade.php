@@ -23,6 +23,9 @@
             <h1 class="m-0">Barang Masuk</h1>
           </div>
         </div><!-- /.row -->
+        <a href="/BarangMasuk/create" class="btn btn-primary">
+          <i class="fas fa-plus-square"></i>
+        </a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -33,16 +36,24 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
-            <th scope="col">ID</th>
+            <th scope="col">Kode Barang</th>
             <th scope="col">Nama Barang</th>
+            <th scope="col">Jenis</th>
+            <th scope="col">Jumlah Barang</th>
+            <th scope="col">Satuan</th>
+            <th scope="col">Tanggal Masuk</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($barangMasuk as $brg_masuk)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $brg_masuk->id_masuk }}</td>
-            <td>{{ $brg_masuk->nama_barang }}</td>
+            <td>{{ $brg_masuk->dataBarang->kode_barang }}</td>
+            <td>{{ $brg_masuk->dataBarang->nama_barang }}</td>
+            <td>{{ $brg_masuk->dataBarang->id_jenis }}</td>
+            <td>{{ $brg_masuk->jml_barang }}</td>
+            <td>{{ $brg_masuk->dataBarang->id_satuan }}</td>
+            <td>{{ $brg_masuk->tgl_masuk }}</td>
             <td>
               <a href="" class="badge badge-info">Detail</a>
               <a href="" class="badge badge-success">Update</a>

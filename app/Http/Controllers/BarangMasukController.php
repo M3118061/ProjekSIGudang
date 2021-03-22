@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\BarangMasuk;
+use App\Models\DataBarang;
+use App\Models\JenisBarang;
+use App\Models\SatuanBarang;
 use Illuminate\Http\Request;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class BarangMasukController extends Controller
 {
@@ -15,6 +19,7 @@ class BarangMasukController extends Controller
     public function index()
     {
         $barangMasuk = BarangMasuk::all();
+        $dataBarang = DataBarang::all();
         return view('transaksi.BarangMasuk.index', compact('barangMasuk'));
     }
 
@@ -25,7 +30,11 @@ class BarangMasukController extends Controller
      */
     public function create()
     {
-        //
+        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
+        $jenis = JenisBarang::pluck('nama_jenis','id_jenis');
+        $satuan = SatuanBarang::pluck('nama_satuan','id_satuan');
+        return view('transaksi.BarangMasuk.create',compact('kodeBarang','namaBarang','jenis','satuan'));
     }
 
     /**
