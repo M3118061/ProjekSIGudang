@@ -83,6 +83,9 @@ Route::get('/BarangMasuk', 'App\Http\Controllers\BarangMasukController@index');
 Route::get('/BarangMasuk/create', 'App\Http\Controllers\BarangMasukController@create');
 Route::get('/BarangMasuk/{barangMasuk}', 'App\Http\Controllers\BarangMasukController@show');
 Route::post('/BarangMasuk', 'App\Http\Controllers\BarangMasukController@store');
+Route::delete('/BarangMasuk/{barangMasuk}', 'App\Http\Controllers\BarangMasukController@destroy');
+Route::get('/BarangMasuk/{barangMasuk}/edit', 'App\Http\Controllers\BarangMasukController@edit');
+Route::patch('/BarangMasuk/{barangMasuk}', 'App\Http\Controllers\BarangMasukController@update');
 
 //barang keluar
 Route::get('/barang_keluar', 'App\Http\Controllers\BarangKeluarController@index');

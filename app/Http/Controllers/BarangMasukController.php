@@ -80,7 +80,12 @@ class BarangMasukController extends Controller
      */
     public function edit(BarangMasuk $barangMasuk)
     {
-        //
+        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
+        $jenisBarang = JenisBarang::all();
+        $satuanBarang = SatuanBarang::all();
+        $supplier = Supplier::all();
+        return view('transaksi.BarangMasuk.edit', compact('kodeBarang','namaBarang','barangMasuk','jenisBarang','satuanBarang','supplier'));
     }
 
     /**
@@ -92,7 +97,26 @@ class BarangMasukController extends Controller
      */
     public function update(Request $request, BarangMasuk $barangMasuk)
     {
-        //
+        $request->validate([
+            'id_barang' => 'required',
+            'jenis' => 'required',
+            'jml_barang' => 'required',
+            'satuan' => 'required',
+            'tgl_masuk' => 'required',
+            'id_supplier' => 'required',
+        ]);
+
+        BarangMasuk::where('id_masuk', $barangMasuk->id_masuk)
+                ->update([
+                    'id_barang' => $request->id_barang,
+                    'jenis' => $request->jenis,
+                    'jml_barang' => $request->jml_barang,
+                    'satuan' => $request->satuan,
+                    'tgl_masuk' => $request->tgl_masuk,
+                    'id_supplier' => $request->id_supplier,
+                ]);
+
+        return redirect('/BarangMasuk')->with('pesan', 'Data Supplier Berhasil Diupdate!');
     }
 
     /**
@@ -103,6 +127,7 @@ class BarangMasukController extends Controller
      */
     public function destroy(BarangMasuk $barangMasuk)
     {
-        //
+        BarangMasuk::destroy($barangMasuk->id_masuk);
+        return redirect('/BarangMasuk')->with('message', 'Data Supplier Berhasil Dihapus!');
     }
 }
