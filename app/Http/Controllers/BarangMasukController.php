@@ -69,7 +69,7 @@ class BarangMasukController extends Controller
      */
     public function show(BarangMasuk $barangMasuk)
     {
-        //
+        return view('transaksi.BarangMasuk.show', compact('barangMasuk'));
     }
 
     /**

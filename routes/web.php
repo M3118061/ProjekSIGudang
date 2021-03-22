@@ -81,6 +81,7 @@ Route::delete('/stokBarang/{stokBarang}', 'App\Http\Controllers\StokBarangContro
 // barang masuk
 Route::get('/BarangMasuk', 'App\Http\Controllers\BarangMasukController@index');
 Route::get('/BarangMasuk/create', 'App\Http\Controllers\BarangMasukController@create');
+Route::get('/BarangMasuk/{barangMasuk}', 'App\Http\Controllers\BarangMasukController@show');
 Route::post('/BarangMasuk', 'App\Http\Controllers\BarangMasukController@store');
 
 //barang keluar

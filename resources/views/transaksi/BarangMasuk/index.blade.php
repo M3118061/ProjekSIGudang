@@ -38,29 +38,23 @@
             <th scope="col">No</th>
             <th scope="col">Kode Barang</th>
             <th scope="col">Nama Barang</th>
-            <th scope="col">Jenis</th>
             <th scope="col">Jumlah Barang</th>
             <th scope="col">Satuan</th>
             <th scope="col">Tanggal Masuk</th>
-            <th scope="col">Nama Supplier</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($barangMasuk as $brg_masuk)
+          @foreach ($barangMasuk as $barangMasuk)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $brg_masuk->dataBarang->kode_barang }}</td>
-            <td>{{ $brg_masuk->dataBarang->nama_barang }}</td>
-            <td>{{ $brg_masuk->dataBarang->jenis->nama_jenis }}</td>
-            <td>{{ $brg_masuk->jml_barang }}</td>
-            <td>{{ $brg_masuk->dataBarang->satuan->nama_satuan }}</td>
-            <td>{{ $brg_masuk->tgl_masuk }}</td>
-            <td>{{ $brg_masuk->supplier->nama_supplier }}</td>
+            <td>{{ $barangMasuk->dataBarang->kode_barang }}</td>
+            <td>{{ $barangMasuk->dataBarang->nama_barang }}</td>
+            <td>{{ $barangMasuk->jml_barang }}</td>
+            <td>{{ $barangMasuk->dataBarang->satuan->nama_satuan }}</td>
+            <td>{{ $barangMasuk->tgl_masuk }}</td>
             <td>
-              <a href="" class="badge badge-info">Detail</a>
-              <a href="" class="badge badge-success">Update</a>
-              <a href="" class="badge badge-danger">Delete</a>
+              <a href="/BarangMasuk/{{ $barangMasuk->id_masuk }}" class="btn btn-primary"><i class="fas fa-info"></i></a>
             </td>
           </tr>
           @endforeach
