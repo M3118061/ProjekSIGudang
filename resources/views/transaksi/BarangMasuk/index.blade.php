@@ -36,24 +36,27 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
-            <th scope="col">Kode Barang</th>
+            {{--  <th scope="col">Kode Barang</th>  --}}
             <th scope="col">Nama Barang</th>
             <th scope="col">Jenis</th>
             <th scope="col">Jumlah Barang</th>
             <th scope="col">Satuan</th>
             <th scope="col">Tanggal Masuk</th>
+            <th scope="col">Nama Supplier</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
           @foreach ($barangMasuk as $brg_masuk)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $brg_masuk->dataBarang->kode_barang }}</td>
+            {{--  <td>{{ $brg_masuk->dataBarang->kode_barang }}</td>  --}}
             <td>{{ $brg_masuk->dataBarang->nama_barang }}</td>
-            <td>{{ $brg_masuk->dataBarang->id_jenis }}</td>
+            <td>{{ $brg_masuk->dataBarang->jenis->nama_jenis }}</td>
             <td>{{ $brg_masuk->jml_barang }}</td>
-            <td>{{ $brg_masuk->dataBarang->id_satuan }}</td>
+            <td>{{ $brg_masuk->dataBarang->satuan->nama_satuan }}</td>
             <td>{{ $brg_masuk->tgl_masuk }}</td>
+            <td>{{ $brg_masuk->supplier->nama_supplier }}</td>
             <td>
               <a href="" class="badge badge-info">Detail</a>
               <a href="" class="badge badge-success">Update</a>

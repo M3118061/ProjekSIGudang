@@ -6,6 +6,7 @@ use App\Models\BarangMasuk;
 use App\Models\DataBarang;
 use App\Models\JenisBarang;
 use App\Models\SatuanBarang;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -19,7 +20,6 @@ class BarangMasukController extends Controller
     public function index()
     {
         $barangMasuk = BarangMasuk::all();
-        $dataBarang = DataBarang::all();
         return view('transaksi.BarangMasuk.index', compact('barangMasuk'));
     }
 
@@ -30,11 +30,11 @@ class BarangMasukController extends Controller
      */
     public function create()
     {
-        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
-        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
-        $jenis = JenisBarang::pluck('nama_jenis','id_jenis');
-        $satuan = SatuanBarang::pluck('nama_satuan','id_satuan');
-        return view('transaksi.BarangMasuk.create',compact('kodeBarang','namaBarang','jenis','satuan'));
+        $dataBarang = DataBarang::all();
+        $jenisBarang = JenisBarang::all();
+        $satuanBarang = SatuanBarang::all();
+        $supplier = Supplier::all();
+        return view('transaksi.BarangMasuk.create',compact('dataBarang','supplier','jenisBarang','satuanBarang'));
     }
 
     /**
@@ -45,7 +45,18 @@ class BarangMasukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_barang' => 'required',
+            'jenis' => 'required',
+            'jml_barang' => 'required',
+            'satuan' => 'required',
+            'tgl_masuk' => 'required',
+            'id_supplier' => 'required',
+        ]);
+
+        BarangMasuk::create($request->all());
+
+        return redirect('/BarangMasuk')->with('message', 'Data barang berhasil ditambahkan!!');
     }
 
     /**
