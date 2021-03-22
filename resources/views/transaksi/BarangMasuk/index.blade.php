@@ -36,7 +36,7 @@
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
-            {{--  <th scope="col">Kode Barang</th>  --}}
+            <th scope="col">Kode Barang</th>
             <th scope="col">Nama Barang</th>
             <th scope="col">Jenis</th>
             <th scope="col">Jumlah Barang</th>
@@ -50,7 +50,7 @@
           @foreach ($barangMasuk as $brg_masuk)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            {{--  <td>{{ $brg_masuk->dataBarang->kode_barang }}</td>  --}}
+            <td>{{ $brg_masuk->dataBarang->kode_barang }}</td>
             <td>{{ $brg_masuk->dataBarang->nama_barang }}</td>
             <td>{{ $brg_masuk->dataBarang->jenis->nama_jenis }}</td>
             <td>{{ $brg_masuk->jml_barang }}</td>

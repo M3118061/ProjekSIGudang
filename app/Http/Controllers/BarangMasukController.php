@@ -30,11 +30,13 @@ class BarangMasukController extends Controller
      */
     public function create()
     {
-        $dataBarang = DataBarang::all();
+        // $dataBarang = DataBarang::all();
+        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
         $jenisBarang = JenisBarang::all();
         $satuanBarang = SatuanBarang::all();
         $supplier = Supplier::all();
-        return view('transaksi.BarangMasuk.create',compact('dataBarang','supplier','jenisBarang','satuanBarang'));
+        return view('transaksi.BarangMasuk.create',compact('kodeBarang','namaBarang','supplier','jenisBarang','satuanBarang'));
     }
 
     /**

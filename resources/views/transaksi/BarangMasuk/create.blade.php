@@ -27,9 +27,9 @@
         <!-- Main content -->
         <form method="POST" action="/BarangMasuk">
           @csrf
-          {{--  <div class="form-group">
-            <label for="id_barang" class="form-label">Kode Barang</label>
-            <select name="kode_barang" id="id_barang" class="form-control">
+          <div class="form-group">
+            <label for="kode_barang" class="form-label">Kode Barang</label>
+            <select name="id_barang" id="kode_barang" class="form-control">
               <option value="">--Pilih--</option>
               @foreach ($kodeBarang as $key => $value)
                   <option value="{{ $key }}">
@@ -37,14 +37,19 @@
                   </option>
               @endforeach
             </select>
-          </div>  --}}
+          </div>
           <div class="form-group">
             <label for="nama_barang" class="form-label">Nama Barang</label>
             <select name="id_barang" id="nama_barang" class="form-control">
               <option value="">--Pilih--</option>
-              @foreach ($dataBarang as $dataBarang)
-                <option value="{{ $dataBarang->id_barang }}">{{ $dataBarang->nama_barang }}</option>
+              @foreach ($namaBarang as $key => $value)
+                  <option value="{{ $key }}">
+                    {{ $key . ' - ' . $value }}
+                  </option>
               @endforeach
+              {{--  @foreach ($dataBarang as $dataBarang)
+                <option value="{{ $dataBarang->id_barang }}">{{ $dataBarang->nama_barang }}</option>
+              @endforeach  --}}
             </select>
           </div>
 
