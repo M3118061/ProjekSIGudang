@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\BarangKeluar;
 use Illuminate\Http\Request;
+use App\Models\DataBarang;
+use App\Models\JenisBarang;
+use App\Models\SatuanBarang;
 
 class BarangKeluarController extends Controller
 {
@@ -25,7 +28,11 @@ class BarangKeluarController extends Controller
      */
     public function create()
     {
-        //
+        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
+        $jenisBarang = JenisBarang::all();
+        $satuanBarang = SatuanBarang::all();
+        return view('transaksi.BarangKeluar.create',compact('kodeBarang','namaBarang','jenisBarang','satuanBarang'));
     }
 
     /**
@@ -36,7 +43,17 @@ class BarangKeluarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_barang' => 'required',
+            'jenis' => 'required',
+            'jml_barang' => 'required',
+            'satuan' => 'required',
+            'tgl_keluar' => 'required',
+        ]);
+
+        BarangKeluar::create($request->all());
+
+        return redirect('/BarangKeluar')->with('message', 'Data barang berhasil ditambahkan!!');
     }
 
     /**
@@ -47,7 +64,7 @@ class BarangKeluarController extends Controller
      */
     public function show(BarangKeluar $barangKeluar)
     {
-        //
+        return view('transaksi.BarangKeluar.show', compact('barangKeluar'));
     }
 
     /**
@@ -58,7 +75,11 @@ class BarangKeluarController extends Controller
      */
     public function edit(BarangKeluar $barangKeluar)
     {
-        //
+        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
+        $jenisBarang = JenisBarang::all();
+        $satuanBarang = SatuanBarang::all();
+        return view('transaksi.BarangKeluar.edit', compact('kodeBarang','namaBarang','barangKeluar','jenisBarang','satuanBarang'));
     }
 
     /**
@@ -70,7 +91,24 @@ class BarangKeluarController extends Controller
      */
     public function update(Request $request, BarangKeluar $barangKeluar)
     {
-        //
+        $request->validate([
+            'id_barang' => 'required',
+            'jenis' => 'required',
+            'jml_barang' => 'required',
+            'satuan' => 'required',
+            'tgl_keluar' => 'required',
+        ]);
+
+        BarangKeluar::where('id_keluar', $barangKeluar->id_keluar)
+                ->update([
+                    'id_barang' => $request->id_barang,
+                    'jenis' => $request->jenis,
+                    'jml_barang' => $request->jml_barang,
+                    'satuan' => $request->satuan,
+                    'tgl_keluar' => $request->tgl_keluar,
+                ]);
+
+        return redirect('/BarangKeluar')->with('pesan', 'Data Supplier Berhasil Diupdate!');
     }
 
     /**
@@ -81,6 +119,7 @@ class BarangKeluarController extends Controller
      */
     public function destroy(BarangKeluar $barangKeluar)
     {
-        //
+        BarangKeluar::destroy($barangKeluar->id_keluar);
+        return redirect('/BarangKeluar')->with('message', 'Data Supplier Berhasil Dihapus!');
     }
 }

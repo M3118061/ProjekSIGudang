@@ -88,7 +88,13 @@ Route::get('/BarangMasuk/{barangMasuk}/edit', 'App\Http\Controllers\BarangMasukC
 Route::patch('/BarangMasuk/{barangMasuk}', 'App\Http\Controllers\BarangMasukController@update');
 
 //barang keluar
-Route::get('/barang_keluar', 'App\Http\Controllers\BarangKeluarController@index');
+Route::get('/BarangKeluar', 'App\Http\Controllers\BarangKeluarController@index');
+Route::get('/BarangKeluar/create', 'App\Http\Controllers\BarangKeluarController@create');
+Route::get('/BarangKeluar/{barangKeluar}', 'App\Http\Controllers\BarangKeluarController@show');
+Route::post('/BarangKeluar', 'App\Http\Controllers\BarangKeluarController@store');
+Route::delete('/BarangKeluar/{barangKeluar}', 'App\Http\Controllers\BarangKeluarController@destroy');
+Route::get('/BarangKeluar/{barangKeluar}/edit', 'App\Http\Controllers\BarangKeluarController@edit');
+Route::patch('/BarangKeluar/{barangKeluar}', 'App\Http\Controllers\BarangKeluarController@update');
 
 //supplier
 Route::get('/supplier', 'App\Http\Controllers\SupplierController@index')->name('supplier.index');
