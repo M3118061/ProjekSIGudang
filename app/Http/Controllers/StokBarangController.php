@@ -83,7 +83,7 @@ class StokBarangController extends Controller
         $jenisBarang = JenisBarang::all();
         $satuanBarang = SatuanBarang::all();
 
-        return view('barang.stok.edit', compact('kodeBarang','namaBarang','jenisBarang','satuanBarang'));
+        return view('barang.stok.edit', compact('stokBarang','kodeBarang','namaBarang','jenisBarang','satuanBarang'));
     }
 
     /**
@@ -95,7 +95,24 @@ class StokBarangController extends Controller
      */
     public function update(Request $request, StokBarang $stokBarang)
     {
-        //
+        $request->validate([
+            'id_barang' => 'required',
+            'jenis' => 'required',
+            'jml_barang' => 'required',
+            'satuan' => 'required',
+            'tgl_exp' => 'required',
+        ]);
+
+        StokBarang::where('id_stok', $stokBarang->id_stok)
+                ->update([
+                    'id_barang' => $request->id_barang,
+                    'jenis' => $request->jenis,
+                    'jml_barang' => $request->jml_barang,
+                    'satuan' => $request->satuan,
+                    'tgl_exp' => $request->tgl_exp,
+                ]);
+
+        return redirect('/stokBarang')->with('pesan', 'Data Supplier Berhasil Diupdate!');
     }
 
     /**
