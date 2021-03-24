@@ -46,9 +46,9 @@ class BarangKeluarController extends Controller
         $request->validate([
             'id_barang' => 'required',
             'jenis' => 'required',
-            'jml_barang' => 'required',
+            'jml_barang' => 'required|numeric',
             'satuan' => 'required',
-            'tgl_keluar' => 'required',
+            'tgl_keluar' => 'required|date',
         ]);
 
         BarangKeluar::create($request->all());

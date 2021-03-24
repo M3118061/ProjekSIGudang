@@ -75,8 +75,10 @@ Route::patch('/dataBarang/{dataBarang}', 'App\Http\Controllers\DataBarangControl
 //stok barang
 Route::get('/stokBarang', 'App\Http\Controllers\StokBarangController@index');
 Route::get('/stokBarang/create', 'App\Http\Controllers\StokBarangController@create');
+Route::get('/stokBarang/{stokBarang}', 'App\Http\Controllers\StokBarangController@show');
 Route::post('/stokBarang', 'App\Http\Controllers\StokBarangController@store');
 Route::delete('/stokBarang/{stokBarang}', 'App\Http\Controllers\StokBarangController@destroy');
+Route::get('/stokBarang/{stokBarang}/edit', 'App\Http\Controllers\StokBarangController@edit');
 
 // barang masuk
 Route::get('/BarangMasuk', 'App\Http\Controllers\BarangMasukController@index');

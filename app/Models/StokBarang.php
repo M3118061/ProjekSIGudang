@@ -10,11 +10,20 @@ class StokBarang extends Model
     use HasFactory;
     protected $table = 'stok_barang';
     protected $primaryKey = 'id_stok';
-    protected $fillable = ['nama_barang','jml_barang','satuan','tgl_exp'];
+    protected $fillable = ['id_barang','jenis','jml_barang','satuan','tgl_exp'];
 
-    public function barang()
+    public function databarang()
     {
         return $this->belongsTo(DataBarang::class, 'id_barang');
     }
     
+    public function jenis()
+    {
+        return $this->belongsTo(JenisBarang::class, 'id_jenis');
+    }
+
+    public function satuan()
+    {
+        return $this->belongsTo(SatuanBarang::class, 'id_satuan');
+    }
 }

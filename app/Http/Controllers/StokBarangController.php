@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\StokBarang;
 use App\Models\DataBarang;
 use App\Models\SatuanBarang;
+use App\Models\JenisBarang;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
 
@@ -29,11 +30,12 @@ class StokBarangController extends Controller
      */
     public function create()
     {
-        $dataBarang = DataBarang::all();
+        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
+        $jenisBarang = JenisBarang::all();
         $satuanBarang = SatuanBarang::all();
-        // $dataBarang = DataBarang::pluck('nama_barang','id_barang');
-        // $satuanBarang = SatuanBarang::pluck('nama_satuan','id_satuan');
-        return view('barang.stok.create', compact('dataBarang','satuanBarang'));
+
+        return view('barang.stok.create', compact('kodeBarang','namaBarang','jenisBarang','satuanBarang'));
     }
 
     /**
@@ -45,10 +47,11 @@ class StokBarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_barang' => 'required',
-            'jml_barang' => 'required | numeric',
+            'id_barang' => 'required',
+            'jenis' => 'required',
+            'jml_barang' => 'required',
             'satuan' => 'required',
-            'tgl_exp' => 'required | date',
+            'tgl_exp' => 'required',
         ]);
 
         StokBarang::create($request->all());
@@ -64,7 +67,7 @@ class StokBarangController extends Controller
      */
     public function show(StokBarang $stokBarang)
     {
-        //
+        return view('barang.stok.show',compact('stokBarang'));
     }
 
     /**
@@ -75,7 +78,12 @@ class StokBarangController extends Controller
      */
     public function edit(StokBarang $stokBarang)
     {
-        //
+        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
+        $jenisBarang = JenisBarang::all();
+        $satuanBarang = SatuanBarang::all();
+
+        return view('barang.stok.edit', compact('kodeBarang','namaBarang','jenisBarang','satuanBarang'));
     }
 
     /**
@@ -98,6 +106,7 @@ class StokBarangController extends Controller
      */
     public function destroy(StokBarang $stokBarang)
     {
-        //
+        StokBarang::destroy($stokBarang->id_stok);
+        return redirect('/stokBarang')->with('message', 'Data Supplier Berhasil Dihapus!');
     }
 }
