@@ -47,7 +47,7 @@ Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@ed
 Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update');
 
 //jenis
-Route::get('/jenis', 'App\Http\Controllers\JenisBarangController@index');
+Route::get('/jenis', 'App\Http\Controllers\JenisBarangController@index')->name('jenis.index');
 Route::get('/jenis/create', 'App\Http\Controllers\JenisBarangController@create');
 Route::post('/jenis', 'App\Http\Controllers\JenisBarangController@store');
 Route::delete('/jenis/{jenisBarang}', 'App\Http\Controllers\JenisBarangController@destroy');

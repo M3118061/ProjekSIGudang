@@ -90,13 +90,13 @@
               <li class="nav-item">
                 <a href="{{ url('/jenis') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Jenis Barang</p>
+                  <p>Data Jenis</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ url('/satuan') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Satuan</p>
+                  <p>Data Satuan</p>
                 </a>
               </li>
             </ul>
