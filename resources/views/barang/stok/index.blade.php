@@ -38,10 +38,8 @@
             <th scope="col">No</th>
             <th scope="col">Kode Barang</th>
             <th scope="col">Nama Barang</th>
-            <th scope="col">Jenis</th>
             <th scope="col">Jumlah Barang</th>
             <th scope="col">Satuan</th>
-            <th scope="col">Tanggal EXP</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -51,10 +49,8 @@
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $stokBarang->dataBarang->kode_barang }}</td>
             <td>{{ $stokBarang->dataBarang->nama_barang }}</td>
-            <td>{{ $stokBarang->dataBarang->jenis->nama_jenis }}</td>
             <td>{{ $stokBarang->jml_barang }}</td>
             <td>{{ $stokBarang->dataBarang->satuan->nama_satuan }}</td>
-            <td>{{ $stokBarang->tgl_exp }}</td>
             <td>
               <a href="/stokBarang/{{ $stokBarang->id_stok }}" class="btn btn-primary"><i class="fas fa-info"></i></a>
               </form>
