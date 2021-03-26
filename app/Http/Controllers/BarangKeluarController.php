@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\DataBarang;
 use App\Models\JenisBarang;
 use App\Models\SatuanBarang;
+use App\Models\StokBarang;
 
 class BarangKeluarController extends Controller
 {
@@ -52,6 +53,10 @@ class BarangKeluarController extends Controller
         ]);
 
         BarangKeluar::create($request->all());
+
+        $stokBarang = StokBarang::findOrFail($request->id_barang);
+        $stokBarang->jml_barang -= $request->jml_barang;
+        $stokBarang->save();
 
         return redirect('/BarangKeluar')->with('message', 'Data barang berhasil ditambahkan!!');
     }

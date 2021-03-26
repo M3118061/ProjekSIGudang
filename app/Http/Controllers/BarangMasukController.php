@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\StokBarang;
 use App\Models\BarangMasuk;
 use App\Models\DataBarang;
 use App\Models\JenisBarang;
@@ -57,6 +58,10 @@ class BarangMasukController extends Controller
         ]);
 
         BarangMasuk::create($request->all());
+
+        $stokBarang = StokBarang::findOrFail($request->id_barang);
+        $stokBarang->jml_barang += $request->jml_barang;
+        $stokBarang->save();
 
         return redirect('/BarangMasuk')->with('message', 'Data barang berhasil ditambahkan!!');
     }

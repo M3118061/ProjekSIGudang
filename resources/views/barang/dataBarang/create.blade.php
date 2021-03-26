@@ -46,21 +46,31 @@
           </div>
           <div class="form-group">
             <label for="id_jenis" class="form-label">Jenis Barang</label>
-            <select name="id_jenis" id="id_jenis" class="form-control">
+            <select name="id_jenis" id="id_jenis" class="form-control @error('id_jenis') is-invalid @enderror">
               <option value="">--Pilih--</option>
               @foreach ($jenisBarang as $jenisBarang)
                 <option value="{{ $jenisBarang->id_jenis }}">{{ $jenisBarang->nama_jenis }}</option>
               @endforeach
             </select>
+            @error('id_jenis')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
           <div class="form-group">
             <label for="id_satuan" class="form-label">Satuan Barang</label>
-            <select name="id_satuan" id="id_satuan" class="form-control">
+            <select name="id_satuan" id="id_satuan" class="form-control @error('id_satuan') is-invalid @enderror">
               <option value="">--Pilih--</option>
               @foreach ($satuanBarang as $satuanBarang)
                 <option value="{{ $satuanBarang->id_satuan }}">{{ $satuanBarang->nama_satuan }}</option>
               @endforeach
             </select>
+            @error('id_satuan')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
           
           <button type="submit" class="btn btn-primary">Submit</button>

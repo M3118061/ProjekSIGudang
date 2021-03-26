@@ -29,7 +29,7 @@
           @csrf
           <div class="form-group">
             <label for="kode_barang" class="form-label">Kode Barang</label>
-            <select name="id_barang" id="kode_barang" class="form-control">
+            <select name="id_barang" id="kode_barang" class="form-control @error('id_barang') is-invalid @enderror">
               <option value="">--Pilih--</option>
               @foreach ($kodeBarang as $key => $value)
                   <option value="{{ $key }}">
@@ -37,59 +37,42 @@
                   </option>
               @endforeach
             </select>
+            @error('id_barang')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
           <div class="form-group">
             <label for="nama_barang" class="form-label">Nama Barang</label>
-            <select name="id_barang" id="nama_barang" class="form-control">
+            <select name="id_barang" id="nama_barang" class="form-control @error('id_barang') is-invalid @enderror">
               <option value="">--Pilih--</option>
               @foreach ($namaBarang as $key => $value)
                   <option value="{{ $key }}">
                     {{ $key . ' - ' . $value }}
                   </option>
               @endforeach
-              {{--  @foreach ($dataBarang as $dataBarang)
-                <option value="{{ $dataBarang->id_barang }}">{{ $dataBarang->nama_barang }}</option>
-              @endforeach  --}}
             </select>
+            @error('id_barang')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
-
-          {{--  <script type="text/javascript">
-            jQuery(document).ready(function ()
-            {
-                    jQuery('select[name="id_barang"]').on('change',function(){
-                       var id_barang = jQuery(this).val();
-                       if(id_barang)
-                       {
-                          jQuery.ajax({
-                             url : '/BarangMasuk/create' +id_barang,
-                             type : "GET",
-                             dataType : "json",
-                             success:function(data)
-                             {
-                                console.log(data);
-                                jQuery('select[name="nama_barang"]').empty();
-                                jQuery.each(data, function(key,value){
-                                   $('select[name="nama_barang"]').append('<option value="'+ key +'">'+ value +'</option>');
-                                });
-                             }
-                          });
-                       }
-                       else
-                       {
-                          $('select[name="nama_barang"]').empty();
-                       }
-                    });
-            });
-            </script>  --}}
 
           <div class="form-group">
             <label for="jenis" class="form-label">Jenis</label>
-            <select name="jenis" id="jenis" class="form-control">
+            <select name="jenis" id="jenis" class="form-control @error('jenis') is-invalid @enderror">
               <option value="">--Pilih--</option>
               @foreach ($jenisBarang as $jenisBarang)
                 <option value="{{ $jenisBarang->id_jenis }}">{{ $jenisBarang->nama_jenis }}</option>
               @endforeach
             </select>
+            @error('jenis')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
           <div class="form-group">
             <label for="jml_barang" class="form-label">Jumlah Barang</label>
@@ -102,12 +85,17 @@
           </div>
           <div class="form-group">
             <label for="satuan" class="form-label">Satuan</label>
-            <select name="satuan" id="satuan" class="form-control">
+            <select name="satuan" id="satuan" class="form-control @error('satuan') is-invalid @enderror">
               <option value="">--Pilih--</option>
               @foreach ($satuanBarang as $satuanBarang)
                 <option value="{{ $satuanBarang->id_satuan }}">{{ $satuanBarang->nama_satuan }}</option>
               @endforeach
             </select>
+            @error('satuan')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
           <div class="form-group">
             <label for="tgl_masuk" class="form-label">Tanggal Masuk</label>
@@ -120,12 +108,17 @@
           </div>
           <div class="form-group">
             <label for="id_supplier" class="form-label">Supplier</label>
-            <select name="id_supplier" id="id_supplier" class="form-control">
+            <select name="id_supplier" id="id_supplier" class="form-control @error('id_supplier') is-invalid @enderror">
               <option value="">--Pilih--</option>
               @foreach ($supplier as $supplier)
                 <option value="{{ $supplier->id_supplier }}">{{ $supplier->nama_supplier }}</option>
               @endforeach
             </select>
+            @error('id_supplier')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
           </div>
           
           
