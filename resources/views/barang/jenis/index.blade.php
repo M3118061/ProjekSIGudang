@@ -23,7 +23,7 @@
             <h1 class="m-0">Jenis Barang</h1>
           </div>
         </div><!-- /.row -->
-        <a href="/jenis/create" class="btn btn-primary"><i class="fas fa-plus-square"></i></a>
+        <a href="/jenis/create" class="btn btn-primary"><i class="fas fa-plus-square"> Tambah Data</i></a>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->

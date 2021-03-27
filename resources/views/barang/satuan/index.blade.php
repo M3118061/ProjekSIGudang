@@ -24,7 +24,7 @@
           </div>
         </div><!-- /.row -->
         <a href="/satuan/create" class="btn btn-primary">
-          <i class="fas fa-plus-square"></i>
+          <i class="fas fa-plus-square"> Tambah Data</i>
         </a>
       </div><!-- /.container-fluid -->
     </div>

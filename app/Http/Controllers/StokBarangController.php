@@ -22,7 +22,13 @@ class StokBarangController extends Controller
         $dataBarang = DataBarang::all();
         return view('barang.stok.index', compact('stokBarang','dataBarang'));
     }
-
+    
+    public function cetakStok()
+    {
+        $stokBarang = StokBarang::get();
+        $dataBarang = DataBarang::get();
+        return view('barang.stok.cetak', compact('stokBarang','dataBarang'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -67,7 +73,7 @@ class StokBarangController extends Controller
      */
     public function show(StokBarang $stokBarang)
     {
-        return view('barang.stok.show',compact('stokBarang'));
+
     }
 
     /**

@@ -24,7 +24,10 @@
           </div>
         </div><!-- /.row -->
         <a href="/BarangKeluar/create" class="btn btn-primary">
-          <i class="fas fa-plus-square"></i>
+          <i class="fas fa-plus-square"> Tambah Data</i>
+        </a>
+        <a href="" class="btn btn-success">
+          <i class="fas fa-download"> Export Data</i>
         </a>
       </div><!-- /.container-fluid -->
     </div>

@@ -142,24 +142,25 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('/laporan/stok') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Stok Barang</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/laporan/barangMasuk') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Barang Masuk</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/laporan/barangKeluar') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Barang Keluar</p>
                 </a>
               </li>
             </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
