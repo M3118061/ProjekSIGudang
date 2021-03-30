@@ -37,12 +37,6 @@
               <i class="fas fa-print"> Cetak Data</i>
             </a>&nbsp;&nbsp;&nbsp;
             </td>
-            
-            <td>Dari Tanggal : </td>
-            <td><input type="date" name="dari_tgl" required="required"></td>
-            <td>Sampai Tanggal : </td>
-            <td><input type="date" name="sampai_tgl" required="required"></td>
-            <td><input type="submit" class="btn btn-primary" name="filter" value="Filter"></td>
           </tr>
         </table>
       </form>

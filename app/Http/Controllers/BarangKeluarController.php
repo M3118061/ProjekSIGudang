@@ -127,4 +127,10 @@ class BarangKeluarController extends Controller
         BarangKeluar::destroy($barangKeluar->id_keluar);
         return redirect('/BarangKeluar')->with('message', 'Data Supplier Berhasil Dihapus!');
     }
+
+    public function cetakBarangKeluar()
+    {
+        $barangKeluar = BarangKeluar::get();
+        return view('transaksi.BarangKeluar.cetak', compact('barangKeluar'));
+    }
 }

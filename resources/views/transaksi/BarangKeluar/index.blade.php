@@ -23,13 +23,26 @@
             <h1 class="m-0">Barang Keluar</h1>
           </div>
         </div><!-- /.row -->
-        <a href="/BarangKeluar/create" class="btn btn-primary">
-          <i class="fas fa-plus-square"> Tambah Data</i>
-        </a>
-        <a href="" class="btn btn-success">
-          <i class="fas fa-download"> Export Data</i>
-        </a>
-      </div><!-- /.container-fluid -->
+      </div>
+      
+      <form method="post">
+        <table>
+          <tr>
+            <td>
+              <a href="/BarangKeluar/create" class="btn btn-primary">
+                <i class="fas fa-plus-square"> Tambah Data</i>
+              </a>
+            </td>
+            <td>
+              <a href="/BarangKeluar/cetak" class="btn btn-success" target="blank">
+                <i class="fas fa-print"> Cetak Data</i>
+              </a>&nbsp;&nbsp;&nbsp;
+            </td>
+          </tr>
+        </table>
+      </form>
+      
+      <!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 

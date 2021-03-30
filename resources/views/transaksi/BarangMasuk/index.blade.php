@@ -23,12 +23,32 @@
             <h1 class="m-0">Barang Masuk</h1>
           </div>
         </div><!-- /.row -->
-        <a href="/BarangMasuk/create" class="btn btn-primary">
-          <i class="fas fa-plus-square"> Tambah Data</i>
-        </a>
-        <a href="" class="btn btn-success">
-          <i class="fas fa-download"> Export Data</i>
-        </a>
+        
+        <form method="post" action="{{ route('BarangMasuk.cetak') }}">
+          @csrf
+          <table>
+            <tr>
+              <td>
+                <a href="/BarangMasuk/create" class="btn btn-primary">
+                  <i class="fas fa-plus-square"> Tambah Data</i>
+                </a>
+              </td>
+              <td>
+                <a href="/BarangMasuk/cetak" class="btn btn-success" target="blank">
+                  <i class="fas fa-print"> Cetak Data</i>
+                </a> 
+              </td>
+                       
+              {{--  <td>Dari Tanggal : </td>
+              <td><input type="date" id="tglawal" name="tglawal" required="required" class="form-control"></td>
+              <td>Sampai Tanggal : </td>
+              <td><input type="date" id="tglakhir" name="tglakhir" required="required" class="form-control"></td>
+              <td>
+                <a href="" onclick="this.href='/BarangMasuk/cetak/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value " target="_blank" class="btn btn-succes">Cetak</a>
+              </td>  --}}
+            </tr>
+          </table>
+        </form>
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -41,9 +61,11 @@
             <th scope="col">No</th>
             <th scope="col">Kode Barang</th>
             <th scope="col">Nama Barang</th>
+            <th scope="col">Jenis</th>
             <th scope="col">Jumlah Barang</th>
             <th scope="col">Satuan</th>
             <th scope="col">Tanggal Masuk</th>
+            <th scope="col">Nama Supplier</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -53,11 +75,19 @@
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $barangMasuk->dataBarang->kode_barang }}</td>
             <td>{{ $barangMasuk->dataBarang->nama_barang }}</td>
+            <td>{{ $barangMasuk->dataBarang->jenis->nama_jenis }}</td>
             <td>{{ $barangMasuk->jml_barang }}</td>
             <td>{{ $barangMasuk->dataBarang->satuan->nama_satuan }}</td>
             <td>{{ $barangMasuk->tgl_masuk }}</td>
+            <td>{{ $barangMasuk->supplier->nama_supplier }}</td>
             <td>
-              <a href="/BarangMasuk/{{ $barangMasuk->id_masuk }}" class="btn btn-primary"><i class="fas fa-info"></i></a>
+              <a href="/BarangMasuk/{{ $barangMasuk->id_masuk }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+
+            <form action="/BarangMasuk/{{ $barangMasuk->id_masuk }}" method="POST" class="d-inline">
+              @method('delete')
+              @csrf
+              <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+            </form>
             </td>
           </tr>
           @endforeach

@@ -74,7 +74,7 @@ class BarangMasukController extends Controller
      */
     public function show(BarangMasuk $barangMasuk)
     {
-        return view('transaksi.BarangMasuk.show', compact('barangMasuk'));
+
     }
 
     /**
@@ -134,5 +134,10 @@ class BarangMasukController extends Controller
     {
         BarangMasuk::destroy($barangMasuk->id_masuk);
         return redirect('/BarangMasuk')->with('message', 'Data Supplier Berhasil Dihapus!');
+    }
+
+    public function cetakBarangMasuk(){
+        $barangMasuk = BarangMasuk::get();
+        return view('transaksi.BarangMasuk.cetak', compact('barangMasuk'));
     }
 }

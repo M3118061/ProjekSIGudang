@@ -148,7 +148,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="laporanMasuk" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Barang Masuk</p>
                 </a>

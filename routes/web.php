@@ -84,11 +84,11 @@ Route::get('/stokBarang/cetak', 'App\Http\Controllers\StokBarangController@cetak
 // barang masuk
 Route::get('/BarangMasuk', 'App\Http\Controllers\BarangMasukController@index');
 Route::get('/BarangMasuk/create', 'App\Http\Controllers\BarangMasukController@create');
-Route::get('/BarangMasuk/{barangMasuk}', 'App\Http\Controllers\BarangMasukController@show');
 Route::post('/BarangMasuk', 'App\Http\Controllers\BarangMasukController@store');
 Route::delete('/BarangMasuk/{barangMasuk}', 'App\Http\Controllers\BarangMasukController@destroy');
 Route::get('/BarangMasuk/{barangMasuk}/edit', 'App\Http\Controllers\BarangMasukController@edit');
 Route::patch('/BarangMasuk/{barangMasuk}', 'App\Http\Controllers\BarangMasukController@update');
+Route::get('/BarangMasuk/cetak', 'App\Http\Controllers\BarangMasukController@cetakBarangMasuk')->name('BarangMasuk.cetak');
 
 //barang keluar
 Route::get('/BarangKeluar', 'App\Http\Controllers\BarangKeluarController@index');
@@ -98,6 +98,7 @@ Route::post('/BarangKeluar', 'App\Http\Controllers\BarangKeluarController@store'
 Route::delete('/BarangKeluar/{barangKeluar}', 'App\Http\Controllers\BarangKeluarController@destroy');
 Route::get('/BarangKeluar/{barangKeluar}/edit', 'App\Http\Controllers\BarangKeluarController@edit');
 Route::patch('/BarangKeluar/{barangKeluar}', 'App\Http\Controllers\BarangKeluarController@update');
+Route::get('/BarangKeluar/cetak', 'App\Http\Controllers\BarangKeluarController@cetakBarangKeluar');
 
 //supplier
 Route::get('/supplier', 'App\Http\Controllers\SupplierController@index')->name('supplier.index');
@@ -107,4 +108,7 @@ Route::post('/supplier', 'App\Http\Controllers\SupplierController@store');
 Route::delete('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@destroy');
 Route::get('/supplier/{supplier}/edit', 'App\Http\Controllers\SupplierController@edit');
 Route::patch('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@update')->name('supplier.update');
+
+//laporan
+
 
