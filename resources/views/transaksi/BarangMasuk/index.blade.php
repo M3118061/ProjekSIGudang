@@ -17,7 +17,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
+      <div class="card card-into card card-outline card-header">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Barang Masuk</h1>
@@ -35,25 +35,14 @@
               </td>
               <td>
                 <a href="/BarangMasuk/cetak" class="btn btn-success" target="blank">
-                  <i class="fas fa-print"> Cetak Data</i>
+                  <i class="fas fa-print"> Cetak Semua Data</i>
                 </a> 
               </td>
-                       
-              {{--  <td>Dari Tanggal : </td>
-              <td><input type="date" id="tglawal" name="tglawal" required="required" class="form-control"></td>
-              <td>Sampai Tanggal : </td>
-              <td><input type="date" id="tglakhir" name="tglakhir" required="required" class="form-control"></td>
-              <td>
-                <a href="" onclick="this.href='/BarangMasuk/cetak/'+ document.getElementById('tglawal').value + '/' + document.getElementById('tglakhir').value " target="_blank" class="btn btn-succes">Cetak</a>
-              </td>  --}}
             </tr>
           </table>
         </form>
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
+        <br>
+        <!-- Main content -->
     <section class="content">
       <table class="table">
         <thead class="table-dark">
@@ -95,6 +84,9 @@
       </table>
     </section>
     <!-- /.content -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
   </div>
   
   @include('layouts/footer')

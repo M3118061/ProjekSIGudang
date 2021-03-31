@@ -17,49 +17,57 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
+      <div class="card card-into card card-outline card-header">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Satuan Barang</h1>
           </div>
         </div><!-- /.row -->
-        <a href="/satuan/create" class="btn btn-primary">
-          <i class="fas fa-plus-square"> Tambah Data</i>
-        </a>
+        <form method="post">
+          <table>
+            <tr>
+              <td>
+                <a href="/satuan/create" class="btn btn-primary">
+                  <i class="fas fa-plus-square"> Tambah Data</i>
+                </a>
+              </td>
+            </tr>
+          </table>
+        </form>
+        <br>
+        <!-- Main content -->
+        <section class="content">
+          <table class="table">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Satuan Barang</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($satuanBarang as $satuanBarang)
+              <tr>
+                <th scope="row">{{ $loop->iteration }}</th>
+                <td>{{ $satuanBarang->nama_satuan }}</td>
+                <td>
+                  <a href="/satuan/{{ $satuanBarang->id_satuan }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+
+                  <form action="/satuan/{{ $satuanBarang->id_satuan }}" method="POST" class="d-inline">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                  </form>
+                </td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </section>
+        <!-- /.content -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-      <table class="table">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Satuan Barang</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($satuanBarang as $satuanBarang)
-          <tr>
-            <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $satuanBarang->nama_satuan }}</td>
-            <td>
-              <a href="/satuan/{{ $satuanBarang->id_satuan }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-
-              <form action="/satuan/{{ $satuanBarang->id_satuan }}" method="POST" class="d-inline">
-                @method('delete')
-                @csrf
-                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-              </form>
-            </td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </section>
-    <!-- /.content -->
+    <!-- /.content-header --> 
   </div>
   
   @include('layouts/footer')
