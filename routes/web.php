@@ -110,5 +110,8 @@ Route::get('/supplier/{supplier}/edit', 'App\Http\Controllers\SupplierController
 Route::patch('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@update')->name('supplier.update');
 
 //laporan
+Route::get('/laporanStok', 'App\Http\Controllers\LaporanStokController@index');
+Route::get('/laporanStokPertanggal/{tglawal}/{tglakhir}', 'App\Http\Controllers\LaporanStokController@CetakStokPertanggal');
+
 
 

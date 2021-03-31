@@ -32,12 +32,12 @@
         @foreach ($stokBarang as $stokBarang)
         <tr>
           <th scope="row">{{ $loop->iteration }}</th>
-          <td>{{ $barangMasuk->dataBarang->kode_barang }}</td>
-          <td>{{ $barangMasuk->dataBarang->nama_barang }}</td>
-          <td>{{ $barangMasuk->dataBarang->jenis->nama_jenis }}</td>
-          <td>{{ $barangMasuk->jml_barang }}</td>
-          <td>{{ $barangMasuk->dataBarang->satuan->nama_satuan }}</td>
-          <td>{{ $barangMasuk->supplier->nama_supplier }}</td>
+          <td>{{ $stokBarang->dataBarang->kode_barang }}</td>
+          <td>{{ $stokBarang->dataBarang->nama_barang }}</td>
+          <td>{{ $stokBarang->dataBarang->jenis->nama_jenis }}</td>
+          <td>{{ $stokBarang->jml_barang }}</td>
+          <td>{{ $stokBarang->dataBarang->satuan->nama_satuan }}</td>
+          <td>{{ $stokBarang->tgl_exp }}</td>
         </tr>
         @endforeach
 
