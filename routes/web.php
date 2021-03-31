@@ -117,4 +117,8 @@ Route::get('/laporanStokPertanggal/{tglawal}/{tglakhir}', 'App\Http\Controllers\
 Route::get('/laporanMasuk', 'App\Http\Controllers\LaporanMasukController@index');
 Route::get('/laporanMasukPertanggal/{tglawal}/{tglakhir}', 'App\Http\Controllers\LaporanMasukController@CetakMasukPertanggal');
 
+//laporan barang keluar
+Route::get('/laporanKeluar', 'App\Http\Controllers\LaporanKeluarController@index');
+Route::get('/laporanKeluarPertanggal/{tglawal}/{tglakhir}', 'App\Http\Controllers\LaporanKeluarController@CetakKeluarPertanggal');
+
 
