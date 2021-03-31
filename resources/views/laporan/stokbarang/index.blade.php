@@ -34,7 +34,7 @@
           </div>
           <div class=" my-3">
             <a href="" onclick="this.href='/laporanStokPertanggal/'+document.getElementById('tglawal').value + '/' 
-            + document.getElementById('tglakhir').value" target="_blank" class="btn btn-primary">Stok Pertanggal</a>
+            + document.getElementById('tglakhir').value" target="_blank" class="btn btn-primary"><i class="fas fa-print"> Cetak</i></a>
           </div>
         </div><!-- /.row -->
       </div>

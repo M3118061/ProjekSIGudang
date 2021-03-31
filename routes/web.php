@@ -109,9 +109,12 @@ Route::delete('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@d
 Route::get('/supplier/{supplier}/edit', 'App\Http\Controllers\SupplierController@edit');
 Route::patch('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@update')->name('supplier.update');
 
-//laporan
+//laporan stok
 Route::get('/laporanStok', 'App\Http\Controllers\LaporanStokController@index');
 Route::get('/laporanStokPertanggal/{tglawal}/{tglakhir}', 'App\Http\Controllers\LaporanStokController@CetakStokPertanggal');
 
+//laporan barang masuk
+Route::get('/laporanMasuk', 'App\Http\Controllers\LaporanMasukController@index');
+Route::get('/laporanMasukPertanggal/{tglawal}/{tglakhir}', 'App\Http\Controllers\LaporanMasukController@CetakMasukPertanggal');
 
 
