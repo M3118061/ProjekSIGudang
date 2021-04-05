@@ -37,7 +37,7 @@
         <br>
         <!-- Main content -->
         <section class="content">
-          <table class="table">
+          <table class="table table-bordered">
             <thead class="table-dark">
               <tr>
                 <th scope="col">No</th>
@@ -47,19 +47,27 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($pegawai as $pegawai)
+              @foreach ($pegawai as $pgw)
               <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $pegawai->name }}</td>
-                <td>{{ $pegawai->email }}</td>
+                <td>{{ $pgw->name }}</td>
+                <td>{{ $pgw->email }}</td>
                 <td>
-                  <a href="/pegawai/{{ $pegawai->id }}" class="btn btn-info"><i class="fas fa-info"></i></a>
+                  <a href="/pegawai/{{ $pgw->id }}" class="btn btn-info"><i class="fas fa-info"></i></a>
                 </td>
               </tr>
               @endforeach
             </tbody>
           </table>
         </section>
+        <div class="pull-right">
+          {{ $pegawai->links() }}
+        </div>
+        <style>
+          .w-5{
+            display: none;
+          }
+        </style>
         <!-- /.content -->
       </div><!-- /.container-fluid -->
     </div>
