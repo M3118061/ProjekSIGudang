@@ -19,6 +19,7 @@ class CreateStokBarangTable extends Migration
             $table->integer('jml_barang');
             $table->string('satuan');
             $table->date('tgl_exp');
+            // $table->string('status');
         });
     }
 
