@@ -76,8 +76,8 @@ Route::patch('/dataBarang/{dataBarang}', 'App\Http\Controllers\DataBarangControl
 Route::get('/stokBarang', 'App\Http\Controllers\StokBarangController@index');
 Route::get('/stokBarang/create', 'App\Http\Controllers\StokBarangController@create');
 Route::post('/stokBarang', 'App\Http\Controllers\StokBarangController@store');
-Route::delete('/stokBarang/{stokBarang}', 'App\Http\Controllers\StokBarangController@destroy')->name('stokBarang.destroy');
-Route::get('/stokBarang/{stokBarang}/edit', 'App\Http\Controllers\StokBarangController@edit')->name('stokBarang.edit');
+Route::delete('/stokBarang/{stokBarang}', 'App\Http\Controllers\StokBarangController@destroy')->name('stok.destroy');
+Route::get('/stokBarang/{stokBarang}/edit', 'App\Http\Controllers\StokBarangController@edit')->name('stok.edit');
 Route::patch('/stokBarang/{stokBarang}', 'App\Http\Controllers\StokBarangController@update');
 Route::get('/stokBarang/cetak', 'App\Http\Controllers\StokBarangController@cetakStok');
 
@@ -93,7 +93,6 @@ Route::get('/BarangMasuk/cetak', 'App\Http\Controllers\BarangMasukController@cet
 //barang keluar
 Route::get('/BarangKeluar', 'App\Http\Controllers\BarangKeluarController@index');
 Route::get('/BarangKeluar/create', 'App\Http\Controllers\BarangKeluarController@create');
-Route::get('/BarangKeluar/{barangKeluar}', 'App\Http\Controllers\BarangKeluarController@show');
 Route::post('/BarangKeluar', 'App\Http\Controllers\BarangKeluarController@store');
 Route::delete('/BarangKeluar/{barangKeluar}', 'App\Http\Controllers\BarangKeluarController@destroy');
 Route::get('/BarangKeluar/{barangKeluar}/edit', 'App\Http\Controllers\BarangKeluarController@edit');
@@ -103,7 +102,6 @@ Route::get('/BarangKeluar/cetak', 'App\Http\Controllers\BarangKeluarController@c
 //supplier
 Route::get('/supplier', 'App\Http\Controllers\SupplierController@index')->name('supplier.index');
 Route::get('/supplier/create', 'App\Http\Controllers\SupplierController@create');
-Route::get('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@show');
 Route::post('/supplier', 'App\Http\Controllers\SupplierController@store');
 Route::delete('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@destroy');
 Route::get('/supplier/{supplier}/edit', 'App\Http\Controllers\SupplierController@edit');

@@ -37,23 +37,23 @@
         <br>
         <!-- Main content -->
         <section class="content">
-          <table class="table">
+          <table class="table table-bordered">
             <thead class="table-dark">
-              <tr>
+              <tr class="text-center">
                 <th scope="col">No</th>
                 <th scope="col">Satuan Barang</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($satuanBarang as $satuanBarang)
+              @foreach ($satuanBarang as $satuan)
               <tr>
-                <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $satuanBarang->nama_satuan }}</td>
-                <td>
-                  <a href="/satuan/{{ $satuanBarang->id_satuan }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                <th scope="row" class="text-center">{{ $loop->iteration }}</th>
+                <td>{{ $satuan->nama_satuan }}</td>
+                <td class="text-center">
+                  <a href="/satuan/{{ $satuan->id_satuan }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 
-                  <form action="/satuan/{{ $satuanBarang->id_satuan }}" method="POST" class="d-inline">
+                  <form action="/satuan/{{ $satuan->id_satuan }}" method="POST" class="d-inline">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
@@ -64,6 +64,14 @@
             </tbody>
           </table>
         </section>
+        <div class="pull-right">
+          {{ $satuanBarang->links() }}
+        </div>
+        <style>
+          .w-5{
+            display: none;
+          }
+        </style>
         <!-- /.content -->
       </div><!-- /.container-fluid -->
     </div>

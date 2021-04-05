@@ -20,7 +20,7 @@ class BarangMasukController extends Controller
      */
     public function index()
     {
-        $barangMasuk = BarangMasuk::all();
+        $barangMasuk = BarangMasuk::paginate(3);
         return view('transaksi.BarangMasuk.index', compact('barangMasuk'));
     }
 
@@ -57,13 +57,12 @@ class BarangMasukController extends Controller
             'id_supplier' => 'required',
         ]);
 
-        BarangMasuk::create($request->all());
-
         $stokBarang = StokBarang::findOrFail($request->id_barang);
         $stokBarang->jml_barang += $request->jml_barang;
         $stokBarang->save();
-
-        return redirect('/BarangMasuk')->with('message', 'Data barang berhasil ditambahkan!!');
+        
+        BarangMasuk::create($request->all());
+        return redirect('/BarangMasuk')->with('pesan', 'Data barang berhasil ditambahkan!!');
     }
 
     /**

@@ -37,29 +37,47 @@
         <br>
         <!-- Main content -->
         <section class="content">
-          <table class="table">
+          <table class="table table-bordered">
             <thead class="table-dark">
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
+                <th scope="col">Jenis Kelamin</th>
                 <th scope="col">Alamat</th>
+                <th scope="col">No Telp</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($supplier as $supplier)
+              @foreach ($supplier as $sup)
               <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $supplier->nama_supplier }}</td>
-                <td>{{ $supplier->alamat }}</td>
+                <td>{{ $sup->nama_supplier }}</td>
+                <td>{{ $sup->jk }}</td>
+                <td>{{ $sup->alamat }}</td>
+                <td>{{ $sup->no_telp }}</td>
                 <td>
-                  <a href="/supplier/{{ $supplier->id_supplier }}" class="btn btn-primary"><i class="fas fa-info"></i></a>
+                  <a href="/supplier/{{ $sup->id_supplier }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+
+                  <form action="/supplier/{{ $sup->id_supplier }}" method="POST" class="d-inline">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                  </form>
                 </td>
               </tr>
               @endforeach
             </tbody>
           </table>
         </section>
+        <div class="pull-right">
+          {{ $supplier->links() }}
+        </div>
+        <style>
+          .w-5{
+            display: none;
+          }
+        </style>
         <!-- /.content -->
       </div><!-- /.container-fluid -->
     </div>

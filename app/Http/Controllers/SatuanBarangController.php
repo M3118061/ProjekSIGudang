@@ -14,7 +14,7 @@ class SatuanBarangController extends Controller
      */
     public function index()
     {
-        $satuanBarang = SatuanBarang::all();
+        $satuanBarang = SatuanBarang::paginate(3);
         return view('barang.satuan.index', compact('satuanBarang'));
     }
 

@@ -42,7 +42,7 @@
         <br>
         <!-- Main content -->
     <section class="content">
-      <table class="table">
+      <table class="table table-bordered">
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
@@ -56,23 +56,37 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($barangKeluar as $barangKeluar)
+          @foreach ($barangKeluar as $brgKeluar)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $barangKeluar->dataBarang->kode_barang }}</td>
-            <td>{{ $barangKeluar->dataBarang->nama_barang }}</td>
-            <td>{{ $barangKeluar->dataBarang->jenis->nama_jenis }}</td>
-            <td>{{ $barangKeluar->jml_barang }}</td>
-            <td>{{ $barangKeluar->dataBarang->satuan->nama_satuan }}</td>
-            <td>{{ $barangKeluar->tgl_keluar }}</td>
+            <td>{{ $brgKeluar->dataBarang->kode_barang }}</td>
+            <td>{{ $brgKeluar->dataBarang->nama_barang }}</td>
+            <td>{{ $brgKeluar->dataBarang->jenis->nama_jenis }}</td>
+            <td>{{ $brgKeluar->jml_barang }}</td>
+            <td>{{ $brgKeluar->dataBarang->satuan->nama_satuan }}</td>
+            <td>{{ $brgKeluar->tgl_keluar }}</td>
             <td>
-              <a href="/BarangKeluar/{{ $barangKeluar->id_keluar }}" class="btn btn-primary"><i class="fas fa-info"></i></a>
+              <a href="/BarangKeluar/{{ $brgKeluar->id_keluar }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+
+              <form action="/BarangKeluar/{{ $brgKeluar->id_keluar }}" method="POST" class="d-inline">
+                @method('delete')
+                @csrf
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+              </form>
             </td>
           </tr>
           @endforeach
         </tbody>
       </table>
     </section>
+    <div class="pull-right">
+      {{ $barangKeluar->links() }}
+    </div>
+    <style>
+      .w-5{
+        display: none;
+      }
+    </style>
     <!-- /.content -->
       </div>
       <!-- /.container-fluid -->

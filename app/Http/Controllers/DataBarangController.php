@@ -16,7 +16,7 @@ class DataBarangController extends Controller
      */
     public function index()
     {
-        $dataBarang = DataBarang::all();
+        $dataBarang = DataBarang::paginate(2);
         return view('barang.dataBarang.index', compact('dataBarang'));
     }
 
@@ -41,7 +41,7 @@ class DataBarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_barang' => 'required',
+            'kode_barang' => 'required|unique:data_barang,kode_barang',
             'nama_barang' => 'required',
             'id_jenis' => 'required',
             'id_satuan' => 'required',

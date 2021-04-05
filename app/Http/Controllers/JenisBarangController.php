@@ -14,7 +14,7 @@ class JenisBarangController extends Controller
      */
     public function index()
     {
-        $jenisBarang = JenisBarang::all();
+        $jenisBarang = JenisBarang::paginate(3);
         return view('barang.jenis.index', compact('jenisBarang'));
     }
 

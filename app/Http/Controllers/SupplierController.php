@@ -14,7 +14,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        $supplier = Supplier::all();
+        $supplier = Supplier::paginate(3);
         return view('supplier.index', compact('supplier'));
     }
 
@@ -56,7 +56,7 @@ class SupplierController extends Controller
      */
     public function show(Supplier $supplier)
     {
-        return view('supplier.show', compact('supplier'));
+
     }
 
     /**

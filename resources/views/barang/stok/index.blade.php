@@ -42,9 +42,9 @@
         <br>
         <!-- Main content -->
     <section class="content">
-      <table class="table">
+      <table class="table table-bordered">
         <thead class="table-dark">
-          <tr>
+          <tr class="text-center">
             <th scope="col">No</th>
             <th scope="col">Kode Barang</th>
             <th scope="col">Nama Barang</th>
@@ -56,19 +56,19 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($stokBarang as $stokBarang)
+          @foreach ($stokBarang as $stok)
           <tr>
-            <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $stokBarang->dataBarang->kode_barang }}</td>
-            <td>{{ $stokBarang->dataBarang->nama_barang }}</td>
-            <td>{{ $stokBarang->dataBarang->jenis->nama_jenis }}</td>
-            <td>{{ $stokBarang->jml_barang }}</td>
-            <td>{{ $stokBarang->dataBarang->satuan->nama_satuan }}</td>
-            <td>{{ $stokBarang->tgl_exp }}</td>
-            <td>
-              <a href="{{ $stokBarang->id_stok }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+            <th scope="row" class="text-center">{{ $loop->iteration }}</th>
+            <td>{{ $stok->dataBarang->kode_barang }}</td>
+            <td>{{ $stok->dataBarang->nama_barang }}</td>
+            <td>{{ $stok->dataBarang->jenis->nama_jenis }}</td>
+            <td class="text-center">{{ $stok->jml_barang }}</td>
+            <td>{{ $stok->dataBarang->satuan->nama_satuan }}</td>
+            <td>{{ $stok->tgl_exp }}</td>
+            <td class="text-center">
+              <a href="/stokBarang/{{ $stok->id_stok }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 
-            <form action="/stokBarang/{{ $stokBarang->id_stok }}" method="POST" class="d-inline">
+            <form action="/stokBarang/{{ $stok->id_stok }}" method="POST" class="d-inline">
               @method('delete')
               @csrf
               <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
@@ -79,6 +79,14 @@
         </tbody>
       </table>
     </section>
+    <div class="pull-right">
+      {{ $stokBarang->links() }}
+    </div>
+    <style>
+      .w-5{
+        display: none;
+      }
+    </style>
     <!-- /.content -->
       </div>
       <!-- /.container-fluid -->

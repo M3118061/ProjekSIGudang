@@ -24,7 +24,7 @@
           </div>
         </div><!-- /.row -->
         
-        <form method="post" action="{{ route('BarangMasuk.cetak') }}">
+        <form method="post">
           @csrf
           <table>
             <tr>
@@ -44,7 +44,7 @@
         <br>
         <!-- Main content -->
     <section class="content">
-      <table class="table">
+      <table class="table table-bordered">
         <thead class="table-dark">
           <tr>
             <th scope="col">No</th>
@@ -59,20 +59,20 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($barangMasuk as $barangMasuk)
+          @foreach ($barangMasuk as $brgMasuk)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $barangMasuk->dataBarang->kode_barang }}</td>
-            <td>{{ $barangMasuk->dataBarang->nama_barang }}</td>
-            <td>{{ $barangMasuk->dataBarang->jenis->nama_jenis }}</td>
-            <td>{{ $barangMasuk->jml_barang }}</td>
-            <td>{{ $barangMasuk->dataBarang->satuan->nama_satuan }}</td>
-            <td>{{ $barangMasuk->tgl_masuk }}</td>
-            <td>{{ $barangMasuk->supplier->nama_supplier }}</td>
+            <td>{{ $brgMasuk->dataBarang->kode_barang }}</td>
+            <td>{{ $brgMasuk->dataBarang->nama_barang }}</td>
+            <td>{{ $brgMasuk->dataBarang->jenis->nama_jenis }}</td>
+            <td>{{ $brgMasuk->jml_barang }}</td>
+            <td>{{ $brgMasuk->dataBarang->satuan->nama_satuan }}</td>
+            <td>{{ $brgMasuk->tgl_masuk }}</td>
+            <td>{{ $brgMasuk->supplier->nama_supplier }}</td>
             <td>
-              <a href="/BarangMasuk/{{ $barangMasuk->id_masuk }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+              <a href="/BarangMasuk/{{ $brgMasuk->id_masuk }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 
-            <form action="/BarangMasuk/{{ $barangMasuk->id_masuk }}" method="POST" class="d-inline">
+            <form action="/BarangMasuk/{{ $brgMasuk->id_masuk }}" method="POST" class="d-inline">
               @method('delete')
               @csrf
               <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
@@ -83,6 +83,14 @@
         </tbody>
       </table>
     </section>
+    <div class="pull-right">
+      {{ $barangMasuk->links() }}
+    </div>
+    <style>
+      .w-5{
+        display: none;
+      }
+    </style>
     <!-- /.content -->
       </div><!-- /.container-fluid -->
     </div>

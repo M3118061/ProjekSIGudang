@@ -18,7 +18,7 @@ class StokBarangController extends Controller
      */
     public function index()
     {
-        $stokBarang = StokBarang::all();
+        $stokBarang = StokBarang::paginate(3);
         $dataBarang = DataBarang::all();
         return view('barang.stok.index', compact('stokBarang','dataBarang'));
     }

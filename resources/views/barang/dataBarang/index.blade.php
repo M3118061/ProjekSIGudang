@@ -37,9 +37,9 @@
         <br>
         <!-- Main content -->
         <section class="content">
-          <table class="table">
+          <table class="table table-bordered">
             <thead class="table-dark">
-              <tr>
+              <tr class="text-center">
                 <th scope="col">No</th>
                 <th scope="col">Kode Barang</th>
                 <th scope="col">Nama Barang</th>
@@ -49,16 +49,16 @@
               </tr>
             </thead>
             <tbody>
-              @foreach ($dataBarang as $dataBarang)
+              @foreach ($dataBarang as $dtBarang)
               <tr>
-                <th scope="row">{{ $loop->iteration }}</th>
-                <td>{{ $dataBarang->kode_barang }}</td>
-                <td>{{ $dataBarang->nama_barang }}</td>
-                <td>{{ $dataBarang->jenis->nama_jenis }}</td>
-                <td>{{ $dataBarang->satuan->nama_satuan }}</td>
-                <td>
-                  <a href="/dataBarang/{{ $dataBarang->id_barang }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                  <form action="/dataBarang/{{ $dataBarang->id_barang }}" method="POST" class="d-inline">
+                <th scope="row" class="text-center">{{ $loop->iteration }}</th>
+                <td>{{ $dtBarang->kode_barang }}</td>
+                <td>{{ $dtBarang->nama_barang }}</td>
+                <td>{{ $dtBarang->jenis->nama_jenis }}</td>
+                <td>{{ $dtBarang->satuan->nama_satuan }}</td>
+                <td class="text-center">
+                  <a href="/dataBarang/{{ $dtBarang->id_barang }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                  <form action="/dataBarang/{{ $dtBarang->id_barang }}" method="POST" class="d-inline">
                     @method('delete')
                     @csrf
                     <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
@@ -69,6 +69,14 @@
             </tbody>
           </table>
         </section>
+        <div class="pull-right">
+          {{ $dataBarang->links() }}
+        </div>
+        <style>
+          .w-5{
+            display: none;
+          }
+        </style>
         <!-- /.content -->
       </div><!-- /.container-fluid -->
     </div>

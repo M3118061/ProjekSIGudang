@@ -18,7 +18,7 @@ class BarangKeluarController extends Controller
      */
     public function index()
     {
-        $barangKeluar = BarangKeluar::all();
+        $barangKeluar = BarangKeluar::paginate(3);
         return view('transaksi.BarangKeluar.index', compact('barangKeluar'));
     }
 
@@ -51,13 +51,12 @@ class BarangKeluarController extends Controller
             'satuan' => 'required',
             'tgl_keluar' => 'required|date',
         ]);
-
-        BarangKeluar::create($request->all());
-
+        
         $stokBarang = StokBarang::findOrFail($request->id_barang);
         $stokBarang->jml_barang -= $request->jml_barang;
         $stokBarang->save();
-
+        
+        BarangKeluar::create($request->all());
         return redirect('/BarangKeluar')->with('message', 'Data barang berhasil ditambahkan!!');
     }
 
@@ -69,7 +68,7 @@ class BarangKeluarController extends Controller
      */
     public function show(BarangKeluar $barangKeluar)
     {
-        return view('transaksi.BarangKeluar.show', compact('barangKeluar'));
+
     }
 
     /**
