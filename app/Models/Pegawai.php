@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pegawai extends Model
 {
     use HasFactory;
-    protected $table = 'users';
-    protected $fillable = ['name','jk','alamat','no_telp','email','password','role'];
+    protected $table = 'pegawai';
+    protected $fillable = ['name','jk','alamat','no_telp','email','password','role','pegawai_id'];
     // protected $primaryKey = 'id_pegawai';
 }

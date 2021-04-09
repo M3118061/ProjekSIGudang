@@ -29,6 +29,14 @@ Route::get('/', function () {
     return view('frontend.index');
 });
 
+Route::get('/about', function () {
+    return view('frontend.about');
+});
+
+Route::get('/products', function () {
+    return view('frontend.products');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -38,13 +46,13 @@ Auth::routes();
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('is_admin');
 
 // pegawai
-Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index')->name('pegawai.index');
-Route::get('/pegawai/create', 'App\Http\Controllers\PegawaiController@create');
-Route::get('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@show');
-Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store');
-Route::delete('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destroy');
-Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit');
-Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update');
+Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index')->name('pegawai.index')->middleware('checkRole:admin');
+Route::get('/pegawai/create', 'App\Http\Controllers\PegawaiController@create')->middleware('checkRole:admin');
+Route::get('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@show')->middleware('checkRole:admin');
+Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store')->middleware('checkRole:admin');
+Route::delete('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destroy')->middleware('checkRole:admin');
+Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit')->middleware('checkRole:admin');
+Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update')->middleware('checkRole:admin');
 
 //jenis
 Route::get('/jenis', 'App\Http\Controllers\JenisBarangController@index')->name('jenis.index');

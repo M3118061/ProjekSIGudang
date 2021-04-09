@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Pegawai;
+use App\Models\User;
 
 class PegawaiController extends Controller
 {
@@ -15,7 +16,6 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        // $pegawai = DB::table('employees')->get();
         $pegawai = Pegawai::paginate(3);
         return view('pegawai.index', compact('pegawai'));
     }
@@ -48,8 +48,19 @@ class PegawaiController extends Controller
             'role' => 'required'
         ]);
 
-        Pegawai::create($request->all());
+        //insert ke tabel user
+        $user = new User;
+        $user->role = 'pegawai';
+        $user->name = $request->name;
+        $user->jk = $request->jk;
+        $user->alamat = $request->alamat;
+        $user->no_telp = $request->no_telp;
+        $user->email = $request->email;
+        $user->password = bcrypt('rahasia');
+        $user->save();
 
+        $request->request->add(['pegawai_id' => $user->id]);
+        Pegawai::create($request->all());
         return redirect('/pegawai')->with('pesan', 'Data Mahasiswa Berhasil Ditambahkan!');
     }
 

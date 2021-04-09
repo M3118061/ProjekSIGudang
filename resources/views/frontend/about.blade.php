@@ -38,55 +38,43 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
-          <li class="nav-item active px-lg-4">
+          <li class="nav-item px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="/">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item px-lg-4">
+          <li class="nav-item active px-lg-4">
             <a class="nav-link text-uppercase text-expanded" href="/about">About</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/producs">Products</a>
+            <a class="nav-link text-uppercase text-expanded" href="/products">Products</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <section class="page-section clearfix">
+  <section class="page-section about-heading">
     <div class="container">
-      <div class="intro">
-        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="frontendAssets/img/intro.jpg" alt="">
-        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-          <h2 class="section-heading mb-4">
-            <span class="section-heading-upper">Selamat Datang !!</span>
-          </h2>
-          <p class="mb-3">
-              Kami akan memberikan informasi terkait dengan persediaan bahan makanan kering dalam gudang
-          </p>
-          <div class="intro-button mx-auto">
-            <a class="btn btn-primary btn-xl" href="{{ route('home') }}">LOGIN</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <div class="cta-inner text-center rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Our Promise</span>
-              <span class="section-heading-lower">☻</span>
-            </h2>
-            <p class="mb-0">
-                Kami akan memberikan layanan yang ramah, suasana yang ramah, dan yang terpenting, 
-                produk unggulan dengan bahan-bahan berkualitas tinggi.
-                Jika Anda tidak puas, beri tahu kami dan kami akan memperbaikinya!
-            </p>
+      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="frontendAssets/img/about.jpg" alt="">
+      <div class="about-heading-content">
+        <div class="row">
+          <div class="col-xl-9 col-lg-10 mx-auto">
+            <div class="bg-faded rounded p-5">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-upper">Bahan Makanan Kering</span>
+              </h2>
+              <p>
+                Bahan makanan kering adalah bahan makanan yang memiliki Aw sangat rendah yaitu sekitar 0,065 dimana pada Aw tersebut bakteri dan khamir 
+                sudah tidak dapat tumbuh kecuali beberapa jenis yang pertumbuhannya hanya membutuhkan kadar air yang sangat rendah.
+              </p>
+              <p class="mb-0">
+                Jenis bahan makanan kering diantaranya adalah tepung-tepungan, mie, beras, bumbu kering, aneka pasta dan beberapa penyedap rasa. 
+                Bahan makanan kering yang dipakai untuk produksi makanan adalah yang memiliki kriteria tertentu, seperti berkualitas baik dan segar, 
+                higienis dan bersih, harga dan timbangan yang jelas, cara penyimpanan yang tepat, 
+                jumlahnya dalam persediaan, selalu ada dan stok tidak pernah kosong dan mudah dibedakan dengan barang lain.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -95,7 +83,7 @@
 
   <footer class="footer text-faded text-center py-5">
     <div class="container">
-      <p class="m-0 small">Copyright &copy; SIGudang 2021</p>
+      <p class="m-0 small">Copyright &copy; Your Website 2020</p>
     </div>
   </footer>
 

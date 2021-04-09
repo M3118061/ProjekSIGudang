@@ -56,8 +56,9 @@
                 Dashboard
               </p>
             </a>
-            
           </li>
+
+          @if (auth()->user()->role == 'admin')
           <li class="nav-item">
             <a href="{{ url('/pegawai') }}" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
@@ -66,6 +67,8 @@
               </p>
             </a>
           </li>
+          @endif
+          
           <li class="nav-item">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>

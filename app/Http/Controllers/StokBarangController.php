@@ -22,9 +22,9 @@ class StokBarangController extends Controller
         // $tglexp = StokBarang::pluck('tgl_exp','id_barang');
         $waktuawal  = date_create('2021-04-5'); //waktu di setting
 
-$waktuakhir = date_create(); //2019-02-21 09:35 waktu sekarang
+        $waktuakhir = date_create(); //2019-02-21 09:35 waktu sekarang
 
-$diff  = date_diff($waktuawal, $waktuakhir);
+        $diff  = date_diff($waktuawal, $waktuakhir);
         // $tglsekarang = new DateTime( date("Y-m-d"));
         // $tglexp = StokBarang::pluck('tgl_exp','id_barang');
         
