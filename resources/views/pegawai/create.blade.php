@@ -76,7 +76,7 @@
           </div>
           <div class="form-group">
             <label for="password" class="form-label">Password</label>
-            <input type="text" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Masukkan password" name="password" value="{{ old('password') }}">
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Masukkan password" name="password" value="{{ old('password') }}">
             @error('password')
             <div class="invalid-feedback">
               {{ $message }}

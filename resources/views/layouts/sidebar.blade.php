@@ -57,52 +57,67 @@
               </p>
             </a>
           </li>
-
-          @if (auth()->user()->role == 'admin')
-          <li class="nav-item">
-            <a href="{{ url('/pegawai') }}" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Data Pegawai
-              </p>
-            </a>
-          </li>
-          @endif
           
           <li class="nav-item">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Barang
+                Data Master
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
+              @if (auth()->user()->role == 'admin')
+              <li class="nav-item">
+                <a href="{{ url('/pegawai') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Data Pegawai
+                  </p>
+                </a>
+              </li>
+              @endif
               <li class="nav-item">
                 <a href="{{ url('/dataBarang') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Barang</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ url('/stokBarang') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Stok Barang</p>
+                  <p>
+                    Data Barang
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ url('/jenis') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Jenis</p>
+                  <p>
+                    Data Jenis
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ url('/satuan') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Data Satuan</p>
+                  <p>
+                    Data Satuan
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/supplier') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Data Supplier
+                  </p>
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('/stokBarang') }}" class="nav-link">
+              <i class="nav-icon fas fa-cart-plus"></i>
+              <p>
+                Stok Barang
+              </p>
+            </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -126,14 +141,6 @@
                 </a>
               </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a href="{{ url('/supplier') }}" class="nav-link">
-              <i class="nav-icon fas fa-people-carry"></i>
-              <p>
-                Data Supplier
-              </p>
-            </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -163,6 +170,14 @@
                 </a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('change-password') }}" class="nav-link">
+              <i class="nav-icon fas fa-key"></i>
+              <p>
+                Ubah Password
+              </p>
+            </a>
           </li>
         </ul>
       </nav>
