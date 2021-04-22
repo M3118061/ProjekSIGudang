@@ -57,12 +57,12 @@ class BarangMasukController extends Controller
             'id_supplier' => 'required',
         ]);
 
+        BarangMasuk::create($request->all());
+        return redirect('/BarangMasuk')->with('pesan', 'Data barang berhasil ditambahkan!!');
+
         $stokBarang = StokBarang::findOrFail($request->id_barang);
         $stokBarang->jml_barang += $request->jml_barang;
         $stokBarang->save();
-        
-        BarangMasuk::create($request->all());
-        return redirect('/BarangMasuk')->with('pesan', 'Data barang berhasil ditambahkan!!');
     }
 
     /**

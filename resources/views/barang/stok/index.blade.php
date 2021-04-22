@@ -52,7 +52,7 @@
             <th scope="col">Jumlah Barang</th>
             <th scope="col">Satuan</th>
             <th scope="col">Tanggal EXP</th>
-            <th scope="col">Status</th>
+            {{--  <th scope="col">Status</th>  --}}
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -66,7 +66,7 @@
             <td class="text-center">{{ $stok->jml_barang }}</td>
             <td>{{ $stok->dataBarang->satuan->nama_satuan }}</td>
             <td>{{ $stok->tgl_exp }}</td>
-            <td>{{ $diff->days }} Hari</td>
+            {{--  <td>{{ $diff->days }} Hari</td>  --}}
             <td class="text-center">
               <a href="/stokBarang/{{ $stok->id_stok }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 

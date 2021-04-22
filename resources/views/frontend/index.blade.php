@@ -47,7 +47,7 @@
             <a class="nav-link text-uppercase text-expanded" href="/about">About</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/producs">Products</a>
+            <a class="nav-link text-uppercase text-expanded" href="/products">Products</a>
           </li>
         </ul>
       </div>
@@ -79,13 +79,11 @@
         <div class="col-xl-9 mx-auto">
           <div class="cta-inner text-center rounded">
             <h2 class="section-heading mb-4">
-              <span class="section-heading-upper">Our Promise</span>
               <span class="section-heading-lower">☻</span>
             </h2>
             <p class="mb-0">
-                Kami akan memberikan layanan yang ramah, suasana yang ramah, dan yang terpenting, 
+                Kami akan memberikan layanan yang ramah, suasana yang ramah dan  
                 produk unggulan dengan bahan-bahan berkualitas tinggi.
-                Jika Anda tidak puas, beri tahu kami dan kami akan memperbaikinya!
             </p>
           </div>
         </div>

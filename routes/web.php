@@ -14,16 +14,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::view('/dashboard', 'dashboard');
-
-// Route::view('/', 'page/auth/login');
-// Route::get('/logout', 'Auth\LoginController@logout');
-
-//login
-// Route::get('/', function () {
-//     return view('page.auth.login');
-// });
-
 //dashboard
 Route::get('/', function () {
     return view('frontend.index');
@@ -40,6 +30,8 @@ Route::get('/products', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/change-password', 'App\Http\Controllers\PasswordController@changePassword')->name('change-password')->middleware('auth');
+Route::post('/update-password', 'App\Http\Controllers\PasswordController@updatePassword')->name('update-password')->middleware('auth');
 
 Auth::routes();
 

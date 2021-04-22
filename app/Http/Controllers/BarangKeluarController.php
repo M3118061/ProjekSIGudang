@@ -52,12 +52,12 @@ class BarangKeluarController extends Controller
             'tgl_keluar' => 'required|date',
         ]);
         
+        BarangKeluar::create($request->all());
+        return redirect('/BarangKeluar')->with('message', 'Data barang berhasil ditambahkan!!');
+
         $stokBarang = StokBarang::findOrFail($request->id_barang);
         $stokBarang->jml_barang -= $request->jml_barang;
         $stokBarang->save();
-        
-        BarangKeluar::create($request->all());
-        return redirect('/BarangKeluar')->with('message', 'Data barang berhasil ditambahkan!!');
     }
 
     /**
