@@ -60,13 +60,13 @@
 </div>
 <!-- /.row -->
 
-<!-- chart stok barang -->
+{{--  <!-- chart stok barang -->
 <div id="chartStok">
 
 </div>
-<!-- end chart -->
+<!-- end chart -->  --}}
 
-@section('footer')
+{{--  @section('footer')
   <script src="https://code.highcharts.com/highcharts.js"></script>
 
   <script>
@@ -103,9 +103,9 @@
       },
       series: [{
           name: 'Jenis Barang',
-          data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6]
+          data: [49.9]
   
       }]
   });
   </script>
-@endsection
+@endsection  --}}

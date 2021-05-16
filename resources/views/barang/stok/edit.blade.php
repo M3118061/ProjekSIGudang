@@ -17,17 +17,18 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
+      <div class="card card-into card card-outline card-header">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Ubah Data Stok Barang</h1>
           </div>
         </div><!-- /.row -->
         <!-- Main content -->
-        <form method="POST" action="/stokBarang/{{ $stokBarang->id_stok }}">
+        <section class="content">
+        <form class="p-3" method="POST" action="/stokBarang/{{ $stokBarang->id_stok }}">
           @method('patch')
           @csrf
-          <div class="form-group">
+          <div class="mb-3">
             <label for="kode_barang" class="form-label">Kode Barang</label>
             <select name="id_barang" id="kode_barang" class="form-control">
               <option value="">--Pilih--</option>
@@ -39,7 +40,7 @@
               @endforeach
             </select>
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="nama_barang" class="form-label">Nama Barang</label>
             <select name="id_barang" id="nama_barang" class="form-control">
               <option value="">--Pilih--</option>
@@ -51,7 +52,7 @@
               @endforeach
             </select>
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="jenis" class="form-label">Jenis Barang</label>
             <select name="jenis" id="jenis" class="form-control">
               <option value="">--Pilih--</option>
@@ -60,7 +61,7 @@
               @endforeach
             </select>
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="jml_barang" class="form-label">Jumlah Barang</label>
             <input type="number" class="form-control @error('jml_barang') is-invalid @enderror" id="jml_barang" name="jml_barang" value="{{ $stokBarang->jml_barang }}">
             @error('jml_barang')
@@ -69,7 +70,7 @@
             </div>
             @enderror
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="satuan" class="form-label">Satuan Barang</label>
             <select name="satuan" id="satuan" class="form-control">
               <option value="">--Pilih--</option>
@@ -78,7 +79,7 @@
               @endforeach
             </select>
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="tgl_exp" class="form-label">Tanggal EXP</label>
             <input type="date" class="form-control @error('tgl_exp') is-invalid @enderror" id="tgl_exp" name="tgl_exp" value="{{ $stokBarang->tgl_exp }}">
             @error('tgl_exp')
@@ -91,6 +92,7 @@
           <button type="submit" class="btn btn-primary">Submit</button>
           <a href="/stokBarang" class="btn btn-danger">Cancel</a>
         </form>
+        </section>
         <!-- /.content -->
           </div><!-- /.container-fluid -->
         </div>

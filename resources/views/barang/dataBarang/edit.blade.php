@@ -17,17 +17,18 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
+      <div class="card card-into card card-outline card-header">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Ubah Data Barang</h1>
           </div>
         </div><!-- /.row -->
         <!-- Main content -->
-        <form method="POST" action="/dataBarang/{{ $dataBarang->id_barang }}">
+        <section class="content">
+        <form class="p-3" method="POST" action="/dataBarang/{{ $dataBarang->id_barang }}">
           @method('patch')
           @csrf
-          <div class="form-group">
+          <div class="mb-3">
             <label for="kode_barang" class="form-label">Kode Barang</label>
             <input type="text" class="form-control @error('kode_barang') is-invalid @enderror" id="kode_barang" placeholder="Masukkan kode barang" name="kode_barang" value="{{ $dataBarang->kode_barang }}">
             @error('kode_barang')
@@ -36,7 +37,7 @@
             </div>
             @enderror
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="nama_barang" class="form-label">Nama Barang</label>
             <input type="text" class="form-control @error('nama_barang') is-invalid @enderror" id="nama_barang" placeholder="Masukkan nama barang" name="nama_barang" value="{{ $dataBarang->nama_barang }}">
             @error('nama_barang')
@@ -45,7 +46,7 @@
             </div>
             @enderror
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="id_jenis" class="form-label">Jenis Barang</label>
             <select name="id_jenis" id="id_jenis" class="form-control">
               <option value="">--Pilih--</option>
@@ -54,7 +55,7 @@
               @endforeach
             </select>
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="id_satuan" class="form-label">Satuan Barang</label>
             <select name="id_satuan" id="id_satuan" class="form-control">
               <option value="">--Pilih--</option>
@@ -67,6 +68,7 @@
           <button type="submit" class="btn btn-primary">Submit</button>
           <a href="/dataBarang" class="btn btn-danger">Cancel</a>
         </form>
+        </section>
         <!-- /.content -->
           </div><!-- /.container-fluid -->
         </div>

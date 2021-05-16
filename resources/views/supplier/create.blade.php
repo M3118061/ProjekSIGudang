@@ -17,16 +17,17 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
+      <div class="card card-into card card-outline card-header">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Tambah Data Supplier</h1>
           </div>
         </div><!-- /.row -->
         <!-- Main content -->
-        <form method="POST" action="/supplier">
+        <section class="conttent">
+        <form class="p-3" method="POST" action="/supplier">
           @csrf
-          <div class="form-group">
+          <div class="mb-3">
             <label for="nama_supplier" class="form-label">Nama Supplier</label>
             <input type="text" class="form-control @error('nama_supplier') is-invalid @enderror" id="nama_supplier" placeholder="Masukkan nama supplier" name="nama_supplier" value="{{ old('nama_supplier') }}">
             @error('nama_supplier')
@@ -35,7 +36,7 @@
             </div>
             @enderror
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="jk" class="form-labe">Jenis Kelamin</label><br>
             <select class="form-selec @error('jk') is-invalid @enderror" id="jk" name="jk" value="{{ old('jk') }}">
               <option selected>Perempuan</option>
@@ -47,7 +48,7 @@
               @enderror
             </select>
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="alamat" class="form-label">Alamat</label>
             <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Masukkan alamat" name="alamat" value="{{ old('alamat') }}">
             @error('alamat')
@@ -56,7 +57,7 @@
             </div>
             @enderror
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="no_telp" class="form-label">No Telp</label>
             <input type="text" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan no telp" name="no_telp" value="{{ old('no_telp') }}">
             @error('no_telp')
@@ -69,6 +70,7 @@
           <button type="submit" class="btn btn-primary">Submit</button>
           <a href="/supplier" class="btn btn-danger">Cancel</a>
         </form>
+        </section>
         <!-- /.content -->
           </div><!-- /.container-fluid -->
         </div>

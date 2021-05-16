@@ -23,17 +23,23 @@
             <h1 class="m-0">Data Pegawai</h1>
           </div>
         </div><!-- /.row -->
-        <form method="post">
-          <table>
-            <tr>
-              <td>
-                <a href="/pegawai/create" class="btn btn-primary">
-                  <i class="fas fa-plus-square"> Tambah Data</i>
-                </a>
-              </td>
-            </tr>
-          </table>
-        </form>
+        <div class="col-sm-2">
+          <form method="post">
+            <a href="/pegawai/create" class="btn btn-primary">
+              <i class="fas fa-plus-square"> Tambah Data</i>
+            </a>
+          </form>
+        </div>
+        <div class="relative mx-auto">
+          <form action="{{ route('pegawai.search') }}" method="GET">
+            <div class="input-group">
+              <input type="search" class="form-control" name="search">
+              <span class="input-group-prepend">
+                <button type="submit" class="btn btn-primary">Search</button>
+              </span>
+            </div>
+          </form>
+        </div>
         <br>
         <!-- Main content -->
         <section class="content">

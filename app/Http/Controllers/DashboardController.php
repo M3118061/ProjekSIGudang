@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\JenisBarang;
 use App\Models\StokBarang;
 use Illuminate\Http\Request;
 
@@ -9,13 +10,16 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $stokBarang = StokBarang::all();
-        $categories = [];
-        foreach ($stokBarang as $stok) {
-            $categories[] = $stok->jenis;
-        }
-        // dd(json_encode($categories));
+        // $stokBarang = StokBarang::all();
+        // $categories = [];
+        // // $data = [];
 
-        return view('dashboard',['categories' => $categories]);
+        // foreach ($stokBarang as $stokBarang) {
+        //     $categories[] = $stokBarang->jenis;
+        //     // $data[] = $stokBarang->jml_barang;
+        // }
+        // // dd(json_encode($categories));
+
+        return view('dashboard');
     }
 }

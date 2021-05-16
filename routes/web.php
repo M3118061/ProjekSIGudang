@@ -39,6 +39,7 @@ Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index
 
 // pegawai
 Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index')->name('pegawai.index')->middleware('checkRole:admin');
+Route::get('/pegawai/cari', 'App\Http\Controllers\PegawaiController@cari')->name('pegawai.search')->middleware('checkRole:admin');
 Route::get('/pegawai/create', 'App\Http\Controllers\PegawaiController@create')->middleware('checkRole:admin');
 Route::get('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@show')->middleware('checkRole:admin');
 Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store')->middleware('checkRole:admin');

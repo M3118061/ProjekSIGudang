@@ -18,16 +18,17 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
+      <div class="card card-into card card-outline card-header">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Tambah Data Barang Masuk</h1>
           </div>
         </div><!-- /.row -->
         <!-- Main content -->
-        <form method="POST" action="/BarangMasuk">
+        <section class="content">
+        <form class="p-3" method="POST" action="/BarangMasuk">
           @csrf
-          <div class="form-group">
+          <div class="mb-3">
             <label for="kode_barang" class="form-label">Kode Barang</label>
             <select name="id_barang" id="kode_barang" class="form-control @error('id_barang') is-invalid @enderror">
               <option value="">--Pilih--</option>
@@ -43,7 +44,7 @@
             </div>
             @enderror
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="nama_barang" class="form-label">Nama Barang</label>
             <select name="id_barang" id="nama_barang" class="form-control @error('id_barang') is-invalid @enderror">
               <option value="">--Pilih--</option>
@@ -60,7 +61,7 @@
             @enderror
           </div>
 
-          <div class="form-group">
+          <div class="mb-3">
             <label for="jenis" class="form-label">Jenis</label>
             <select name="jenis" id="jenis" class="form-control @error('jenis') is-invalid @enderror">
               <option value="">--Pilih--</option>
@@ -74,7 +75,7 @@
             </div>
             @enderror
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="jml_barang" class="form-label">Jumlah Barang</label>
             <input type="number" class="form-control @error('jml_barang') is-invalid @enderror" id="jml_barang" placeholder="Masukkan jumlah barang" name="jml_barang" value="{{ old('jml_barang') }}">
             @error('jml_barang')
@@ -83,7 +84,7 @@
             </div>
             @enderror
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="satuan" class="form-label">Satuan</label>
             <select name="satuan" id="satuan" class="form-control @error('satuan') is-invalid @enderror">
               <option value="">--Pilih--</option>
@@ -97,7 +98,7 @@
             </div>
             @enderror
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="tgl_masuk" class="form-label">Tanggal Masuk</label>
             <input type="date" class="form-control @error('tgl_masuk') is-invalid @enderror" id="tgl_masuk" name="tgl_masuk" value="{{ old('tgl_masuk') }}">
             @error('tgl_masuk')
@@ -106,7 +107,7 @@
             </div>
             @enderror
           </div>
-          <div class="form-group">
+          <div class="mb-3">
             <label for="id_supplier" class="form-label">Supplier</label>
             <select name="id_supplier" id="id_supplier" class="form-control @error('id_supplier') is-invalid @enderror">
               <option value="">--Pilih--</option>
@@ -125,6 +126,7 @@
           <button type="submit" class="btn btn-primary">Submit</button>
           <a href="/BarangMasuk" class="btn btn-danger">Cancel</a>
         </form>
+        </section>
         <!-- /.content -->
           </div><!-- /.container-fluid -->
         </div>

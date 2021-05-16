@@ -17,16 +17,17 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
+      <div class="card card-into card card-outline card-header">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Tambah Data Satuan</h1>
           </div>
         </div><!-- /.row -->
         <!-- Main content -->
-        <form method="POST" action="/satuan">
+        <section class="content">
+        <form class="p-3" method="POST" action="/satuan">
           @csrf
-          <div class="form-group">
+          <div class="mb-3">
             <label for="nama_satuan" class="form-label">Nama Satuan</label>
             <input type="text" class="form-control @error('nama_satuan') is-invalid @enderror" id="nama_satuan" placeholder="Masukkan satuan barang" name="nama_satuan" value="{{ old('nama_satuan') }}">
             @error('nama_satuan')
@@ -39,6 +40,7 @@
           <button type="submit" class="btn btn-primary">Submit</button>
           <a href="/satuan" class="btn btn-danger">Cancel</a>
         </form>
+        </section>
         <!-- /.content -->
           </div><!-- /.container-fluid -->
         </div>

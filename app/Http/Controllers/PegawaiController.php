@@ -20,6 +20,12 @@ class PegawaiController extends Controller
         return view('pegawai.index', compact('pegawai'));
     }
 
+    public function cari(Request $request){
+        $search = $request->get('search');
+        $pegawai = Pegawai::where('name','like',"%".$search."%")->paginate(3);
+        return view('pegawai.index',compact('pegawai'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -61,7 +67,8 @@ class PegawaiController extends Controller
 
         $request->request->add(['pegawai_id' => $user->id]);
         Pegawai::create($request->all());
-        return redirect('/pegawai')->with('pesan', 'Data Mahasiswa Berhasil Ditambahkan!');
+
+        return redirect('/pegawai')->with('success', 'Data Pegawai Berhasil Ditambahkan!');
     }
 
     /**
@@ -101,7 +108,6 @@ class PegawaiController extends Controller
             'alamat' => 'required',
             'no_telp' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'role' => 'required'
         ]);
 
@@ -112,11 +118,10 @@ class PegawaiController extends Controller
                     'alamat' => $request->alamat,
                     'no_telp' => $request->no_telp,
                     'email' => $request->email,
-                    'password' => $request->password,
                     'role' => $request->role
                 ]);
 
-        return redirect('/pegawai')->with('pesan', 'Data Pegawai Berhasil Diupdate!');
+        return redirect('/pegawai')->with('success', 'Data Pegawai Berhasil Diupdate!');
     }
 
     /**
@@ -128,6 +133,6 @@ class PegawaiController extends Controller
     public function destroy(Pegawai $pegawai)
     {
         Pegawai::destroy($pegawai->id);
-        return redirect('/pegawai')->with('message', 'Data Pegawai Berhasil Dihapus!');
+        return redirect('/pegawai')->with('success', 'Data Pegawai Berhasil Dihapus!');
     }
 }

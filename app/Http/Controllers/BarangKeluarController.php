@@ -53,11 +53,12 @@ class BarangKeluarController extends Controller
         ]);
         
         BarangKeluar::create($request->all());
-        return redirect('/BarangKeluar')->with('message', 'Data barang berhasil ditambahkan!!');
-
+        
         $stokBarang = StokBarang::findOrFail($request->id_barang);
         $stokBarang->jml_barang -= $request->jml_barang;
         $stokBarang->save();
+        
+        return redirect('/BarangKeluar')->with('message', 'Data barang berhasil ditambahkan!!');
     }
 
     /**
