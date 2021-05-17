@@ -17,17 +17,7 @@ class StokBarangController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-
-        // $tglexp = StokBarang::pluck('tgl_exp','id_barang');
-        // $waktuawal  = date_create('2021-04-5'); //waktu di setting
-
-        // $waktuakhir = date_create(); //2019-02-21 09:35 waktu sekarang
-
-        // $diff  = date_diff($waktuawal, $waktuakhir);
-        // $tglsekarang = new DateTime( date("Y-m-d"));
-        // $tglexp = StokBarang::pluck('tgl_exp','id_barang');
-        
+    {   
         $stokBarang = StokBarang::paginate(3);
         $dataBarang = DataBarang::all();
         return view('barang.stok.index', compact('stokBarang','dataBarang'));

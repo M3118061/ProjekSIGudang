@@ -18,6 +18,12 @@ class JenisBarangController extends Controller
         return view('barang.jenis.index', compact('jenisBarang'));
     }
 
+    public function cari(Request $request){
+        $search = $request->get('search');
+        $jenisBarang = JenisBarang::where('nama_jenis','like',"%".$search."%")->paginate(3);
+        return view('barang.jenis.index',compact('jenisBarang'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

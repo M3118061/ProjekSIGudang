@@ -23,23 +23,23 @@
             <h1 class="m-0">Stok Barang</h1>
           </div>
         </div><!-- /.row -->
-        <form method="post">
-          <table>
-            <tr>
-              <td>
+
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <form method="post">
               <a href="/stokBarang/create" class="btn btn-primary">
                 <i class="fas fa-plus-square"> Tambah Data</i>
               </a>
-              </td>
-              <td>
-              <a href="/stokBarang/cetak" class="btn btn-success" target="blank">
-                <i class="fas fa-print"> Cetak Semua Data</i>
-              </a>&nbsp;&nbsp;&nbsp;
-              </td>
-            </tr>
-          </table>
-        </form>
+            </form>
+          </div>
+          <div class="col-auto">
+            <a href="/stokBarang/cetak" class="btn btn-success" target="blank">
+              <i class="fas fa-print"> Cetak Semua Data</i>
+            </a>
+          </div>
+        </div>
         <br>
+        
         <!-- Main content -->
     <section class="content">
       <table class="table table-bordered">
@@ -66,7 +66,6 @@
             <td class="text-center">{{ $stok->jml_barang }}</td>
             <td>{{ $stok->dataBarang->satuan->nama_satuan }}</td>
             <td>{{ $stok->tgl_exp }}</td>
-            {{--  <td>{{ $diff->days }} Hari</td>  --}}
             <td class="text-center">
               <a href="/stokBarang/{{ $stok->id_stok }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
 

@@ -18,6 +18,12 @@ class SatuanBarangController extends Controller
         return view('barang.satuan.index', compact('satuanBarang'));
     }
 
+    public function cari(Request $request){
+        $search = $request->get('search');
+        $satuanBarang = SatuanBarang::where('nama_satuan','like',"%".$search."%")->paginate(3);
+        return view('barang.satuan.index',compact('satuanBarang'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -23,18 +23,28 @@
             <h1 class="m-0">Satuan Barang</h1>
           </div>
         </div><!-- /.row -->
-        <form method="post">
-          <table>
-            <tr>
-              <td>
-                <a href="/satuan/create" class="btn btn-primary">
-                  <i class="fas fa-plus-square"> Tambah Data</i>
-                </a>
-              </td>
-            </tr>
-          </table>
-        </form>
+
+        <div class="row g-3 align-items-center">
+          <div class="col-auto">
+            <form method="post">
+              <a href="/satuan/create" class="btn btn-primary">
+                <i class="fas fa-plus-square"> Tambah Data</i>
+              </a>
+            </form>
+          </div>
+          <div class="col-auto">
+            <form action="{{ route('satuan.search') }}" method="GET">
+              <div class="input-group">
+                <input type="search" class="form-control" name="search">
+                <span class="input-group-prepend">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
         <br>
+
         <!-- Main content -->
         <section class="content">
           <table class="table table-bordered">

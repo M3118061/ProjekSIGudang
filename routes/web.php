@@ -49,6 +49,7 @@ Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@updat
 
 //jenis
 Route::get('/jenis', 'App\Http\Controllers\JenisBarangController@index')->name('jenis.index');
+Route::get('/jenis/cari', 'App\Http\Controllers\JenisBarangController@cari')->name('jenis.search');
 Route::get('/jenis/create', 'App\Http\Controllers\JenisBarangController@create');
 Route::post('/jenis', 'App\Http\Controllers\JenisBarangController@store');
 Route::delete('/jenis/{jenisBarang}', 'App\Http\Controllers\JenisBarangController@destroy');
@@ -58,6 +59,7 @@ Route::patch('/jenis/{jenisBarang}', 'App\Http\Controllers\JenisBarangController
 
 //satuan barang
 Route::get('/satuan', 'App\Http\Controllers\SatuanBarangController@index');
+Route::get('/satuan/cari', 'App\Http\Controllers\SatuanBarangController@cari')->name('satuan.search');
 Route::get('/satuan/create', 'App\Http\Controllers\SatuanBarangController@create');
 Route::post('/satuan', 'App\Http\Controllers\SatuanBarangController@store');
 Route::delete('/satuan/{satuanBarang}', 'App\Http\Controllers\SatuanBarangController@destroy');
@@ -66,6 +68,7 @@ Route::patch('/satuan/{satuanBarang}', 'App\Http\Controllers\SatuanBarangControl
 
 //data barang
 Route::get('/dataBarang', 'App\Http\Controllers\DataBarangController@index')->name('dataBarang.index');
+Route::get('/dataBarang/cari', 'App\Http\Controllers\DataBarangController@cari')->name('dataBarang.search');
 Route::get('/dataBarang/create', 'App\Http\Controllers\DataBarangController@create');
 Route::post('/dataBarang', 'App\Http\Controllers\DataBarangController@store');
 Route::delete('/dataBarang/{dataBarang}', 'App\Http\Controllers\DataBarangController@destroy');
@@ -102,6 +105,7 @@ Route::get('/BarangKeluar/cetak', 'App\Http\Controllers\BarangKeluarController@c
 
 //supplier
 Route::get('/supplier', 'App\Http\Controllers\SupplierController@index')->name('supplier.index');
+Route::get('/supplier/cari', 'App\Http\Controllers\SupplierController@cari')->name('supplier.search');
 Route::get('/supplier/create', 'App\Http\Controllers\SupplierController@create');
 Route::post('/supplier', 'App\Http\Controllers\SupplierController@store');
 Route::delete('/supplier/{supplier}', 'App\Http\Controllers\SupplierController@destroy');

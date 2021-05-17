@@ -18,6 +18,12 @@ class SupplierController extends Controller
         return view('supplier.index', compact('supplier'));
     }
 
+    public function cari(Request $request){
+        $search = $request->get('search');
+        $supplier = Supplier::where('nama_supplier','like',"%".$search."%")->paginate(3);
+        return view('supplier.index',compact('supplier'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

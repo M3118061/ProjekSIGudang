@@ -20,6 +20,12 @@ class DataBarangController extends Controller
         return view('barang.dataBarang.index', compact('dataBarang'));
     }
 
+    public function cari(Request $request){
+        $search = $request->get('search');
+        $dataBarang = DataBarang::where('nama_barang','like',"%".$search."%")->paginate(3);
+        return view('barang.dataBarang.index',compact('dataBarang'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
