@@ -20,9 +20,9 @@ class CreateUserSeeder extends Seeder
                 'jk' => 'Perempuan',
                 'alamat' => 'Bantul',
                 'no_telp' => '089867823331',
-                'email' => 'admin@muthiaamesthi',
+                'email' => 'muthiaamesthi@gmail.com',
                 'is_admin' => 1,
-                'password' => bcrypt('muthia'),
+                'password' => bcrypt('saharani2000'),
                 'role' => 'admin',
             ],
             [
