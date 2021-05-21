@@ -55,7 +55,7 @@ class DataBarangController extends Controller
 
         DataBarang::create($request->all());
 
-        return redirect('/dataBarang')->with('message', 'Data barang berhasil ditambahkan!!');
+        return redirect('/dataBarang')->with('success', 'Data barang berhasil ditambahkan!!');
     }
 
     /**
@@ -106,7 +106,7 @@ class DataBarangController extends Controller
                       'id_satuan' => $request->id_satuan
                   ]);
         
-        return redirect('/dataBarang')->with('message','Data barang berhasil diubah');
+        return redirect('/dataBarang')->with('success','Data barang berhasil diubah');
     }
 
     /**
@@ -118,6 +118,6 @@ class DataBarangController extends Controller
     public function destroy(DataBarang $dataBarang)
     {
         DataBarang::destroy($dataBarang->id_barang);
-        return redirect('/dataBarang')->with('message','Data jenis berhasil dihapus!!');
+        return redirect('/dataBarang')->with('success','Data jenis berhasil dihapus!!');
     }
 }

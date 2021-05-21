@@ -58,7 +58,7 @@ class BarangKeluarController extends Controller
         $stokBarang->jml_barang -= $request->jml_barang;
         $stokBarang->save();
         
-        return redirect('/BarangKeluar')->with('message', 'Data barang berhasil ditambahkan!!');
+        return redirect('/BarangKeluar')->with('success', 'Data Barang Masuk Berhasil Ditambahkan!!');
     }
 
     /**
@@ -113,7 +113,7 @@ class BarangKeluarController extends Controller
                     'tgl_keluar' => $request->tgl_keluar,
                 ]);
 
-        return redirect('/BarangKeluar')->with('pesan', 'Data Supplier Berhasil Diupdate!');
+        return redirect('/BarangKeluar')->with('success', 'Data Barang Masuk Berhasil Diupdate!');
     }
 
     /**
@@ -125,7 +125,7 @@ class BarangKeluarController extends Controller
     public function destroy(BarangKeluar $barangKeluar)
     {
         BarangKeluar::destroy($barangKeluar->id_keluar);
-        return redirect('/BarangKeluar')->with('message', 'Data Supplier Berhasil Dihapus!');
+        return redirect('/BarangKeluar')->with('message', 'Data Barang Masuk Berhasil Dihapus!');
     }
 
     public function cetakBarangKeluar()

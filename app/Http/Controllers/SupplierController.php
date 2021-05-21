@@ -51,7 +51,7 @@ class SupplierController extends Controller
 
         Supplier::create($request->all());
 
-        return redirect('/supplier')->with('pesan', 'Supplier Berhasil Ditambahkan!');
+        return redirect('/supplier')->with('success', 'Data Supplier Berhasil Ditambahkan!');
     }
 
     /**
@@ -100,7 +100,7 @@ class SupplierController extends Controller
                     'no_telp' => $request->no_telp,
                 ]);
 
-        return redirect('/supplier')->with('pesan', 'Data Supplier Berhasil Diupdate!');
+        return redirect('/supplier')->with('success', 'Data Supplier Berhasil Diupdate!');
     }
 
     /**
@@ -112,6 +112,6 @@ class SupplierController extends Controller
     public function destroy(Supplier $supplier)
     {
         Supplier::destroy($supplier->id_supplier);
-        return redirect('/supplier')->with('message', 'Data Supplier Berhasil Dihapus!');
+        return redirect('/supplier')->with('success', 'Data Supplier Berhasil Dihapus!');
     }
 }

@@ -62,7 +62,7 @@ class StokBarangController extends Controller
 
         StokBarang::create($request->all());
 
-        return redirect('/stokBarang')->with('message', 'Data barang berhasil ditambahkan!!');
+        return redirect('/stokBarang')->with('success', 'Data Stok Barang Berhasil Ditambahkan!!');
     }
 
     /**
@@ -118,7 +118,7 @@ class StokBarangController extends Controller
                     'tgl_exp' => $request->tgl_exp,
                 ]);
 
-        return redirect('/stokBarang')->with('pesan', 'Data Supplier Berhasil Diupdate!');
+        return redirect('/stokBarang')->with('success', 'Data Stok Barang Berhasil Diupdate!');
     }
 
     /**
@@ -130,6 +130,6 @@ class StokBarangController extends Controller
     public function destroy(StokBarang $stokBarang)
     {
         StokBarang::destroy($stokBarang->id_stok);
-        return redirect('/stokBarang')->with('message', 'Data Supplier Berhasil Dihapus!');
+        return redirect('/stokBarang')->with('success', 'Data Stok Barang Berhasil Dihapus!');
     }
 }

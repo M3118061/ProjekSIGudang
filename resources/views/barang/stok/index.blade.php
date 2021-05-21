@@ -39,8 +39,12 @@
           </div>
         </div>
         <br>
-        
-        <!-- Main content -->
+        @if (session('success'))
+        <div class="alert alert-success" role="alert">
+          {{ session('success') }}
+        </div>
+        @endif  
+    <!-- Main content -->
     <section class="content">
       <table class="table table-bordered">
         <thead class="table-dark">

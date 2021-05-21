@@ -48,7 +48,7 @@ class SatuanBarangController extends Controller
 
         SatuanBarang::create($request->all());
 
-        return redirect('/satuan')->with('message', 'Satuan barang berhasil ditambahkan!!');
+        return redirect('/satuan')->with('success', 'Data Satuan Barang Berhasil Ditambahkan!!');
     }
 
     /**
@@ -91,7 +91,7 @@ class SatuanBarangController extends Controller
                         'nama_satuan' => $request->nama_satuan
                     ]);
         
-        return redirect('/satuan')->with('message', 'Data satuan berhasil diubah!!');
+        return redirect('/satuan')->with('success', 'Data Satuan Barang Berhasil Diubah!!');
     }
 
     /**
@@ -103,6 +103,6 @@ class SatuanBarangController extends Controller
     public function destroy(SatuanBarang $satuanBarang)
     {
         SatuanBarang::destroy($satuanBarang->id_satuan);
-        return redirect('/satuan')->with('message','Data satuan berhasil dihapus!!');
+        return redirect('/satuan')->with('success','Data Satuan Barang Berhasil Dihapus!!');
     }
 }

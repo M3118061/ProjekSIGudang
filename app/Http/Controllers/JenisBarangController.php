@@ -48,7 +48,7 @@ class JenisBarangController extends Controller
 
         JenisBarang::create($request->all());
 
-        return redirect('/jenis')->with('pesan', 'Jenis Barang Berhasil Ditambahkan!');
+        return redirect('/jenis')->with('success', 'Data Jenis Barang Berhasil Ditambahkan!');
     }
 
     /**
@@ -91,7 +91,7 @@ class JenisBarangController extends Controller
                         'nama_jenis' => $request->nama_jenis
                     ]);
 
-        return redirect('/jenis')->with('message', 'Data jenis berhasil diubah');
+        return redirect('/jenis')->with('success', 'Data Jenis Barang Berhasil Diubah');
     }
 
     /**
@@ -103,6 +103,6 @@ class JenisBarangController extends Controller
     public function destroy(JenisBarang $jenisBarang)
     {
         JenisBarang::destroy($jenisBarang->id_jenis);
-        return redirect('/jenis')->with('message','Data jenis berhasil dihapus!!');
+        return redirect('/jenis')->with('success','Data Jenis Barang Berhasil Dihapus!!');
     }
 }

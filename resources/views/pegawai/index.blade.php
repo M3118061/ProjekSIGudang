@@ -43,6 +43,11 @@
             </div>
           </div>
         <br>
+        @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                  {{ session('success') }}
+                </div>
+        @endif
         <!-- Main content -->
         <section class="content">
           <table class="table table-bordered">

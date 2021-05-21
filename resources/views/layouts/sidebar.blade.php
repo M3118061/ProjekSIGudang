@@ -14,21 +14,28 @@
         </div>  --}}
         <div class="info">
           <ul class="navbar-nav ml-auto">
-            <!-- Authentication Links -->
-            @guest
-                @if (Route::has('login'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}"></a>
-                    </li>
-                @endif
+            <div class="d-flex">
+              {{-- <div class="image">
+                <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2">
+              </div> --}}
+              <div class="info">
+                <!-- Authentication Links -->
+                @guest
+                    @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}"></a>
+                        </li>
+                    @endif
 
-            @else
-                <li>
-                    <a href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
-                </li>
-            @endguest
+                @else
+                    <li>
+                        <a href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+                    </li>
+                @endguest
+              </div>
+            </div>
         </ul>
         </div>
       </div>

@@ -63,7 +63,7 @@ class BarangMasukController extends Controller
         $stokBarang->jml_barang += $request->jml_barang;
         $stokBarang->save();
 
-        return redirect('/BarangMasuk')->with('pesan', 'Data barang berhasil ditambahkan!!');
+        return redirect('/BarangMasuk')->with('success', 'Data Barang Masuk Berhasil Ditambahkan!!');
     }
 
     /**
@@ -121,7 +121,7 @@ class BarangMasukController extends Controller
                     'id_supplier' => $request->id_supplier,
                 ]);
 
-        return redirect('/BarangMasuk')->with('pesan', 'Data Supplier Berhasil Diupdate!');
+        return redirect('/BarangMasuk')->with('success', 'Data Barang Masuk Berhasil Diupdate!');
     }
 
     /**
@@ -133,7 +133,7 @@ class BarangMasukController extends Controller
     public function destroy(BarangMasuk $barangMasuk)
     {
         BarangMasuk::destroy($barangMasuk->id_masuk);
-        return redirect('/BarangMasuk')->with('message', 'Data Supplier Berhasil Dihapus!');
+        return redirect('/BarangMasuk')->with('success', 'Data Barang Masuk Berhasil Dihapus!');
     }
 
     public function cetakBarangMasuk(){
