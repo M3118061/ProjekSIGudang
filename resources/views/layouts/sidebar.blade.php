@@ -85,14 +85,6 @@
               </li>
               @endif
               <li class="nav-item">
-                <a href="{{ url('/dataBarang') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Data Barang
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{ url('/jenis') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
@@ -105,6 +97,14 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>
                     Data Satuan
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ url('/dataBarang') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    Data Barang
                   </p>
                 </a>
               </li>
