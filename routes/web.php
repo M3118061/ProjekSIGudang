@@ -124,4 +124,6 @@ Route::get('/laporanMasukPertanggal/{tglawal}/{tglakhir}', 'App\Http\Controllers
 Route::get('/laporanKeluar', 'App\Http\Controllers\LaporanKeluarController@index');
 Route::get('/laporanKeluarPertanggal/{tglawal}/{tglakhir}', 'App\Http\Controllers\LaporanKeluarController@CetakKeluarPertanggal');
 
+//akun
+Route::get('/akun', 'App\Http\Controllers\AkunController@index')->name('setting.akun');
 
