@@ -7,6 +7,34 @@
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+      <!-- Telah Expired -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+          <i class="fas fa-hourglass-end"></i>
+          <span class="badge badge-danger navbar-badge"><span id="notif_expired_badge">0</span></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+          <span class="dropdown-item dropdown-header">PERHATIAN!</span>
+          <a href="" class="dropdown-item">
+            Ada <span id="notif_expired" class="font-weight-bold">0</span> produk telah expired!
+          </a>
+        </div>
+      </li>
+
+      <!-- Segera Expired -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+          <i class="fas fa-hourglass-half"></i>
+          <span class="badge badge-warning navbar-badge"><span id="notif_reminder_badge">0</span></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+          <span class="dropdown-item dropdown-header">PERHATIAN!</span>
+          <a href="" class="dropdown-item">
+            Ada <span id="notif_reminder" class="font-weight-bold">0</span> produk akan segera expired!
+          </a>
+        </div>
+      </li>
+
       <!-- Home -->
       <li class="nav-item d-none d-sm-inline-block">
         <a href="{{ url('/') }}" class="nav-link">
