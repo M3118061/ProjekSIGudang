@@ -29,7 +29,7 @@
 
                 @else
                     <li>
-                        <a href="#" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a href="{{ route('setting.akun') }}" role="button" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
                     </li>
@@ -178,11 +178,19 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          {{--  <li class="nav-item">
             <a href="{{ route('change-password') }}" class="nav-link">
               <i class="nav-icon fas fa-key"></i>
               <p>
                 Ubah Password
+              </p>
+            </a>
+          </li>  --}}
+          <li class="nav-item">
+            <a href="{{ route('setting.akun') }}" class="nav-link">
+              <i class="nav-icon fas fa-user-cog"></i>
+              <p>
+                Akun
               </p>
             </a>
           </li>
