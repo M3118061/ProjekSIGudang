@@ -113,6 +113,15 @@
             </div>
             @enderror
           </div>
+          <div class="mb-3">
+            <label for="role" class="form-label">Pengingat Expired</label>
+            <input type="number" class="form-control @error('exp_reminder') is-invalid @enderror" id="exp_reminder" name="exp_reminder" value="{{ old('exp_reminder') }}">
+            @error('exp_reminder')
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
+            @enderror
+          </div>
           
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
