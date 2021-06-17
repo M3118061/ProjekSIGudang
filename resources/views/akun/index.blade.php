@@ -21,6 +21,24 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Akun Setting</h1>
+            <!-- Session -->
+                  @if (Session::get('success'))
+                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ Session::get('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                  @endif
+                  
+                  @if (Session::get('failed'))
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ Session::get('failed') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                  @endif
           </div>
           </div><!-- /.row -->
         <!-- Main content -->
@@ -31,7 +49,7 @@
                       <h3 class="card-title">Profile</h3>
                   </div>
                   <div class="card-body">
-                      <form role="form" id="update" action="" method="post">
+                      <form role="form" id="update" action="{{ route('setting.akun.update') }}" method="post">
                           @csrf
                           <div class="form-group row">
                               <label class="col-sm-4 col-form-label">{{ __('Email') }}</label>
@@ -40,9 +58,9 @@
                               </div>
                           </div>
                           <div class="form-group row">
-                              <label for="fullname" class="col-sm-4 col-form-label">{{ __('Fullname') }}</label>
+                              <label for="name" class="col-sm-4 col-form-label">{{ __('Name') }}</label>
                               <div class="col-sm-8">
-                                  <input type="text" class="form-control" id="fullname" name="fullname" value="{{ Auth::user()->name }}">
+                                  <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}">
                               </div>
                           </div>
                           <div class="form-group row">
@@ -66,25 +84,6 @@
                   <div class="card-header">
                       <h3 class="card-title">Password</h3>
                   </div>
-                  <br>
-                  <!-- Session -->
-                  @if (Session::get('success'))
-                      <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{ Session::get('success') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                  @endif
-                  
-                  @if (Session::get('failed'))
-                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        {{ Session::get('failed') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                  @endif
                   <div class="card-body">
                       <form role="form" id="update_password" action="{{ route('update-password') }}" method="post">
                           @csrf
