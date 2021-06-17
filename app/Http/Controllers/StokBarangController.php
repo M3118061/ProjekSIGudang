@@ -8,8 +8,6 @@ use App\Models\SatuanBarang;
 use App\Models\JenisBarang;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 
 class StokBarangController extends Controller
 {
