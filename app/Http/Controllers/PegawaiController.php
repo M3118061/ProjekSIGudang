@@ -51,7 +51,8 @@ class PegawaiController extends Controller
             'no_telp' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'role' => 'required'
+            'role' => 'required',
+            'exp_reminder' => 'required'
         ]);
 
         //insert ke tabel user
@@ -63,6 +64,7 @@ class PegawaiController extends Controller
         $user->no_telp = $request->no_telp;
         $user->email = $request->email;
         $user->password = bcrypt('rahasia');
+        $user->exp_reminder = $request->exp_reminder;
         $user->save();
 
         $request->request->add(['pegawai_id' => $user->id]);
