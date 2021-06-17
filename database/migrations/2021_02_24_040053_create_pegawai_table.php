@@ -23,6 +23,7 @@ class CreatePegawaiTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role');
+            $table->integer('exp_reminder');
             $table->timestamps();
         });
     }
