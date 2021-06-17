@@ -36,6 +36,10 @@ Route::post('/update-password', 'App\Http\Controllers\PasswordController@updateP
 Auth::routes();
 
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard')->middleware('is_admin');
+Route::prefix('products')->group(function () {
+    Route::get('', [App\Http\Controllers\ExpiredController::class, 'products'])->name('products');
+    Route::get('expiryCheck', [App\Http\Controllers\ExpiredController::class, 'product_expiry_check'])->name('products.expiryCheck');
+});
 
 // pegawai
 Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index')->name('pegawai.index')->middleware('checkRole:admin');
@@ -126,4 +130,10 @@ Route::get('/laporanKeluarPertanggal/{tglawal}/{tglakhir}', 'App\Http\Controller
 
 //akun
 Route::get('/akun', 'App\Http\Controllers\AkunController@index')->name('setting.akun');
+Route::post('/akunUpdate', 'App\Http\Controllers\AkunController@update')->name('setting.akun.update');
+
+//exp
+// Route::get('/produkEXP', 'App\Http\Controllers\ExpiredController@products')->name('products');
+// Route::get('/expiryCheck', 'App\Http\Controllers\ExpiredController@product_expiry_check')->name('products.expiryCheck');
+
 
