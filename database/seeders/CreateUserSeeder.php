@@ -24,6 +24,7 @@ class CreateUserSeeder extends Seeder
                 'is_admin' => 1,
                 'password' => bcrypt('kireina1818'),
                 'role' => 'admin',
+                'exp_reminder' => '3',
             ],
             [
                 'name' => 'Kireina',
@@ -34,6 +35,7 @@ class CreateUserSeeder extends Seeder
                 'is_admin' => 0,
                 'password' => bcrypt('hana'),
                 'role' => 'pegawai',
+                'exp_reminder' => '3',
             ]
         ];
         foreach ($user as $key => $value) {
