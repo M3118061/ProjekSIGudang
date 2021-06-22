@@ -47,7 +47,7 @@
             <a class="nav-link text-uppercase text-expanded" href="/about">About</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/products">Products</a>
+            <a class="nav-link text-uppercase text-expanded" href="/produk">Products</a>
           </li>
         </ul>
       </div>

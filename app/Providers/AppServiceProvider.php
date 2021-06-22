@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\StokBarang;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,7 +29,31 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        view()->composer('*', function ($view) {
+
+        if(Auth::check()){
+            $expReminder = User::where('id',Auth::user()->id)->first();
+            $all = StokBarang::pluck('tgl_exp','id_stok');
+            $remindCount = 0;
+            $expCount = 0;
+            foreach ($all as $key => $value) {
+                $date = Carbon::createFromFormat('Y-m-d', $value);
+                $date1 = Carbon::createFromFormat('Y-m-d', $value)->subDays($expReminder->exp_reminder);
+                if (Carbon::now() >= $date1 && $value > Carbon::now()){
+                    $remindCount +=1;
+                }
+
+                if (Carbon::now() > $value) {
+                    $expCount +=1 ;
+                }
+
+            }
+
+            $view->with('reminder',$remindCount);
+            $view->with('expired',$expCount);
+        }
         Schema::defaultStringLength(225);
         Paginator::useBootstrap();
+    });
     }
 }

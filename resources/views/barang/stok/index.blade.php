@@ -37,11 +37,51 @@
               <i class="fas fa-print"> Cetak Semua Data</i>
             </a>
           </div>
+          <div class="col-auto">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#laporanStok">
+              Laporan Pertanggal
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="laporanStok" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Cetak Laporan Pertanggal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <div class="my-3">
+                          <label for="label">Tanggal Awal : </label>
+                          <input type="date" name="tglawal" id="tglawal" class="form-control">
+                        </div>
+                        <div class="my-3">
+                          <label for="label">Taggal Akhir : </label>
+                          <input type="date" name="tglakhir" id="tglakhir" class="form-control">
+                        </div>
+                        <div class="my-3">
+                          <a href="" onclick="this.href='/laporanStokPertanggal/'+document.getElementById('tglawal').value + '/' 
+                          + document.getElementById('tglakhir').value" target="_blank" class="btn btn-primary"><i class="fas fa-print"> Cetak</i></a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <br>
         @if (session('success'))
         <div class="alert alert-success" role="alert">
           {{ session('success') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
         @endif  
     <!-- Main content -->

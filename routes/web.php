@@ -23,7 +23,7 @@ Route::get('/about', function () {
     return view('frontend.about');
 });
 
-Route::get('/products', function () {
+Route::get('/produk', function () {
     return view('frontend.products');
 });
 

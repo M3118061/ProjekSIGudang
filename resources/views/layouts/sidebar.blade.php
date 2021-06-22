@@ -150,43 +150,6 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Laporan Pertanggal
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/laporanStok" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Stok Barang</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="laporanMasuk" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Barang Masuk</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="laporanKeluar" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Barang Keluar</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          {{--  <li class="nav-item">
-            <a href="{{ route('change-password') }}" class="nav-link">
-              <i class="nav-icon fas fa-key"></i>
-              <p>
-                Ubah Password
-              </p>
-            </a>
-          </li>  --}}
-          <li class="nav-item">
             <a href="{{ route('setting.akun') }}" class="nav-link">
               <i class="nav-icon fas fa-user-cog"></i>
               <p>
