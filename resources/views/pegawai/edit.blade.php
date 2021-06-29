@@ -17,78 +17,89 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="card card-into card card-outline card-header">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Ubah Data Pegawai</h1>
+      <div class="card">
+        <div class="card-outline">
+          <div class="card-header">
+            <div class="float-left">
+              <strong>Edit Data Pegawai</strong>
+            </div>
+            <div class="float-right">
+              <a href="/pegawai" class="btn btn-secondary btn-sm"><i class="fas fa-undo"> Back</i></a>
+            </div>
           </div>
         </div><!-- /.row -->
         <!-- Main content -->
-        <section class="content">
-        <form class="p-3" method="POST" action="/pegawai/{{ $pegawai->id }}">
-          @method('patch')
-          @csrf
-          <div class="mb-3">
-            <label for="name" class="form-label">Nama</label>
-            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Masukkan nama" name="name" value="{{ $pegawai->name }}">
-            @error('name')
-            <div class="invalid-feedback">
-              {{ $message }}
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 offset-md-4">
+              <section class="content">
+                <form class="p-3" method="POST" action="/pegawai/{{ $pegawai->id }}">
+                  @method('patch')
+                  @csrf
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="Masukkan nama" name="name" value="{{ $pegawai->name }}">
+                    @error('name')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label for="jk" class="form-labe">Jenis Kelamin</label><br>
+                    <select class="form-control @error('jk') is-invalid @enderror" id="jk" name="jk" value="{{ $pegawai->jk }}">
+                      <option selected>Perempuan</option>
+                      <option>Laki-laki</option>
+                      @error('jk')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="alamat" class="form-label">Alamat</label>
+                    <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Masukkan alamat" name="alamat" value="{{ $pegawai->alamat }}">
+                    @error('alamat')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label for="no_telp" class="form-label">No Telp</label>
+                    <input type="text" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan no telp" name="no_telp" value="{{ $pegawai->no_telp }}">
+                    @error('no_telp')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Masukkan email" name="email" value="{{ $pegawai->email }}">
+                    @error('email')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label for="role" class="form-label">Role</label>
+                    <input type="text" class="form-control @error('role') is-invalid @enderror" id="role" placeholder="Masukkan role" name="role" value="{{ $pegawai->role }}">
+                    @error('role')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </section>
             </div>
-            @enderror
           </div>
-          <div class="mb-3">
-            <label for="jk" class="form-labe">Jenis Kelamin</label><br>
-            <select class="form-selec @error('jk') is-invalid @enderror" id="jk" name="jk" value="{{ $pegawai->jk }}">
-              <option selected>Perempuan</option>
-              <option>Laki-laki</option>
-              @error('jk')
-              <div class="invalid-feedback">
-                {{ $message }}
-              </div>
-              @enderror
-            </select>
-          </div>
-          <div class="mb-3">
-            <label for="alamat" class="form-label">Alamat</label>
-            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" placeholder="Masukkan alamat" name="alamat" value="{{ $pegawai->alamat }}">
-            @error('alamat')
-            <div class="invalid-feedback">
-              {{ $message }}
-            </div>
-            @enderror
-          </div>
-          <div class="mb-3">
-            <label for="no_telp" class="form-label">No Telp</label>
-            <input type="text" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp" placeholder="Masukkan no telp" name="no_telp" value="{{ $pegawai->no_telp }}">
-            @error('no_telp')
-            <div class="invalid-feedback">
-              {{ $message }}
-            </div>
-            @enderror
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Masukkan email" name="email" value="{{ $pegawai->email }}">
-            @error('email')
-            <div class="invalid-feedback">
-              {{ $message }}
-            </div>
-            @enderror
-          </div>
-          <div class="mb-3">
-            <label for="role" class="form-label">Role</label>
-            <input type="text" class="form-control @error('role') is-invalid @enderror" id="role" placeholder="Masukkan role" name="role" value="{{ $pegawai->role }}">
-            @error('role')
-            <div class="invalid-feedback">
-              {{ $message }}
-            </div>
-            @enderror
-          </div>
-          
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </section>
+        </div>
         <!-- /.content -->
           </div><!-- /.container-fluid -->
         </div>

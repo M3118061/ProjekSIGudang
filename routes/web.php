@@ -46,7 +46,7 @@ Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index')->name('pe
 Route::get('/pegawai/cari', 'App\Http\Controllers\PegawaiController@cari')->name('pegawai.search')->middleware('checkRole:admin');
 Route::get('/pegawai/create', 'App\Http\Controllers\PegawaiController@create')->middleware('checkRole:admin');
 Route::get('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@show')->middleware('checkRole:admin');
-Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store')->middleware('checkRole:admin');
+Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store')->middleware('checkRole:admin')->name('pegawai.store');
 Route::delete('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destroy')->middleware('checkRole:admin');
 Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit')->middleware('checkRole:admin');
 Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update')->middleware('checkRole:admin');
@@ -55,7 +55,7 @@ Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@updat
 Route::get('/jenis', 'App\Http\Controllers\JenisBarangController@index')->name('jenis.index');
 Route::get('/jenis/cari', 'App\Http\Controllers\JenisBarangController@cari')->name('jenis.search');
 Route::get('/jenis/create', 'App\Http\Controllers\JenisBarangController@create');
-Route::post('/jenis', 'App\Http\Controllers\JenisBarangController@store');
+Route::post('/jenis', 'App\Http\Controllers\JenisBarangController@store')->name('jenis.store');
 Route::delete('/jenis/{jenisBarang}', 'App\Http\Controllers\JenisBarangController@destroy');
 Route::get('/jenis/{jenisBarang}/edit', 'App\Http\Controllers\JenisBarangController@edit');
 Route::patch('/jenis/{jenisBarang}', 'App\Http\Controllers\JenisBarangController@update');
@@ -131,9 +131,5 @@ Route::get('/laporanKeluarPertanggal/{tglawal}/{tglakhir}', 'App\Http\Controller
 //akun
 Route::get('/akun', 'App\Http\Controllers\AkunController@index')->name('setting.akun');
 Route::post('/akunUpdate', 'App\Http\Controllers\AkunController@update')->name('setting.akun.update');
-
-//exp
-// Route::get('/produkEXP', 'App\Http\Controllers\ExpiredController@products')->name('products');
-// Route::get('/expiryCheck', 'App\Http\Controllers\ExpiredController@product_expiry_check')->name('products.expiryCheck');
 
 

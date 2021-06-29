@@ -27,8 +27,8 @@
         <div class="row g-3 align-items-center">
           <div class="col-auto">
             <form method="post">
-              <a href="/supplier/create" class="btn btn-primary">
-                <i class="fas fa-plus-square"> Tambah Data</i>
+              <a href="/supplier/create" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"> Tambah Data</i>
               </a>
             </form>
           </div>
@@ -37,7 +37,7 @@
               <div class="input-group">
                 <input type="search" class="form-control" name="search">
                 <span class="input-group-prepend">
-                  <button type="submit" class="btn btn-primary">Search</button>
+                  <button type="submit" class="btn btn-secondary btn-sm">Search</button>
                 </span>
               </div>
             </form>
@@ -54,8 +54,8 @@
         @endif
         <!-- Main content -->
         <section class="content">
-          <table class="table table-bordered">
-            <thead class="table-dark">
+          <table class="table data-table dt-head-center table-sm table-bordered table-hover table-striped">
+            <thead class="text-center">
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
@@ -73,13 +73,13 @@
                 <td>{{ $sup->jk }}</td>
                 <td>{{ $sup->alamat }}</td>
                 <td>{{ $sup->no_telp }}</td>
-                <td>
-                  <a href="/supplier/{{ $sup->id_supplier }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                <td class="text-center">
+                  <a href="/supplier/{{ $sup->id_supplier }}/edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
 
-                  <form action="/supplier/{{ $sup->id_supplier }}" method="POST" class="d-inline">
+                  <form action="/supplier/{{ $sup->id_supplier }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin Hapus Data?')">
                     @method('delete')
                     @csrf
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
                   </form>
                 </td>
               </tr>

@@ -35,14 +35,14 @@
             <p class="card-text">Email : {{ $pegawai->email }}</p>
             <p class="card-text">Role : {{ $pegawai->role }}</p>
 
-            <a href="{{ $pegawai->id }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+            <a href="{{ $pegawai->id }}/edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
 
-              <form action="/pegawai/{{ $pegawai->id }}" method="POST" class="d-inline">
+              <form action="/pegawai/{{ $pegawai->id }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin Hapus Data?')">
                 @method('delete')
                 @csrf
-                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
               </form>
-            <a href="/pegawai" class="btn btn-primary"><i class="fas fa-backspace"></i></a>
+            <a href="/pegawai" class="btn btn-secondary btn-sm"><i class="fas fa-undo"></i></a>
           </div>
         </div>
         <!-- /.content -->

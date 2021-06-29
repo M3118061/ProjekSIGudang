@@ -26,8 +26,8 @@
           <div class="row g-3 align-items-center">
             <div class="col-auto">
               <form method="post">
-                <a href="/pegawai/create" class="btn btn-primary">
-                  <i class="fas fa-plus-square"> Tambah Data</i>
+                <a href="/pegawai/create" class="btn btn-primary btn-sm">
+                  <i class="fas fa-plus"> Tambah Data</i>
                 </a>
               </form>
             </div>
@@ -36,7 +36,7 @@
                 <div class="input-group">
                   <input type="search" class="form-control" name="search">
                   <span class="input-group-prepend">
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btn-secondary btn-sm">Search</button>
                   </span>
                 </div>
               </form>
@@ -53,8 +53,8 @@
         @endif
         <!-- Main content -->
         <section class="content">
-          <table class="table table-bordered">
-            <thead class="table-dark">
+          <table class="table data-table dt-head-center table-sm table-bordered table-hover table-striped">
+            <thead class="text-center">
               <tr>
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
@@ -68,8 +68,8 @@
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>{{ $pgw->name }}</td>
                 <td>{{ $pgw->email }}</td>
-                <td>
-                  <a href="/pegawai/{{ $pgw->id }}" class="btn btn-info"><i class="fas fa-info"></i></a>
+                <td class="text-center">
+                  <a href="/pegawai/{{ $pgw->id }}" class="btn btn-default btn-sm"><i class="fas fa-eye"></i></a>
                 </td>
               </tr>
               @endforeach

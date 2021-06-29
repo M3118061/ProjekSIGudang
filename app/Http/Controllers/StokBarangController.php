@@ -8,6 +8,7 @@ use App\Models\SatuanBarang;
 use App\Models\JenisBarang;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class StokBarangController extends Controller
 {
@@ -18,7 +19,7 @@ class StokBarangController extends Controller
      */
     public function index()
     {   
-        $stokBarang = StokBarang::paginate(3);
+        $stokBarang = StokBarang::paginate(10);
         $dataBarang = DataBarang::all();
         return view('barang.stok.index', compact('stokBarang','dataBarang'));
     }
@@ -36,12 +37,13 @@ class StokBarangController extends Controller
      */
     public function create()
     {
-        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
-        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
-        $jenisBarang = JenisBarang::all();
-        $satuanBarang = SatuanBarang::all();
+        // $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        // $namaBarang = DataBarang::pluck('nama_barang','id_barang');
+        // $jenisBarang = JenisBarang::all();
+        // $satuanBarang = SatuanBarang::all();
+        $dataBarang = DataBarang::all();
 
-        return view('barang.stok.create', compact('kodeBarang','namaBarang','jenisBarang','satuanBarang'));
+        return view('barang.stok.create', compact('dataBarang'));
     }
 
     /**
@@ -54,9 +56,9 @@ class StokBarangController extends Controller
     {
         $request->validate([
             'id_barang' => 'required',
-            'jenis' => 'required',
+            // 'jenis' => 'required',
             'jml_barang' => 'required',
-            'satuan' => 'required',
+            // 'satuan' => 'required',
             'tgl_exp' => 'required',
         ]);
 
@@ -84,12 +86,13 @@ class StokBarangController extends Controller
      */
     public function edit(StokBarang $stokBarang)
     {
-        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
-        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
-        $jenisBarang = JenisBarang::all();
-        $satuanBarang = SatuanBarang::all();
+        // $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        // $namaBarang = DataBarang::pluck('nama_barang','id_barang');
+        // $jenisBarang = JenisBarang::all();
+        // $satuanBarang = SatuanBarang::all();
+        $dataBarang = DataBarang::all();
 
-        return view('barang.stok.edit', compact('stokBarang','kodeBarang','namaBarang','jenisBarang','satuanBarang'));
+        return view('barang.stok.edit', compact('dataBarang','stokBarang'));
     }
 
     /**
@@ -103,18 +106,18 @@ class StokBarangController extends Controller
     {
         $request->validate([
             'id_barang' => 'required',
-            'jenis' => 'required',
+            // 'jenis' => 'required',
             'jml_barang' => 'required',
-            'satuan' => 'required',
+            // 'satuan' => 'required',
             'tgl_exp' => 'required',
         ]);
 
         StokBarang::where('id_stok', $stokBarang->id_stok)
                 ->update([
                     'id_barang' => $request->id_barang,
-                    'jenis' => $request->jenis,
+                    // 'jenis' => $request->jenis,
                     'jml_barang' => $request->jml_barang,
-                    'satuan' => $request->satuan,
+                    // 'satuan' => $request->satuan,
                     'tgl_exp' => $request->tgl_exp,
                 ]);
 

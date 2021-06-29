@@ -27,20 +27,20 @@
         <div class="row g-3 align-items-center">
           <div class="col-auto">
             <form method="post">
-              <a href="/stokBarang/create" class="btn btn-primary">
-                <i class="fas fa-plus-square"> Tambah Data</i>
+              <a href="/stokBarang/create" class="btn btn-primary btn-sm">
+                <i class="fas fa-plus"> Tambah Data</i>
               </a>
             </form>
           </div>
           <div class="col-auto">
-            <a href="/stokBarang/cetak" class="btn btn-success" target="blank">
+            <a href="/stokBarang/cetak" class="btn btn-success btn-sm" target="blank">
               <i class="fas fa-print"> Cetak Semua Data</i>
             </a>
           </div>
           <div class="col-auto">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#laporanStok">
-              Laporan Pertanggal
+            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#laporanStok">
+              <i class="fas fa-calendar"> Laporan Pertanggal</i>
             </button>
             <!-- Modal -->
             <div class="modal fade" id="laporanStok" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
@@ -86,8 +86,8 @@
         @endif  
     <!-- Main content -->
     <section class="content">
-      <table class="table table-bordered">
-        <thead class="table-dark">
+      <table class="table data-table dt-head-center table-sm table-bordered table-hover table-striped">
+        <thead class="text-center">
           <tr class="text-center">
             <th scope="col">No</th>
             <th scope="col">Kode Barang</th>
@@ -111,12 +111,12 @@
             <td>{{ $stok->dataBarang->satuan->nama_satuan }}</td>
             <td>{{ $stok->tgl_exp }}</td>
             <td class="text-center">
-              <a href="/stokBarang/{{ $stok->id_stok }}/edit" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+              <a href="/stokBarang/{{ $stok->id_stok }}/edit" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
 
-            <form action="/stokBarang/{{ $stok->id_stok }}" method="POST" class="d-inline">
+            <form action="/stokBarang/{{ $stok->id_stok }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin Hapus Data?')">
               @method('delete')
               @csrf
-              <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+              <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
             </form>
             </td>
           </tr>
