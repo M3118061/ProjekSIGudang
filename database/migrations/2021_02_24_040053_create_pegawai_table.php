@@ -24,6 +24,7 @@ class CreatePegawaiTable extends Migration
             $table->string('password');
             $table->string('role');
             $table->integer('exp_reminder');
+            $table->integer('status')->default('1','0');
             $table->timestamps();
         });
     }

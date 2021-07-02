@@ -137,4 +137,21 @@ class PegawaiController extends Controller
         Pegawai::destroy($pegawai->id);
         return redirect('/pegawai')->with('success', 'Data Pegawai Berhasil Dihapus!');
     }
+
+    public function status($id)
+    {
+        $pegawai = DB::table('pegawai')->where('id',$id)->first();
+        // $pegawai = Pegawai::where('id','$id')->first();
+        $status_sekarang = $pegawai->status;
+        if ($status_sekarang == 1) {
+            DB::table('pegawai')->where('id',$id)->update([
+                'status'=>0
+            ]);
+        }else{
+            DB::table('pegawai')->where('id',$id)->update([
+                'status'=>1
+            ]);
+        }
+        return redirect('/pegawai')->with('success', 'Status berhasil diubah!');
+    }
 }

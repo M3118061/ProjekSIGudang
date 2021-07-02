@@ -59,6 +59,7 @@
                 <th scope="col">No</th>
                 <th scope="col">Nama</th>
                 <th scope="col">Email</th>
+                <th scope="col">Status</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -68,7 +69,13 @@
                 <th scope="row">{{ $loop->iteration }}</th>
                 <td>{{ $pgw->name }}</td>
                 <td>{{ $pgw->email }}</td>
+                <td><span class="badge {{ ($pgw->status == 1) ? 'bg-success' : 'bg-danger' }}">{{ ($pgw->status == 1) ? 'Aktif' : 'Tidak Aktif' }}</span></td>
                 <td class="text-center">
+                  @if ($pgw->status == 1)
+                    <a href="/pegawai/status/{{ $pgw->id }}" class="btn btn-sm btn-danger">Non Aktifkan</a>
+                  @else
+                    <a href="/pegawai/status/{{ $pgw->id }}" class="btn btn-sm btn-success">Aktifkan</a>
+                  @endif
                   <a href="/pegawai/{{ $pgw->id }}" class="btn btn-default btn-sm"><i class="fas fa-eye"></i></a>
                 </td>
               </tr>

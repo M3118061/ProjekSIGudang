@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\JenisBarang;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class JenisBarangController extends Controller
 {
@@ -103,6 +104,7 @@ class JenisBarangController extends Controller
     public function destroy(JenisBarang $jenisBarang)
     {
         JenisBarang::destroy($jenisBarang->id_jenis);
+        DB::table('data_barang')->where('id_jenis',$jenisBarang->id_jenis);
         return redirect('/jenis')->with('success','Data Jenis Barang Berhasil Dihapus!!');
     }
 }

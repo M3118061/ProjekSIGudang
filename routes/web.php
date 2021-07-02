@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,6 +51,7 @@ Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store')->middlew
 Route::delete('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destroy')->middleware('checkRole:admin');
 Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit')->middleware('checkRole:admin');
 Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update')->middleware('checkRole:admin');
+Route::get('/pegawai/status/{pegawai}', 'App\Http\Controllers\PegawaiController@status')->middleware('checkRole:admin');
 
 //jenis
 Route::get('/jenis', 'App\Http\Controllers\JenisBarangController@index')->name('jenis.index');
