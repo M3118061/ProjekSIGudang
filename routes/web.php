@@ -89,6 +89,12 @@ Route::get('/stokBarang/{stokBarang}/edit', 'App\Http\Controllers\StokBarangCont
 Route::patch('/stokBarang/{stokBarang}', 'App\Http\Controllers\StokBarangController@update');
 Route::get('/stokBarang/cetak', 'App\Http\Controllers\StokBarangController@cetakStok');
 
+//transaksi
+Route::get('/transaksi', 'App\Http\Controllers\TransaksiController@index')->name('transaksi.index');
+Route::get('/transaksi/create', 'App\Http\Controllers\TransaksiController@create');
+Route::post('/transaksi', 'App\Http\Controllers\TransaksiController@store');
+
+
 // barang masuk
 Route::get('/BarangMasuk', 'App\Http\Controllers\BarangMasukController@index');
 Route::get('/BarangMasuk/create', 'App\Http\Controllers\BarangMasukController@create');

@@ -18,7 +18,7 @@ class BarangKeluarController extends Controller
      */
     public function index()
     {
-        $barangKeluar = BarangKeluar::paginate(3);
+        $barangKeluar = BarangKeluar::orderBy('created_at','desc')->paginate(10);
         return view('transaksi.BarangKeluar.index', compact('barangKeluar'));
     }
 
@@ -29,11 +29,12 @@ class BarangKeluarController extends Controller
      */
     public function create()
     {
-        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
-        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
-        $jenisBarang = JenisBarang::all();
-        $satuanBarang = SatuanBarang::all();
-        return view('transaksi.BarangKeluar.create',compact('kodeBarang','namaBarang','jenisBarang','satuanBarang'));
+        // $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        // $namaBarang = DataBarang::pluck('nama_barang','id_barang');
+        // $jenisBarang = JenisBarang::all();
+        // $satuanBarang = SatuanBarang::all();
+        $stokBarang = StokBarang::all();
+        return view('transaksi.BarangKeluar.create',compact('stokBarang'));
     }
 
     /**
@@ -45,16 +46,16 @@ class BarangKeluarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_barang' => 'required',
-            'jenis' => 'required',
+            'id_stok' => 'required',
+            // 'jenis' => 'required',
             'jml_barang' => 'required|numeric',
-            'satuan' => 'required',
+            // 'satuan' => 'required',
             'tgl_keluar' => 'required|date',
         ]);
         
         BarangKeluar::create($request->all());
         
-        $stokBarang = StokBarang::findOrFail($request->id_barang);
+        $stokBarang = StokBarang::findOrFail($request->id_stok);
         $stokBarang->jml_barang -= $request->jml_barang;
         $stokBarang->save();
         
@@ -80,11 +81,12 @@ class BarangKeluarController extends Controller
      */
     public function edit(BarangKeluar $barangKeluar)
     {
-        $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
-        $namaBarang = DataBarang::pluck('nama_barang','id_barang');
-        $jenisBarang = JenisBarang::all();
-        $satuanBarang = SatuanBarang::all();
-        return view('transaksi.BarangKeluar.edit', compact('kodeBarang','namaBarang','barangKeluar','jenisBarang','satuanBarang'));
+        // $kodeBarang = DataBarang::pluck('kode_barang','id_barang');
+        // $namaBarang = DataBarang::pluck('nama_barang','id_barang');
+        // $jenisBarang = JenisBarang::all();
+        // $satuanBarang = SatuanBarang::all();
+        $stokBarang = StokBarang::all();
+        return view('transaksi.BarangKeluar.edit', compact('barangKeluar','stokBarang'));
     }
 
     /**
@@ -97,21 +99,25 @@ class BarangKeluarController extends Controller
     public function update(Request $request, BarangKeluar $barangKeluar)
     {
         $request->validate([
-            'id_barang' => 'required',
-            'jenis' => 'required',
+            'id_stok' => 'required',
+            // 'jenis' => 'required',
             'jml_barang' => 'required',
-            'satuan' => 'required',
+            // 'satuan' => 'required',
             'tgl_keluar' => 'required',
         ]);
 
         BarangKeluar::where('id_keluar', $barangKeluar->id_keluar)
                 ->update([
-                    'id_barang' => $request->id_barang,
-                    'jenis' => $request->jenis,
+                    'id_stok' => $request->id_stok,
+                    // 'jenis' => $request->jenis,
                     'jml_barang' => $request->jml_barang,
-                    'satuan' => $request->satuan,
+                    // 'satuan' => $request->satuan,
                     'tgl_keluar' => $request->tgl_keluar,
                 ]);
+        
+        $stokBarang = StokBarang::findOrFail($request->id_stok);
+        $stokBarang->jml_barang -= $request->jml_barang;
+        $stokBarang->save();
 
         return redirect('/BarangKeluar')->with('success', 'Data Barang Masuk Berhasil Diupdate!');
     }

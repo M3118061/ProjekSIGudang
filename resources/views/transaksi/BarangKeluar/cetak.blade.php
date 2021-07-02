@@ -32,11 +32,11 @@
         @foreach ($barangKeluar as $barangKeluar)
         <tr>
           <th scope="row">{{ $loop->iteration }}</th>
-          <td>{{ $barangKeluar->dataBarang->kode_barang }}</td>
-          <td>{{ $barangKeluar->dataBarang->nama_barang }}</td>
-          <td>{{ $barangKeluar->dataBarang->jenis->nama_jenis }}</td>
+          <td>{{ $barangKeluar->stokBarang->dataBarang->kode_barang }}</td>
+          <td>{{ $barangKeluar->stokBarang->dataBarang->nama_barang }}</td>
+          <td>{{ $barangKeluar->stokBarang->dataBarang->jenis->nama_jenis }}</td>
           <td>{{ $barangKeluar->jml_barang }}</td>
-          <td>{{ $barangKeluar->dataBarang->satuan->nama_satuan }}</td>
+          <td>{{ $barangKeluar->stokBarang->dataBarang->satuan->nama_satuan }}</td>
           <td>{{ $barangKeluar->tgl_keluar }}</td>
         </tr>
         @endforeach

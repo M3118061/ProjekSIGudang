@@ -16,7 +16,7 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        $pegawai = Pegawai::paginate(3);
+        $pegawai = Pegawai::orderBy('created_at','desc')->paginate(10);
         return view('pegawai.index', compact('pegawai'));
     }
 

@@ -14,7 +14,7 @@ class SatuanBarangController extends Controller
      */
     public function index()
     {
-        $satuanBarang = SatuanBarang::paginate(3);
+        $satuanBarang = SatuanBarang::orderBy('created_at','desc')->paginate(10);
         return view('barang.satuan.index', compact('satuanBarang'));
     }
 

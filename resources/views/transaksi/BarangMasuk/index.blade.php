@@ -103,11 +103,11 @@
           @foreach ($barangMasuk as $brgMasuk)
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $brgMasuk->dataBarang->kode_barang }}</td>
-            <td>{{ $brgMasuk->dataBarang->nama_barang }}</td>
-            <td>{{ $brgMasuk->dataBarang->jenis->nama_jenis }}</td>
+            <td>{{ $brgMasuk->stokBarang->dataBarang->kode_barang }}</td>
+            <td>{{ $brgMasuk->stokBarang->dataBarang->nama_barang }}</td>
+            <td>{{ $brgMasuk->stokBarang->dataBarang->jenis->nama_jenis }}</td>
             <td>{{ $brgMasuk->jml_barang }}</td>
-            <td>{{ $brgMasuk->dataBarang->satuan->nama_satuan }}</td>
+            <td>{{ $brgMasuk->stokBarang->dataBarang->satuan->nama_satuan }}</td>
             <td>{{ $brgMasuk->tgl_masuk }}</td>
             <td>{{ $brgMasuk->supplier->nama_supplier }}</td>
             <td class="text-center">

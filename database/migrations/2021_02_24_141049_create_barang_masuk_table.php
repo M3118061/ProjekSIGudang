@@ -15,9 +15,7 @@ class CreateBarangMasukTable extends Migration
     {
         Schema::create('barang_masuk', function (Blueprint $table) {
             $table->bigIncrements('id_masuk');
-            $table->string('jenis');
             $table->integer('jml_barang');
-            $table->string('satuan');
             $table->date('tgl_masuk');
         });
     }

@@ -19,7 +19,7 @@ class StokBarangController extends Controller
      */
     public function index()
     {   
-        $stokBarang = StokBarang::paginate(10);
+        $stokBarang = StokBarang::orderBy('created_at','desc')->paginate(10);
         $dataBarang = DataBarang::all();
         return view('barang.stok.index', compact('stokBarang','dataBarang'));
     }

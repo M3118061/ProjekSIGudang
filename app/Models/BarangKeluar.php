@@ -10,20 +10,10 @@ class BarangKeluar extends Model
     use HasFactory;
     protected $table = 'barang_keluar';
     protected $primaryKey = 'id_keluar';
-    protected $fillable = ['id_barang','jenis','jml_barang','satuan','tgl_keluar'];
+    protected $fillable = ['id_stok','jml_barang','tgl_keluar'];
 
-    public function dataBarang()
+    public function stokBarang()
     {
-        return $this->belongsTo(DataBarang::class, 'id_barang');
-    }
-
-    public function jenis()
-    {
-        return $this->belongsTo(JenisBarang::class, 'id_jenis');
-    }
-
-    public function satuan()
-    {
-        return $this->belongsTo(SatuanBarang::class, 'id_satuan');
+        return $this->belongsTo(StokBarang::class, 'id_stok');
     }
 }

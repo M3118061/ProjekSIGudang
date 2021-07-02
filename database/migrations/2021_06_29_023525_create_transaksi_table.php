@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBarangMasukRelationsTable extends Migration
+class CreateTransaksiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateBarangMasukRelationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('barang_masuk', function (Blueprint $table) {
+        Schema::create('transaksi', function (Blueprint $table) {
+            $table->bigIncrements('id_transaksi');
             $table->foreignId('id_stok')
                   ->references('id_stok')
                   ->on('stok_barang')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
-            $table->foreignId('id_supplier')
-                  ->references('id_supplier')
-                  ->on('supplier')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            $table->date('tgl_transaksi');
+            $table->integer('jml_barang');
+            $table->enum('tipe', ['jual','beli']);
             $table->timestamps();
         });
     }
@@ -35,6 +34,6 @@ class CreateBarangMasukRelationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('barang_masuk_relations');
+        Schema::dropIfExists('transaksi');
     }
 }

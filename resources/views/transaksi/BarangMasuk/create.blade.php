@@ -37,22 +37,20 @@
               <form class="p-3" method="POST" action="/BarangMasuk">
                 @csrf
                 <div class="mb-3">
-                  <label for="kode_barang" class="form-label">Kode Barang</label>
-                  <select name="id_barang" id="kode_barang" class="form-control @error('id_barang') is-invalid @enderror">
-                    <option value="">--Pilih--</option>
-                    @foreach ($kodeBarang as $key => $value)
-                        <option value="{{ $key }}">
-                          {{ $key . ' - ' . $value }}
-                        </option>
+                  <label for="id_stok" class="form-label">ID Stok</label>
+                  <select name="id_stok" id="id_stok" class="form-control @error('id_stok') is-invalid @enderror">
+                    <option value="">- Pilih -</option>
+                    @foreach ($stokBarang as $item)
+                        <option value="{{ $item->id_stok }}">{{ $item->id_stok }} | {{ $item->dataBarang->kode_barang }} | {{ $item->dataBarang->nama_barang }} | {{ $item->dataBarang->jenis->nama_jenis }} | {{ $item->dataBarang->satuan->nama_satuan }} | {{ $item->tgl_exp }}</option>
                     @endforeach
                   </select>
-                  @error('id_barang')
+                  @error('id_stok')
                   <div class="invalid-feedback">
                     {{ $message }}
                   </div>
                   @enderror
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                   <label for="nama_barang" class="form-label">Nama Barang</label>
                   <select name="id_barang" id="nama_barang" class="form-control @error('id_barang') is-invalid @enderror">
                     <option value="">--Pilih--</option>
@@ -82,7 +80,7 @@
                     {{ $message }}
                   </div>
                   @enderror
-                </div>
+                </div> --}}
                 <div class="mb-3">
                   <label for="jml_barang" class="form-label">Jumlah Barang</label>
                   <input type="number" class="form-control @error('jml_barang') is-invalid @enderror" id="jml_barang" placeholder="Masukkan jumlah barang" name="jml_barang" value="{{ old('jml_barang') }}">
@@ -92,7 +90,7 @@
                   </div>
                   @enderror
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                   <label for="satuan" class="form-label">Satuan</label>
                   <select name="satuan" id="satuan" class="form-control @error('satuan') is-invalid @enderror">
                     <option value="">--Pilih--</option>
@@ -105,7 +103,7 @@
                     {{ $message }}
                   </div>
                   @enderror
-                </div>
+                </div> --}}
                 <div class="mb-3">
                   <label for="tgl_masuk" class="form-label">Tanggal Masuk</label>
                   <input type="date" class="form-control @error('tgl_masuk') is-invalid @enderror" id="tgl_masuk" name="tgl_masuk" value="{{ old('tgl_masuk') }}">

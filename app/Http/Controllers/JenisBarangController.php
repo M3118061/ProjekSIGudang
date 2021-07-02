@@ -14,7 +14,7 @@ class JenisBarangController extends Controller
      */
     public function index()
     {
-        $jenisBarang = JenisBarang::paginate(3);
+        $jenisBarang = JenisBarang::orderBy('created_at','desc')->paginate(10);
         return view('barang.jenis.index', compact('jenisBarang'));
     }
 

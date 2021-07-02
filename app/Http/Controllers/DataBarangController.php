@@ -16,7 +16,7 @@ class DataBarangController extends Controller
      */
     public function index()
     {
-        $dataBarang = DataBarang::paginate(2);
+        $dataBarang = DataBarang::orderBy('created_at','desc')->paginate(10);
         return view('barang.dataBarang.index', compact('dataBarang'));
     }
 

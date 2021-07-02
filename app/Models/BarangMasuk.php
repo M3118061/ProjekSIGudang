@@ -10,21 +10,11 @@ class BarangMasuk extends Model
     use HasFactory;
     protected $table = 'barang_masuk';
     protected $primaryKey = 'id_masuk';
-    protected $fillable = ['jenis','jml_barang','satuan','tgl_masuk','id_barang','id_supplier'];
+    protected $fillable = ['jml_barang','tgl_masuk','id_stok','id_supplier'];
 
-    public function dataBarang()
+    public function stokBarang()
     {
-        return $this->belongsTo(DataBarang::class, 'id_barang');
-    }
-
-    public function jenis()
-    {
-        return $this->belongsTo(JenisBarang::class, 'id_jenis');
-    }
-
-    public function satuan()
-    {
-        return $this->belongsTo(SatuanBarang::class, 'id_satuan');
+        return $this->belongsTo(StokBarang::class, 'id_stok');
     }
 
     public function supplier()
