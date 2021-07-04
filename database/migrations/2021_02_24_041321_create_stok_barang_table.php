@@ -16,7 +16,7 @@ class CreateStokBarangTable extends Migration
         Schema::create('stok_barang', function (Blueprint $table) {
             $table->bigIncrements('id_stok');
             // $table->string('jenis');
-            $table->integer('jml_barang');
+            $table->integer('jml_barang')->default('0');
             // $table->string('satuan');
             $table->date('tgl_exp');
         });

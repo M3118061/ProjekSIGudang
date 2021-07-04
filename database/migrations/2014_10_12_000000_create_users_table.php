@@ -21,10 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('no_telp');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->boolean('is_admin')->nullable();
-            $table->string('password');
-            $table->string('role');
-            $table->integer('exp_reminder');
+            // $table->boolean('is_admin')->nullable();
+            $table->string('password')->default(bcrypt('rahasia'));
+            $table->enum('role', ['Pegawai','Admin']);
+            $table->integer('exp_reminder')->default('3');
+            $table->integer('status')->default('1','0');
             $table->rememberToken();
             $table->timestamps();
         });

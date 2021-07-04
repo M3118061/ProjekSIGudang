@@ -74,12 +74,12 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              @if (auth()->user()->role == 'admin')
+              @if (auth()->user()->role == 'Admin')
               <li class="nav-item">
-                <a href="{{ url('/pegawai') }}" class="nav-link">
+                <a href="{{ url('/user') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
-                    Data Pegawai
+                    Data Pengguna
                   </p>
                 </a>
               </li>

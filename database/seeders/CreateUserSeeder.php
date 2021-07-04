@@ -21,10 +21,11 @@ class CreateUserSeeder extends Seeder
                 'alamat' => 'Bantul',
                 'no_telp' => '089867823331',
                 'email' => 'amesthimuthia@gmail.com',
-                'is_admin' => 1,
+                // 'is_admin' => 1,
                 'password' => bcrypt('kireina1818'),
-                'role' => 'admin',
+                'role' => 'Admin',
                 'exp_reminder' => '3',
+                'status' => '1',
             ],
             [
                 'name' => 'Kireina',
@@ -32,10 +33,11 @@ class CreateUserSeeder extends Seeder
                 'alamat' => 'Yogyakarta',
                 'no_telp' => '082766627741',
                 'email' => 'pegawai@kireinahana',
-                'is_admin' => 0,
+                // 'is_admin' => 0,
                 'password' => bcrypt('hana'),
-                'role' => 'pegawai',
+                'role' => 'Pegawai',
                 'exp_reminder' => '3',
+                'status' => '1',
             ]
         ];
         foreach ($user as $key => $value) {

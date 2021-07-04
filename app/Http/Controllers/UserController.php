@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Pegawai;
-use App\Models\User;
 
-class PegawaiController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +15,15 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        $pegawai = User::orderBy('created_at','desc')->paginate(10);
-        return view('pegawai.index', compact('pegawai'));
+        $user = User::orderBy('created_at','desc')->paginate(10);
+        return view('user.index', compact('user'));
     }
 
     public function cari(Request $request){
         $search = $request->get('search');
-        $pegawai = User::where('name','like',"%".$search."%")->paginate(3);
-        return view('pegawai.index',compact('pegawai'));
+        $user = User::where('name','like',"%".$search."%")->paginate(3);
+        return view('user.index',compact('user'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -33,7 +31,7 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        return view('pegawai.create');
+        return view('user.create');
     }
 
     /**
@@ -50,27 +48,24 @@ class PegawaiController extends Controller
             'alamat' => 'required',
             'no_telp' => 'required',
             'email' => 'required',
-            'password' => 'required',
+            // 'password' => 'required',
             'role' => 'required',
-            'exp_reminder' => 'required'
+            // 'exp_reminder' => 'required'
         ]);
 
         //insert ke tabel user
         $user = new User;
-        $user->role = 'pegawai';
+        $user->role = $request->role;
         $user->name = $request->name;
         $user->jk = $request->jk;
         $user->alamat = $request->alamat;
         $user->no_telp = $request->no_telp;
         $user->email = $request->email;
-        $user->password = bcrypt('rahasia');
-        $user->exp_reminder = $request->exp_reminder;
+        // $user->password = bcrypt('rahasia');
+        // $user->exp_reminder = $request->exp_reminder;
         $user->save();
 
-        $request->request->add(['pegawai_id' => $user->id]);
-        Pegawai::create($request->all());
-
-        return redirect('/pegawai')->with('success', 'Data Pegawai Berhasil Ditambahkan!');
+        return redirect('/user')->with('success', 'Data Pengguna Berhasil Ditambahkan!');
     }
 
     /**
@@ -79,9 +74,9 @@ class PegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $pegawai)
+    public function show(User $user)
     {
-        return view('pegawai.show', compact('pegawai'));
+        
     }
 
     /**
@@ -90,9 +85,9 @@ class PegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pegawai $pegawai)
+    public function edit(User $user)
     {
-        return view('pegawai.edit', compact('pegawai'));
+        return view('user.edit', compact('user'));
     }
 
     /**
@@ -102,7 +97,7 @@ class PegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pegawai $pegawai)
+    public function update(Request $request, User $user)
     {
         $request->validate([
             'name' => 'required',
@@ -110,20 +105,20 @@ class PegawaiController extends Controller
             'alamat' => 'required',
             'no_telp' => 'required',
             'email' => 'required',
-            'role' => 'required'
+            'role' => 'required',
         ]);
 
-        Pegawai::where('id', $pegawai->id)
+        User::where('id', $user->id)
                 ->update([
                     'name' => $request->name,
                     'jk' => $request->jk,
                     'alamat' => $request->alamat,
                     'no_telp' => $request->no_telp,
                     'email' => $request->email,
-                    'role' => $request->role
+                    'role' => $request->role,
                 ]);
 
-        return redirect('/pegawai')->with('success', 'Data Pegawai Berhasil Diupdate!');
+        return redirect('/user')->with('success', 'Data Pengguna Berhasil Diupdate!');
     }
 
     /**
@@ -132,17 +127,17 @@ class PegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pegawai $pegawai)
+    public function destroy(User $user)
     {
-        Pegawai::destroy($pegawai->id);
-        return redirect('/pegawai')->with('success', 'Data Pegawai Berhasil Dihapus!');
+        User::destroy($user->id);
+        return redirect('/user')->with('success', 'Data Pengguna Berhasil Dihapus!');
     }
 
     public function status($id)
     {
-        $pegawai = DB::table('users')->where('id',$id)->first();
+        $user = DB::table('users')->where('id',$id)->first();
         // $pegawai = Pegawai::where('id','$id')->first();
-        $status_sekarang = $pegawai->status;
+        $status_sekarang = $user->status;
         if ($status_sekarang == 1) {
             DB::table('users')->where('id',$id)->update([
                 'status'=>0
@@ -152,6 +147,6 @@ class PegawaiController extends Controller
                 'status'=>1
             ]);
         }
-        return redirect('/pegawai')->with('success', 'Status berhasil diubah!');
+        return redirect('/user')->with('success', 'Status berhasil diubah!');
     }
 }

@@ -22,9 +22,10 @@ class User extends Authenticatable
         'alamat',
         'no_telp',
         'email',
-        'password',
-        'is_admin',
+        // 'password',
+        // 'is_admin',
         'role',
+        // 'exp_reminder',
     ];
 
     /**

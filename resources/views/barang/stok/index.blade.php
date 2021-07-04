@@ -93,7 +93,7 @@
             <th scope="col">Kode Barang</th>
             <th scope="col">Nama Barang</th>
             <th scope="col">Jenis</th>
-            <th scope="col">Jumlah Barang</th>
+            <th scope="col">Total Stok</th>
             <th scope="col">Satuan</th>
             <th scope="col">Tanggal EXP</th>
             {{--  <th scope="col">Status</th>  --}}

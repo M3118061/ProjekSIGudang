@@ -57,7 +57,7 @@ class StokBarangController extends Controller
         $request->validate([
             'id_barang' => 'required',
             // 'jenis' => 'required',
-            'jml_barang' => 'required',
+            // 'jml_barang' => 'required',
             // 'satuan' => 'required',
             'tgl_exp' => 'required',
         ]);
@@ -107,7 +107,7 @@ class StokBarangController extends Controller
         $request->validate([
             'id_barang' => 'required',
             // 'jenis' => 'required',
-            'jml_barang' => 'required',
+            // 'jml_barang' => 'required',
             // 'satuan' => 'required',
             'tgl_exp' => 'required',
         ]);
@@ -116,7 +116,7 @@ class StokBarangController extends Controller
                 ->update([
                     'id_barang' => $request->id_barang,
                     // 'jenis' => $request->jenis,
-                    'jml_barang' => $request->jml_barang,
+                    // 'jml_barang' => $request->jml_barang,
                     // 'satuan' => $request->satuan,
                     'tgl_exp' => $request->tgl_exp,
                 ]);

@@ -42,16 +42,16 @@ Route::prefix('products')->group(function () {
     Route::get('expiryCheck', [App\Http\Controllers\ExpiredController::class, 'product_expiry_check'])->name('products.expiryCheck');
 });
 
-// pegawai
-Route::get('/pegawai', 'App\Http\Controllers\PegawaiController@index')->name('pegawai.index')->middleware('checkRole:admin');
-Route::get('/pegawai/cari', 'App\Http\Controllers\PegawaiController@cari')->name('pegawai.search')->middleware('checkRole:admin');
-Route::get('/pegawai/create', 'App\Http\Controllers\PegawaiController@create')->middleware('checkRole:admin');
-Route::get('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@show')->middleware('checkRole:admin');
-Route::post('/pegawai', 'App\Http\Controllers\PegawaiController@store')->middleware('checkRole:admin')->name('pegawai.store');
-Route::delete('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@destroy')->middleware('checkRole:admin');
-Route::get('/pegawai/{pegawai}/edit', 'App\Http\Controllers\PegawaiController@edit')->middleware('checkRole:admin');
-Route::patch('/pegawai/{pegawai}', 'App\Http\Controllers\PegawaiController@update')->middleware('checkRole:admin');
-Route::get('/pegawai/status/{pegawai}', 'App\Http\Controllers\PegawaiController@status')->middleware('checkRole:admin');
+// pengguna
+Route::get('/user', 'App\Http\Controllers\UserController@index')->name('user.index')->middleware('checkRole:admin');
+Route::get('/user/cari', 'App\Http\Controllers\UserController@cari')->name('user.search')->middleware('checkRole:admin');
+Route::get('/user/create', 'App\Http\Controllers\UserController@create')->middleware('checkRole:admin');
+Route::get('/user/{pegawai}', 'App\Http\Controllers\UserController@show')->middleware('checkRole:admin');
+Route::post('/user', 'App\Http\Controllers\UserController@store')->middleware('checkRole:admin')->name('user.store');
+Route::delete('/user/{user}', 'App\Http\Controllers\UserController@destroy')->middleware('checkRole:admin');
+Route::get('/user/{user}/edit', 'App\Http\Controllers\UserController@edit')->middleware('checkRole:admin');
+Route::patch('/user/{user}', 'App\Http\Controllers\UserController@update')->middleware('checkRole:admin');
+Route::get('/user/status/{user}', 'App\Http\Controllers\UserController@status')->middleware('checkRole:admin');
 
 //jenis
 Route::get('/jenis', 'App\Http\Controllers\JenisBarangController@index')->name('jenis.index');

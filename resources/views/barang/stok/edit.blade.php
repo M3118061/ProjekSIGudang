@@ -51,15 +51,6 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label for="jml_barang" class="form-label">Jumlah Barang</label>
-                  <input type="number" class="form-control @error('jml_barang') is-invalid @enderror" id="jml_barang" name="jml_barang" value="{{ $stokBarang->jml_barang }}">
-                  @error('jml_barang')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
-                <div class="mb-3">
                   <label for="tgl_exp" class="form-label">Tanggal EXP</label>
                   <input type="date" class="form-control @error('tgl_exp') is-invalid @enderror" id="tgl_exp" name="tgl_exp" value="{{ $stokBarang->tgl_exp }}">
                   @error('tgl_exp')

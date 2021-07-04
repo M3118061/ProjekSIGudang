@@ -68,7 +68,7 @@
                   </div>
                   @enderror
                 </div>
-                <div class="mb-3">
+                {{--  <div class="mb-3">
                   <label for="jml_barang" class="form-label">Jumlah Barang</label>
                   <input type="number" class="form-control @error('jml_barang') is-invalid @enderror" id="jml_barang" placeholder="Masukkan jumlah barang" name="jml_barang" value="{{ old('jml_barang') }}">
                   @error('jml_barang')
@@ -76,7 +76,7 @@
                     {{ $message }}
                   </div>
                   @enderror
-                </div>
+                </div>  --}}
                 <div class="mb-3">
                   <label for="tgl_exp" class="form-label">Tanggal EXP</label>
                   <input type="date" class="form-control @error('tgl_exp') is-invalid @enderror" id="tgl_exp" name="tgl_exp" value="{{ old('tgl_exp') }}">
